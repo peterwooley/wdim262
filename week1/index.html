@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>WDIM262 Web Scripting: JavaScript, Week 1</title>
+		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
+		<script type="text/javascript">
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
+		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM262 Web Scripting: JavaScript</h1>
+			<p class="tagline">The JavaScript Class, Week 1</p>
+		</div>
+		
+		<h2>Using Git</h2>
+		<ul>
+			<li>This term, we'll be using the version control software <a href="http://git-scm.com/">git</a>.</li>
+			<li><a href="http://en.wikipedia.org/wiki/Revision_control">Revision control</a> (or version control, source control, source control management, source code management) is the management of changes in files.</li>
+			<li>A Typical revision control system will allow you to compare, restore, and merge various files.</li>
+			<li>The simplest form of revision control is storing backups of your files as you make changes (e.g., <code>index_01.html</code>, <code>index_02.html</code>, <code>index_03.html</code>, etc.)</li>
+			<li>Although the project must be open source to be free, <a href="http://github.com">GitHub</a> is a great solution.</li>
+			<li>We'll create an SSH key, sign up for an account, create a repository, then figure out how to actually use it.</li>
+		</ul>
+		
+		<h2>Getting Git Up and Running</h2>
+		<ul>
+			<li>Install git on your platform:
+				<ul>
+					<li>Windows: <a href="http://code.google.com/p/msysgit/">msysgit</a></li>
+					<li>OS X: <a href="http://code.google.com/p/git-osx-installer/">Git for OS X</a></li>
+					<li>Linux: <a href="http://git-scm.com/">git</a></li>
+				</ul>
+			</li>
+			<li>Open git on your platform:
+				<ul>
+					<li>Windows: Open Start &raquo; Git &raquo; Git Bash</li>
+					<li>OS X: Open Terminal.app</li>
+					<li>Linux: Open a shell</li>
+				</ul>
+			</li>
+			<li>Follow along with setting up an SSH key.</li>
+		</ul>
+		
+		<h2>Test Git Repository</h2>
+		<ul>
+			<li>Clone a copy of the repository
+				<pre><code>git clone http://github.com/<var>username</var>/<var>projectName</var></code></pre>
+			</li>
+			<li>Change directory into the newly-created working copy and add a new directory
+				<pre><code>cd <var>projectName</var>
+mkdir trunk</code></pre>
+			</li>
+			<li>Check the status of the working copy
+				<pre><code>git status</code></pre>
+			</li>
+			<li>Add a README file to the folder</li>
+			<li>Add the new file to the working copy
+				<pre><code>git add README</code></pre>
+			</li>
+			<li>Commit the changes to the repository
+				<pre><code>git commit -m "Added READDME."</code></pre>
+			</li>
+			<li>Push the commited changes up to GitHub.
+				<pre><code>git push remote master</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Pull Weekly Notes from GitHub</h2>
+		<ul>
+			<li><code>git clone git://github.com/peterwooley/wdim262-fall2010.git</code></li>
+		</ul>
+		
+		<h2>Me!</h2>
+		<ul>
+			<li>Work at McAfee doing UI Development for <a href="http://www.mcafee.com/us/enterprise/products/security_management_console/epolicy_orchestrator.html">ePO/MFS</a>.</li>
+			<li><a href="http://userscripts.org/scripts/show/57280">Released</a> <a href="http://userscripts.org/scripts/show/24430">several</a> <a href="http://userscripts.org/scripts/show/46615">userscripts</a> that are now in the <a href="https://addons.mozilla.org/en-US/firefox/addon/6076">Better Gmail</a> &amp; <a href="https://addons.mozilla.org/en-US/firefox/addon/6424?src=reco">Better GReader</a> Firefox Addons.</li>
+			<li>Designing a <dfn title="Dungeons and Dragons">D&amp;D</dfn> iPad app.</li>
+			<li>Play <a href="http://www.wowarmory.com/character-sheet.xml?r=The+Scryers&amp;n=Thaen">WoW</a>.</li>
+			<li>Married with <a href="http://thewooleys.com/">a new baby boy</a>!</li>
+		</ul>
+		
+		<h2>Introductions</h2>
+		<ol>
+			<li>What's your preferred greeting? (ex. Mark, Marky, m42x, etc.) And does that match your real name (so I can mark your attendance)?</li>
+	    	<li>On a scale of -1.0 to 1.0, how much do you love the Internet?</li>
+	    	<li>Have you had any experience with JavaScript? (copied and pasted scripts, know the basics, or consider yourself a JavaScript god who should be teaching the class?)</li>
+	    	<li>Have you had any experience with other programming languages? Any ones in particular (ActionScript, PHP, Ruby, Python, Java, C, Lisp, Haskell)?</li>
+		</ol>
+
+		<h2>Getting Started</h2>
+		<ul>
+			<li><a href="FA10_WDIM262_A.pdf">The Syllabus</a></li>
+		</ul>
+		
+		<h2>Your Text Editor</h2>
+		<p>Choosing the right text editor is important. Whether it be a full IDE (Integrated development environment) down to a simple Notepad replacement.</p>
+		<ul>
+			<li><strong><a href="http://notepad-plus.sourceforge.net">Notepad++</a> (Windows)</strong></li>
+			<li><a href="http://macromates.com/">TextMate</a></li>
+			<li><a href="http://macrabbit.com/espresso/">Espresso</a></li>
+			<li><a href="http://www.panic.com/coda/">Coda</a></li>
+		</ul>
+		
+		<h2>The Web Trifecta</h2>
+		<ul>
+			<li>Html for Content</li>
+			<li>CSS for Style</li>
+			<li>JavaScript for Behavior</li>
+		</ul>
+		
+		<h2>Hello, World!</h2>
+		<ul>
+			<li>Let's start hacking.</li>
+			<li>Open up <a href="inclass/hello_world.html">inclass/hello_world.html</a> your favorite text editor.</li>
+		</ul>
+		
+		<h2>The &lt;script&gt; tag and you</h2>
+		<ul>
+			<li>Where the &lt;script&gt; tag should go to be executed immediatly.
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// In the head tag
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</li>
+			<li>Where the &lt;script&gt; tag should go to be executed after the HTML loads.
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// Just before the end of the body tag
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</li>
+		</ul>
+
+		<h2>Code Comments</h2>
+		<ul>
+			<li>Single Line Comment
+			<pre><code class="javascript">// Single-line Comment</code></pre></li>
+			<li>Multi-line Comment
+			<pre><code class="javascript">/*
+Multi
+Line
+Comment
+*/</code></pre></li>
+		</ul>
+		
+		<h2>Variables in JavaScript</h2>
+		<ul>
+			<li>You can store different types of information in variables (Numbers, Strings, Objects, etc.)</li>
+			<li>They often start with the <code>var</code> declaration.</li>
+			<li>Then followed by the name of the variable
+				<ul>
+					<li>Variable names are case-sensitive</li>
+          			<li>Must begin with a letter, <code>$</code> or <code>_</code>.</li>
+          		</ul>
+          	</li>
+          	<li>Then followed by the assignment of the variable's value after an <code>=</code> sign.</li>
+          	<li>And finished off with a semi-colon;</li>
+        </ul>
+        <pre><code class="javascript">var theNumber = 42;
+var sentence = "This is a sentence. Note the surrounding quotes.";
+</code></pre>
+
+		<h2>Using Variables</h2>
+		<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScript: Hello, World!&lt;/title&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			var hello = &quot;Hello, World!&quot;;
+			
+			// Create an alert box that requires the user to click &quot;OK&quot;
+			alert(hello);
+			
+			// Use the document object's write function to add the message to the page itself.
+			document.write(hello);
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+    	&lt;p id=&quot;paragraph&quot;&gt;I've written a Hello, World script in JavaScript.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<h2>What JavaScript Is</h2>
+		<ul>
+			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+			<li>Client-side (<strong>not</strong> Server-side)</li>
+			<li>Interpreted (<strong>not</strong> Compiled)</li>
+		</ul>
+		
+		<h2>Interpreted Languages</h2>
+		<p>What could some of the benefits be of using an Interpreted language?</p>
+		
+		<h2>Interpreted Language Breakdown</h2>
+		<ul>
+			<li>Pros
+				<ul>
+					<li>Multi-platform</li>
+					<li>Indirectly Executed by an Interpreter</li>
+					<li>Smaller file size</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+			<li>Cons
+				<ul>
+					<li>Requires an Interpreter</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+		</ul>
+
+		<h2>What can it do?</h2>
+		<ol>
+			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
+			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
+			<li><a href="http://www.datejs.com">It can interpret.</a></li>
+			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
+			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
+			<li><a href="examples/scripts/05_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
+		</ol>
+		
+		<h2>What can't it do?</h2>
+		<ol>
+			<li>It cannot access files on your computer directly, for safety reasons.</li>
+			<li>It cannot directly create or modify files on your Web site, as it runs on the client-side.</li>
+			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
+		</ol>
+		
+		<h2>Debugging JavaScript with Firebug</h2>
+		<ul>
+			<li>Open Firebug (in Firefox, that little bug in the bottom-right corner).</li>
+			<li>Add this bit of JavaScript to a page:
+			<pre><code class="javascript">console.log("I'm sending a message to the Console!");</code></pre>
+			</li>
+			<li>Reload the page.</li>
+			<li>Rejoice!</li>
+			<li><a href="http://getfirebug.com/">Install Firebug in every instance of Firefox.</a></li>
+		</ul>
+		
+		<h2>Scripting</h2>
+		<ul>
+			<li>Is there anything (relatively simply) you'd like to try doing in JavaScript right now?</li>
+			<li>Are there any burning questions about JavaScript you'd like answered?</li>
+		</ul>
+		
+		
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Assignment 1</a></li>
+		</ul>
+		
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>JavaScript can count!</title>
+		<script type="text/javascript">
+			// When the user submits the form, this functions runs and the number entered is increased by one and shown to the user
+			function submit() {
+				var number = document.getElementById('number').value;
+				
+				if(!isNaN(number)) {
+					var newNumber = parseInt(number) + 1;
+					alert(number + " + 1 = " + newNumber );
+				} else {
+					alert("That wasn't a number!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action="javascript:submit()" method="post">
+			<label for="number">Number:</label>
+			<input type="text" id="number" maxlength="10" value="5" />
+			
+			<input type="submit" value="Add 1!" />
+		</form>
+	</body>
+</html>
