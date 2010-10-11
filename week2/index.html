@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>WDIM262 Web Scripting: JavaScript, Week 2</title>
+		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
+		<script type="text/javascript">
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
+		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM262 Web Scripting: JavaScript</h1>
+			<p class="tagline">The JavaScript Class, Week 2</p>
+		</div>
+		
+		<h2>Turn in Assignment 3</h2>
+		<ul>
+			<li>Turn in to <code>S:\Data\wdim262\assignment1\</code></li>
+			<li>We'll take a look at the one that was completed nearest 10.10.10 10:10.</li>
+			<li>Send <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> an email, so I can get your preferred email to send your grades back.</li>
+		</ul>
+		
+		<h2>JavaScript is What?</h2>
+		<ul>
+			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+			<li>Client-side (<strong>not</strong> Server-side)</li>
+			<li>Interpreted (<strong>not</strong> Compiled)</li>
+		</ul>
+		
+		<h2>Interpreted Languages</h2>
+		<p>What could some of the benefits be of using an Interpreted language?</p>
+		
+		<h2>Interpreted Language Breakdown</h2>
+		<ul>
+			<li>Pros
+				<ul>
+					<li>Multi-platform</li>
+					<li>Indirectly Executed by an Interpreter</li>
+					<li>Smaller file size</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+			<li>Cons
+				<ul>
+					<li>Requires an Interpreter</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+		</ul>
+
+		<h2>What can it do?</h2>
+		<ol>
+			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
+			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
+			<li><a href="http://www.datejs.com">It can interpret.</a></li>
+			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
+			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
+			<li><a href="examples/scripts/05_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
+		</ol>
+		
+		<h2>What can't it do?</h2>
+		<ol>
+			<li>It cannot access files on your computer directly, for safety reasons.</li>
+			<li>It cannot directly create or modify files on your Web site, as it runs on the client-side.</li>
+			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
+		</ol>
+		
+		<h2>JavaScript Types</h2>
+		<ul>
+			<li>Number</li>
+			<li>Strings (Collection of any number of characters)</li>
+			<li>Arrays (An ordered, numerical collection of any JavaScript types)</li>
+			<li>Objects (A named collection of any JavaScript types)</li>
+			<li>Boolean (True & False)</li>
+			<li>undefined</li>
+			<li>null</li>
+			<li>Functions</li>
+		</ul>
+		
+		<h2>Operators</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Meaning</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>+</td>
+					<td>Addition</td>
+				</tr>
+				<tr>
+					<td>-</td>
+					<td>Subtraction</td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Multiplication</td>
+				</tr>
+				<tr>
+					<td>/</td>
+					<td>Division</td>
+				</tr>
+				<tr>
+					<td>%</td>
+					<td>Modulus (Division Remainder)</td>
+				</tr>
+				<tr>
+					<td>++</td>
+					<td>Unary Increment</td>
+				</tr>
+				<tr>
+					<td>--</td>
+					<td>Unary Decrement</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h2>Comparison Operators</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Meaning</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>==</td>
+					<td>Is Equal To (Compares value)</td>
+				</tr>
+				<tr>
+					<td>===</td>
+					<td>Is Exactly Equal To (Compares value and type)</td>
+				</tr>
+				<tr>
+					<td>!=</td>
+					<td>Is Not Equal</td>
+				</tr>
+				<tr>
+					<td>&gt;</td>
+					<td>Is Greater Than</td>
+				</tr>
+				<tr>
+					<td>&gt;=</td>
+					<td>Is Greater Than or Equal To</td>
+				</tr>
+				<tr>
+					<td>&lt;</td>
+					<td>Is Less Than</td>
+				</tr>
+				<tr>
+					<td>&lt;=</td>
+					<td>Is Less Than or Equal To</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h2>Flow Control: if()...else</h2>
+		<p>Perform different actions if a condition evaluates to <code>true</code> or <code>false</code>.</p>
+		<pre><code class="javascript">var animal = "leopard";
+if (animal === "leopard") {
+    alert("The animal is a Leopard!");
+} else {
+    alert("The animal is not a Leopard!");
+}</code></pre>
+		
+		<h2>Flow Control: if()...else</h2>
+		<p><code>if()...else</code> can be chained with <code>else if()</code>
+		<pre><code class="javascript">var animal = "leopard";
+if (animal === "leopard") {
+    alert("The animal is a Leopard!");
+} else if (animal === "tiger") {
+	alert("The animal is a Tiger!");
+} else if (animal === "panther") {
+	alert("The animal is a Panther!");
+} else {
+    alert("The animal is something I don't know about!");
+}</code></pre>
+		
+		<h2>Logical Operators</h2>
+		<ul>
+			<li><code>&&</code> and
+				<pre><code class="javascript">var animal = "leopard", wild = true;
+if (animal === "leopard" && wild === true) {
+	// This block will be executed only if animal is leopard and wild is true
+	alert("The animal is a Wild Leopard!");
+}</code></pre>
+			</li>
+			<li><code>||</code> or
+				<pre><code class="javascript">var animal = "leopard";
+if (animal === "leopard" || animal === "tiger") {
+	// This block will be executed if animal is either leopard or tiger
+	alert("The animal is a Leopard or Tiger!");
+}</code></pre>
+			</li>
+			<li><code>!</code> not
+				<pre><code class="javascript">var isAdmin = false;
+if (!isAdmin) {
+	// This block will be executed only if isAdmin is set to false
+	alert("You are not an Admin!");
+}</code></pre>
+			</li>
+		</ul>
+		
+		<h2>The <a href="http://www.w3schools.com/jsref/jsref_obj_math.asp">Math</a> Object</h2>
+		<ul>
+			<li><code>Math.sqrt(<var>number</var>)</code>: Returns the square root of the given number.</li>
+			<li><code>Math.random()</code>: Returns a random number between 0 and 1.</li>
+			<li><code>Math.round(<var>number</var>)</code>: Returns the next nearest integer.</li>
+		</ul>
+		
+		<h2>The &lt;noscript /&gt; tag</h2>
+		<ul>
+			<li>The &lt;noscript&gt; tag is an HTML tag that will hide whatever content is inside of it when JavaScript is turned on, and show that content whenever it is turned off.
+			<li>This is important, as every modern browser gives you the ability to turn off JavaScript.
+				<ul>
+					<li>In Firefox: Tools &gt; Options &gt; Content (Tab), uncheck &quot;Enable JavaScript&quot;</li>
+					<li>In Internet Explorer (7+): Tools &gt; Internet Options &gt; Security (Tab) &gt; Custom level... &gt; Scripting &gt; Active Scripting, select &quot;Disable&quot;</li>
+				</ul>
+			</li>
+			<li>By including the &lt;noscript&gt; tag and content inside, you can either alert people to turn on JavaScript, or show content that doesn't require JavaScript.</li>
+		</ul>
+		
+				<h2>GitHub: Forks and Pull Requests</h2>
+		<ul>
+			<li>Go to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Fork</strong>.</li>
+			<li>In git, do <code>git clone http://github.com/<var>yourUsername</var>/wdim262-fall2010.git</code></li>
+			<li>Now, any changes you make to that repository can be committed to a repoistory in your account.</li>
+			<li>Go back to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Pull Request</strong>. After you have made changes to your fork, you'll be able to request that I take your commits and put them into my repository. We'll do this for the class exercise.</li>
+		</ul>
+		
+		<h2>Class Exercise</h2>
+		<p>Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document, every time the user refreshes the page.</p>
+		<h3>Instructions:</h3>
+		<ul>
+			<li>Acquire four images from the Internet that look different, and save them in the folder you're working in</li>
+			<li>Store the image names in an array.</li>
+			<li>Use Math.random() to generate the random number.</li>
+			<li>Use document.write() to create an image tag for the user to see.</li>
+		</ul>	
+		
+		
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Assignment 2</a></li>
+		</ul>
+		
+	</body>
+</html>
