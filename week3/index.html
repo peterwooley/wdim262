@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		
 		<title>WDIM262 Web Scripting: JavaScript, Week 2</title>
 		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
 		<script type="text/javascript">
@@ -18,9 +17,9 @@
 			<p class="tagline">The JavaScript Class, Week 2</p>
 		</div>
 		
-		<h2>Unary Operator Clarification</h2>
+		<h2>Unary Operator Clarification (Thanks, Craig!)</h2>
 		<ul>
-			<li>Clarification of the unary operators we discussed last week (<code>--</code> &amp; <code>++</code>).</li>
+			<li>Clarification of the unary operators we discussed last week (<code>num--</code> &amp; <code>num++</code>).</li>
 			<li>Unary operators require only one value to perform an action, rather than two.</li>
 			<li>Additionally, unary operators in JavaScript update the values of the variables on which they are used.
 				<pre><code class="javascript">var num = 42;
@@ -33,7 +32,7 @@ num = num + 1; // Also increments num variable by 1</code></pre>
 		<ul>
 			<li>Without an excuse, I managed to forget to take a copy of your homework from the Data drive last week.</li>
 			<li>In light of this, everyone will receive full credit for Assignment 1.</li>
-			<li>If you turned in your homework on the data drive last week, feel free to copy it back <code>S:\Data\wdim262\assignment1\</code> and I'll provide feedback this week.</li>
+			<li>If you turned in your homework on the data drive last week, feel free to copy it back <code>S:\Data\wdim262\assignment1\</code>. I will provide feedback for all of the assignments (including those submitted over email) this week.</li>
 			<li>And yes, I have grounded myself from playing WoW and Final Fantasy I for this failure.</li>
 		</ul>
 		
@@ -62,14 +61,6 @@ num = num + 1; // Also increments num variable by 1</code></pre>
 			<li><code>Math.sqrt(<var>number</var>)</code>: Returns the square root of the given number.</li>
 			<li><code>Math.random()</code>: Returns a random number between 0 and 1.</li>
 			<li><code>Math.round(<var>number</var>)</code>: Returns the next nearest integer.</li>
-		</ul>
-		
-		<h2>GitHub: Forks and Pull Requests</h2>
-		<ul>
-			<li>Go to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Fork</strong>.</li>
-			<li>In git, do <code>git clone http://github.com/<var>yourUsername</var>/wdim262-fall2010.git</code></li>
-			<li>Now, any changes you make to that repository can be committed to a repoistory in your account.</li>
-			<li>Go back to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Pull Request</strong>. After you have made changes to your fork, you'll be able to request that I take your commits and put them into my repository. We'll do this for the class exercise.</li>
 		</ul>
 		
 		<h2>Class Exercise</h2>
@@ -208,8 +199,8 @@ while(!valueIsNumeric) {
 			<li>Use the prompt() function to ask the user for their preference, and have them type in their answer</li>
 			<li>Use a switch statement to determine which musical style they prefer</li>
 			<li>Use document.write() to show the user style-specific content, based on their preference</li>
+			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
 			<li>Tip: use .toLowerCase() on the user's preference variable</li>
-			<li>Extras: Keep asking the user, until they do it right.</li>
 		</ul>
 		
 		<h2>Homework</h2>
