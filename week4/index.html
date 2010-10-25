@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WDIM262 Web Scripting: JavaScript, Week 4</title>
+		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
+		<script type="text/javascript">
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
+		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM262 Web Scripting: JavaScript</h1>
+			<p class="tagline">The JavaScript Class, Week 4</p>
+		</div>
+		
+		<h2>Turn in Assignment 3</h2>
+		<ul>
+			<li>Turn in to <code>S:\Data\wdim262\assignment3\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment3.zip.</li>
+			<li>We'll take a look at the one with the highest shoe company worth (excluding infinity).</li>
+		</ul>
+		
+		<h2>JavaScript is What?</h2>
+		<ul>
+			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+			<li>Client-side (<strong>not</strong> Server-side)</li>
+			<li>Interpreted (<strong>not</strong> Compiled)</li>
+		</ul>
+		
+		<h2>Quiz 2!</h2>
+		<ul>
+			<li>The quiz is up on Google Docs: <a href="http://is.gd/gisz2">Quiz 2 (http://is.gd/gisz2)</a></li>
+			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
+			<li>You've got 15 minutes!</li>
+		</ul>
+		
+		<h2>Class Exercise</h2>
+		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
+		<h3>Instructions:</h3>
+		<ul>
+			<li>Use the prompt() function to ask the user for their preference, and have them type in their answer.</li>
+			<li>Use a <code>switch</code> statement to determine which musical style they prefer.</li>
+			<li>Use <code>document.write()</code> to show the user style-specific content, based on their preference.</li>
+			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
+			<li>Tip: use .toLowerCase() on the user's preference variable (ex. <code>userPreference.toLowerCase() === "indie";</code>)</li>
+		</ul>
+		
+		<h2>Type <code>undefined</code></h2>
+		<ul>
+			<li><code>undefined</code> is a JavaScript type.</li>
+			<li>Variables that have been declared, but not set, are automatically set to <code>undefined</code>:
+				<pre><code class="javascript">var foo;
+alert(foo); // alerts "undefined"</code></pre>
+			</li>
+			<li>Functions that do not explicitly return a value, return <code>undefined</code>:
+				<pre><code class="javascript">function bar() {};
+alert(bar()); // alerts "undefined"</code></pre>
+			</li>
+			<li><code>undefined</code> is a reserved word you can use for comparison:
+				<pre><code class="javascript">function bar() {};
+alert(bar() === undefined); // alerts true</code></pre>
+			</li>
+		</ul>
+			
+			
+		<h2>Function the Ultimate</h2>
+		<ul>
+			<li>We're going to <del>steal</del><ins>use</ins> Douglas Crockford's <a href="http://developer.yahoo.com/yui/theater/video.php?v=crockonjs-3">Function the Ultimate</a> to learn about Functions in JavaScript.</li>
+			<li>We're only going to speak on the points that impact us, but feel free to watch the video (and others in the series) to go more in-depth with JavaScript functions.</li>
+		</ul>
+		
+		<h2>Pseudo parameters</h2>
+		<ul>
+			<li>Inside of a function, you have access to two pseduo parameters: <code>arguments</code> &amp; <code>this</code>.
+			</li>
+		</ul>
+		
+		<h2><code>arguments</code></h2>		<ul>
+			<li>When a function is invoked, in addition to its parameters, it also gets a special parameter called arguments.</li>			<li>It contains all of the arguments from the invocation.</li>			<li>It is an array-like object.</li>			<li><code>arguments.length</code> is the number of arguments passed.</li>			<li>Weird interaction with parameters.</li>
+		</ul>
+		
+		<h2><code>arguments</code> Example</h2>
+		<pre><code class="javascript">function sum() {
+    var i,        n = arguments.length,        total = 0;
+    for (i = 0; i &lt; n; i += 1) {
+        total += arguments[i];
+    }
+    return total;
+}
+
+var ten = sum(1, 2, 3, 4);</code></pre>
+
+		<h2><code>this</code></h2>
+		<ul>
+			<li>The <code>this</code> parameter contains a reference to the object of invocation.</li>			<li><code>this</code> allows a method to know what object it is concerned with.</li>			<li><code>this</code> allows a single function object to service many functions.</li>			<li><code>this</code> is key to prototypal inheritance.</li>
+		</ul>
+		
+		<h2>The Four Ways to Invoke a Function</h2>
+		<ul>
+			<li>Function form: <pre><code class="javascript">functionObject(arguments);</code></pre></li>
+			<li>Method form: <pre><code class="javascript">thisObject.methodName(arguments);
+thisObject["methodName"](arguments);</code></pre></li>
+			<li>Constructor form: <pre><code class="javascript">new FunctionObject(arguments);</code></pre></li>
+			<li>Apply form: <pre><code class="javascript">functionObject.apply(thisObject,[arguments]);
+functionObject.call(thisObject, argument)</code></pre></li>
+		</ul>
+		
+		<h2>Function form</h2>
+		<ul>
+			<li>When a function is called in the functionform, <code>this</code> is set to the global (window) object.</li>
+		</ul>
+		<pre><code class="javascript">function foo() {
+    console.log(this);
+}
+foo(); // logs reference to window</code></pre>
+		
+		<h2>Method form</h2>
+		<ul>
+			<li>When a function is called in the methodform, this is set to thisObject, the object containing the function.</li>
+			<li>This allows methods to have a reference to the object of interest.</li>
+		</ul>
+		<pre><code class="javascript">var myObject = {};
+myObject.foo = function() {
+    console.log(this);
+};
+myObject.foo(); // logs reference to myObject</code></pre>
+
+		<h2>Constructor form</h2>
+		<ul>
+			<li>When a function is called in the methodform, this is set to thisObject, the object containing the function.</li>
+			<li>This allows methods to have a reference to the object of interest. When a function is called with the new operator, a new object is created and assigned to this.</li>
+			<li>If there is not an explicit return value, thenthis will be returned.</li>
+			<li>Used in the Pseudoclassical style.</li>
+		</ul>
+		<pre><code class="javascript">function Animal(name) {
+    this.name = name;
+}
+var molly = new Animal("Molly");
+console.log(molly.name); // logs "Molly"</code></pre>
+
+		<h2>Apply form</h2>
+		<ul>
+			<li>A function’s apply or call method allows for calling the function, explicitly specifying thisObject.</li>
+			<li>It can also take an array of parameters or a sequence of parameters.</li>
+		</ul>
+		<pre><code class="javascript">function getName() {
+    console.log("arguments", arguments);
+    console.log("this", this);
+    console.log(this.name);
+};
+function Animal(name) {
+    this.name = name;
+}
+var molly = new Animal("Molly");
+getName("arg1", "arg2");
+getName.apply(molly, ["arg1", "arg2"]);
+getName.call(molly, "arg1", "arg2");</code></pre>
+
+		<h2>Why are there subroutines (functions)?</h2>
+		<ul>
+			<li>Code reuse</li>
+			<li>Decomposition</li>
+			<li>Modularity</li>
+			<li>Expressiveness</li>
+			<li>Higher Order</li>
+		</ul>
+		
+		<h2>Recursion</h2>
+		<ul>
+			<li>When a function calls itself.</li>
+		</ul>
+		<pre><code class="javascript">function factorial(n) {
+    if(n &lt;= 1) return 1; // Exit clause
+    return n * factorial(n-1);
+}
+
+console.log(factorial(0)) // logs 1
+console.log(factorial(5)) // logs 120
+console.log(factorial(15)) // logs 1307674368000</code></pre>			
+		<h2>Closures</h2>
+		<ul>
+			<li>The context of an inner function includes the scope of the outer function.</li>			<li>An inner function enjoys that context even after the parent functions have returned.</li>
+		</ul>
+		<pre><code class="javascript">var digit_name = (function () {
+    var names = ['zero', 'one', 'two',        'three', 'four', 'five', 'six',
+        'seven', 'eight', 'nine'];
+    return function (n) {        return names[n];
+    }
+}());
+console.log(digit_name(3));	// logs 'three'</code></pre>
+		
+		<h2>Pseudoclassical Inheritance</h2>		<ul>
+			<li>Function objects inherit from the <code>Function.prototype</code> property.</li>
+			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
+			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
+		</ul>
+		<pre><code class="javascript">function Animal(name) {
+    this.type = "animal";
+    this.getName = function() { return this.name };
+}
+function Cat(name) {
+    this.name = name;
+}
+Cat.prototype = new Animal();
+
+var zoe = new Cat("Zoe");
+console.log(zoe.getName()); // logs "Zoe"</code></pre>
+		
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Assignment 4</a></li>
+		</ul>
+		
+	</body>
+</html>
