@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WDIM262 Web Scripting: JavaScript, Week 6</title>
+		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
+		<script type="text/javascript">
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
+		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM262 Web Scripting: JavaScript</h1>
+			<p class="tagline">The JavaScript Class, Week 6</p>
+		</div>
+	
+
+		<h2>Turn in Assignment 4</h2>
+		<ul>
+			<li>Turn in to <code>S:\Data\wdim262\assignment4\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment4.zip.</li>
+			<li>We'll take a look at the Mad Lib with the least number of words.</li>
+		</ul>
+	
+
+		<h2>Pseudoclassical Inheritance</h2>
+		<ul>
+			<li>Function objects inherit from the <code>Function.prototype</code> property.</li>
+			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
+			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
+		</ul>
+		<pre><code class="javascript">function Animal(name) {
+    this.type = "animal";
+    this.getName = function() { return this.name };
+}
+function Cat(name) {
+    this.name = name;
+}
+Cat.prototype = new Animal();
+
+var zoe = new Cat("Zoe");
+console.log(zoe.getName()); // logs "Zoe"</code></pre>
+
+		<h2>Doctypes</h2>
+		<ul>
+			<li>A Tag that tells the browser what HTML or XHTML specification the Web page uses.</li>
+			<li>Helpful for making sure browsers render your Web page in Standards mode (instead of Quirks mode)</li>
+			<li>It's always put at the very top of an HTML document.</li>
+			<li>It's basically safe to make full use of the HTML5 doctype now:
+				<pre><code class="html">&lt;!DOCTYPE html&gt;</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Primitives vs. Constructors</h2>
+		<ul>
+			<li>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.
+				<ul>
+					<li>e.g., <code>[]</code>, <code>{}</code>, <code>""</code>, <code>true</code>, and <code>false</code> are all primitives.</li>
+				</ul>
+			</li>
+			<li>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator we looked at with Functions.
+				<ul>
+					<li>e.g., <code>new Array()</code>, <code>new Object()</code>, <code>new String()</code>, <code>new Boolean(true)</code>, and <code>new Boolean(false)</code>, are all constructors for basic JavaScript types.</li>
+				</ul>
+			</li>
+			<li>Typically, there is little reason to use the constructor method, as primitives are built-in and shorter.</li>
+		</ul>
+
+		<h2>Gotchas</h2>
+		<ul>
+			<li>If you do feel inclined to use the constructors, pay attention to this Gotcha:
+				<pre><code class="javascript">var primative_array = [7]; // This represents an array with one element, containing the number 7.
+var constructor_array = new Array(7); // This represents an array with seven elements, all set to undefined.
+var constructor_array_several = new Array(7,8,9); // This represents an array with three elements, set to 7,8 & 9 respectively.</code></pre>
+			</li>
+			<li>Also be aware that, because everything is an Object in JavaScript, primatives have properties and methods as well:
+				<pre><code class="javascript">"Primatives are objects, too!".length; // Returns 28
+"Mozilla Firefox".toLowerCase(); // Returns "mozilla firefox"</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Document Object Model</h2>
+		<ul>
+			<li>A "document" refers to any XML or HTML.</li>
+			<li>For our Web purposes, a "document" is a Web page, including:
+				<ul>
+					<li>History (Back/Forward)</li>
+					<li>All HTML Elements</li>
+					<li>Styles</li>
+					<li>Web Browser Window!</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h2>What's the object model?</h2>
+		<ul>
+			<li>The Document Object Model (or DOM) is an API (Application Programming Interface).</li>
+			<li>An API is way for two different technologies (here: HTML and JavaScript) to interact.</li>
+			<li>In JavaScript, the document is implmented using JavaScript Objects:
+				<pre><code class="javascript">window.history.back();
+document.getElementById('picture');
+document.getElementById('picture').style.border = "1px solid red";</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Web Browser Gotcha of the DOM: window</h2>
+		<ul>
+			<li>The <code>window</code> and <code>document</code> objects appear to be wholly separated, but this is not true.</li>
+			<li>By calling <code>window.document.getElementById('picture');</code>, you'd get the same result as <code>document.getElementById('picture');</code>.</li>
+			<li>For ease of use, modern web browsers assume you'll be using the window object of the DOM.</li>
+		</ul>
+		
+		<h2>In Class Exercise</h2>
+		<ul>
+			<li>Mission: Utilizing <a href="inclass/inclass_exercise.html">the given template</a>, fill in all the personalized information, being sure to maintain the current markup.
+		Instructions:
+				<ul>
+					<li>Prompt the user for their name and email address.</li>
+					<li>Modify the <code>&lt;p id=&quot;myName&quot; /&gt;</code> element and add the user's input name to the end of the sentence.</li>
+					<li>Modify the <code>innerHTML</code> of the <code>&lt;p id=&quot;myEmail&quot; /&gt;</code> element to be an <code>&lt;a/&gt;</code> tag that will mailto the user.</li>
+					<li>Fill in each of the <code>&lt;span/&gt;</code> elements under the My Browser Information with the appropriate information.</li>
+					<li>Finally, concatenate the document's last modified date onto the end of the <code>&lt;p id=&quot;modified&quot; /&gt;</code> element.</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h2>Events</h2>
+		<ul>
+			<li><q>Events are the beating heart of any JavaScript application.</q><a href="http://www.quirksmode.org/js/introevents.html">Quirksmode.org</a></li>
+			<li>In order for there to be a two-way interaction between your scripts and your users, you must rely on events.</li>
+			<li>When the user does nearly anything in the browser and when the web page loads or unloads, an event is fired.</li>
+			<li>Back when Netscape first implemented what would become JavaScript, event handlers were attributes you placed on elements in your Markup:
+				<pre><code class="html">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;alert('You clicked me!')&quot;&gt;Click me!&lt;/a&gt;</code></pre>
+			</li>
+			<li>These days, we create event handlers (which are usually functions), in our &lt;script /&gt; tag:
+				<pre><code class="javascript">var link = document.getElementById('aTag');
+link.onclick = function() { alert('You clicked me!'); };</code></pre>
+			</li>
+			<li>Cross-browser compatibility issues really start to show up with event handling, so make sure to test in all your target browsers.</li>
+		</ul>
+		
+		<h2>Event Handlers</h2>
+		<ul>
+			<li>Event handlers are functions that get called when an event takes place (or is "fired").</li>
+			<li>Information about the event is passed to the event handler in different ways between IE &amp; every other browser:
+				<pre><code class="javascript">link.onclick = doSomething;
+				
+function doSomething(e) {
+	if(!e) var e = window.event; // Detect if the event info was passed through an argument, or needs to be set through window (as is the case with IE)
+	alert(e); // alerts information about the event
+	return false; // stops the &lt;a&gt; tag from following the href link
+}</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Using <code>this</code> in Event Handlers</h2>
+		<ul>
+			<li><code>this</code> is the special variable that is automatically set, depending on how a function was invoked.</li>
+			<li>In event handlers, <code>this</code> contains a reference to the HTML Element that caused the event handler to fire.
+				<pre><code class="javascript">link.onclick = doSomething;
+				
+function doSomething(e) {
+	if(!e) var e = window.event;
+
+	this.innerHTML = "I've been affected by an event!";
+	return false;
+}</code></pre>
+			</li>
+		</ul>
+		
+		<h2>Playing with Event Handlers</h2>
+		<ul>
+			<li>Open up <a href="inclass/events.html">week6/inclass/events.html</a> in your Text Editor.</li>
+		</ul>
+		
+		<h2>Music Search App</h2>
+		<ul>
+			<li>Let's make a JavaScript app that can search a list of music, and filter the results.</li>
+			<li>In addition to what we've talked about today, we'll be looking at some new properties and methods:
+				<ul>
+					<li><code>getElementsByTagName()</code>, which lets us get a set of elements based on their tag name.</li>
+					<li><code>value</code>, which lets us get the value out of a form field.</li>
+					<li><code>indexOf()</code>, which tells us if a string is present in another string.</li>
+				</ul>
+			</li>
+			<li>Open up <a href="inclass/search.html">week6/inclass/search.html</a> in your Text Editor.</li>
+		</ul>
+
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Assignment 5</a></li>
+		</ul>
+</body>
+</html>
+
