@@ -1,23 +1,19 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<title>JavaScript Week 2 In-Class: DOBRIC</title>
-		<script type="text/javascript">
-			/* Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer).
-			 * Using four found images, write a script that randomly adds one of the
-			 * four images to the HTML document every time the user refreshes the page.
-			 *
-			 * Instructions/Hints:
-			 *    Acquire four unique images.
-			 *    Store the image names in an array.
-			 *    Use Math.random() to generate the random number.
-			 *    Use an if…else statement to that uses the random number.
-			 *    Use document.write() to create an image tag for the user to see.
-			 */
-			 
-			 // Your script should go here.
-		</script>
-	</head>
-	<body>
-	</body>
+<head>
+	<script type="text/javascript">
+		window.onload = function() {
+			var magic = document.getElementById('magic');
+			//console.log(magic.innerHTML);
+			magic.innerHTML = "We are awesome.";
+			
+			var disneyland = document.createElement("div");
+			disneyland.appendChild(document.createTextNode("Disneyland is awesome. <script>alert('Whee');\<\/script\>"));
+			//disneyland.innerHTML = "Disneyland is awesome. <script>alert('Whee');\<\/script\>";
+			document.body.appendChild(disneyland);
+		};
+	</script>
+</head>
+<body>
+	<div id="magic">Our <strong>Magic</strong> Text.</div>
+</body>
 </html>
