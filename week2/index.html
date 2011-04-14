@@ -18,11 +18,11 @@
 			<p class="tagline">The JavaScript Class, Week 2</p>
 		</div>
 		
-		<h2>Turn in Assignment 3</h2>
+		<h2>Turn in Assignment 1</h2>
 		<ul>
 			<li>Turn in to <code>S:\Data\wdim262\assignment1\</code></li>
-			<li>We'll take a look at the one that was completed nearest 10.10.10 10:10.</li>
-			<li>Send <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> an email, so I can get your preferred email to send your grades back.</li>
+			<li>We'll take a look at the one that was completed nearest the deadline.</li>
+			<li>If you can't access the Data drive, send it to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a></li>
 		</ul>
 		
 		<h2>JavaScript is What?</h2>
@@ -32,51 +32,13 @@
 			<li>Interpreted (<strong>not</strong> Compiled)</li>
 		</ul>
 		
-		<h2>Interpreted Languages</h2>
-		<p>What could some of the benefits be of using an Interpreted language?</p>
-		
-		<h2>Interpreted Language Breakdown</h2>
-		<ul>
-			<li>Pros
-				<ul>
-					<li>Multi-platform</li>
-					<li>Indirectly Executed by an Interpreter</li>
-					<li>Smaller file size</li>
-					<li>Always Editable</li>
-				</ul>
-			</li>
-			<li>Cons
-				<ul>
-					<li>Requires an Interpreter</li>
-					<li>Always Editable</li>
-				</ul>
-			</li>
-		</ul>
-
-		<h2>What can it do?</h2>
-		<ol>
-			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
-			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
-			<li><a href="http://www.datejs.com">It can interpret.</a></li>
-			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
-			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
-			<li><a href="examples/scripts/05_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
-		</ol>
-		
-		<h2>What can't it do?</h2>
-		<ol>
-			<li>It cannot access files on your computer directly, for safety reasons.</li>
-			<li>It cannot directly create or modify files on your Web site, as it runs on the client-side.</li>
-			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
-		</ol>
-		
 		<h2>JavaScript Types</h2>
 		<ul>
 			<li>Number</li>
 			<li>Strings (Collection of any number of characters)</li>
 			<li>Arrays (An ordered, numerical collection of any JavaScript types)</li>
 			<li>Objects (A named collection of any JavaScript types)</li>
-			<li>Boolean (True & False)</li>
+			<li>Boolean (True &amp; False)</li>
 			<li>undefined</li>
 			<li>null</li>
 			<li>Functions</li>
@@ -122,6 +84,34 @@
 			</tbody>
 		</table>
 		
+		<h2>Unary Operator Clarification (Thanks, Craig!)</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Meaning</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>++</td>
+					<td>Unary Increment</td>
+				</tr>
+				<tr>
+					<td>--</td>
+					<td>Unary Decrement</td>
+				</tr>
+			</tbody>
+		</table>
+		<ul>
+			<li>Unary operators require only one value to perform an action, rather than two.</li>
+			<li>Unary operators in JavaScript update the values of the variables on which they are used.
+				<pre><code class="javascript">var num = 42;
+num++; // Increments num variable by 1
+num = num + 1; // Also increments num variable by 1</code></pre>
+			</li>
+		</ul>
+	
 		<h2>Comparison Operators</h2>
 		<table>
 			<thead>
@@ -144,6 +134,10 @@
 					<td>Is Not Equal</td>
 				</tr>
 				<tr>
+					<td>!==</td>
+					<td>Is Not Exactly Equal To (Compares value and type)</td>
+				</tr>
+				<tr>
 					<td>&gt;</td>
 					<td>Is Greater Than</td>
 				</tr>
@@ -161,7 +155,15 @@
 				</tr>
 			</tbody>
 		</table>
-		
+	
+		<h2>Getting data from the user</h2>
+		<p>There exist three ways of getting data from the user using pure JavaScript.</p>
+		<ul>
+			<li><code>alert(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until the user clicks "OK".</li>
+			<li><code>confirm(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until they click "OK" or "Cancel".</li>
+			<li><code>prompt(<var>message</var>, <var>placeholder</var>)</code>: Shows the user the <var>message</var>, allows them to write in a single-line text box that is pre-filled with <var>placeholder</var>, and waits until they click "OK" or "Cancel".</li>
+		</ul>
+
 		<h2>Flow Control: if()...else</h2>
 		<p>Perform different actions if a condition evaluates to <code>true</code> or <code>false</code>.</p>
 		<pre><code class="javascript">var animal = "leopard";
@@ -186,9 +188,9 @@ if (animal === "leopard") {
 		
 		<h2>Logical Operators</h2>
 		<ul>
-			<li><code>&&</code> and
+			<li><code>&amp;&amp;</code> and
 				<pre><code class="javascript">var animal = "leopard", wild = true;
-if (animal === "leopard" && wild === true) {
+if (animal === "leopard" &amp;&amp; wild === true) {
 	// This block will be executed only if animal is leopard and wild is true
 	alert("The animal is a Wild Leopard!");
 }</code></pre>
@@ -228,14 +230,6 @@ if (!isAdmin) {
 			<li>By including the &lt;noscript&gt; tag and content inside, you can either alert people to turn on JavaScript, or show content that doesn't require JavaScript.</li>
 		</ul>
 		
-				<h2>GitHub: Forks and Pull Requests</h2>
-		<ul>
-			<li>Go to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Fork</strong>.</li>
-			<li>In git, do <code>git clone http://github.com/<var>yourUsername</var>/wdim262-fall2010.git</code></li>
-			<li>Now, any changes you make to that repository can be committed to a repoistory in your account.</li>
-			<li>Go back to <a href="http://github.com/peterwooley/wdim262-fall2010">http://github.com/peterwooley/wdim262-fall2010</a> and hit <strong>Pull Request</strong>. After you have made changes to your fork, you'll be able to request that I take your commits and put them into my repository. We'll do this for the class exercise.</li>
-		</ul>
-		
 		<h2>Class Exercise</h2>
 		<p>Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document, every time the user refreshes the page.</p>
 		<h3>Instructions:</h3>
@@ -245,7 +239,6 @@ if (!isAdmin) {
 			<li>Use Math.random() to generate the random number.</li>
 			<li>Use document.write() to create an image tag for the user to see.</li>
 		</ul>	
-		
 		
 		<h2>Homework</h2>
 		<ul>
