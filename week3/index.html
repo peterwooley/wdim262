@@ -17,25 +17,6 @@
 			<p class="tagline">The JavaScript Class, Week 3</p>
 		</div>
 		
-		<h2>Unary Operator Clarification (Thanks, Craig!)</h2>
-		<ul>
-			<li>Clarification of the unary operators we discussed last week (<code>num--</code> &amp; <code>num++</code>).</li>
-			<li>Unary operators require only one value to perform an action, rather than two.</li>
-			<li>Additionally, unary operators in JavaScript update the values of the variables on which they are used.
-				<pre><code class="javascript">var num = 42;
-num++; // Increments num variable by 1
-num = num + 1; // Also increments num variable by 1</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Assignment 1 #fail</h2>
-		<ul>
-			<li>Without an excuse, I managed to forget to take a copy of your homework from the Data drive last week.</li>
-			<li>In light of this, everyone will receive full credit for Assignment 1.</li>
-			<li>If you turned in your homework on the data drive last week, feel free to copy it back <code>S:\Data\wdim262\assignment1\</code>. I will provide feedback for all of the assignments (including those submitted over email) this week.</li>
-			<li>And yes, I have grounded myself from playing WoW and Final Fantasy I for this failure.</li>
-		</ul>
-		
 		<h2>Turn in Assignment 2</h2>
 		<ul>
 			<li>Turn in to <code>S:\Data\wdim262\assignment2\</code> using the following naming convention: <var>lastnameFirstname_assignment2.zip</var>.</li>
@@ -56,18 +37,26 @@ num = num + 1; // Also increments num variable by 1</code></pre>
 			<li>You've got 15 minutes!</li>
 		</ul>
 		
+		<h2>Getting data from the user</h2>
+		<p>There exist three ways of getting data from the user using pure JavaScript.</p>
+		<ul>
+			<li><code>alert(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until the user clicks "OK".</li>
+			<li><code>confirm(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until they click "OK" or "Cancel".</li>
+			<li><code>prompt(<var>message</var>, <var>placeholder</var>)</code>: Shows the user the <var>message</var>, allows them to write in a single-line text box that is pre-filled with <var>placeholder</var>, and waits until they click "OK" or "Cancel".</li>
+		</ul>
+		
 		<h2>The <a href="http://www.w3schools.com/jsref/jsref_obj_math.asp">Math</a> Object</h2>
 		<ul>
-			<li><code>Math.sqrt(<var>number</var>)</code>: Returns the square root of the given number.</li>
-			<li><code>Math.random()</code>: Returns a random number between 0 and 1.</li>
-			<li><code>Math.round(<var>number</var>)</code>: Returns the next nearest integer.</li>
+			<li><code>Math.sqrt(<var>number</var>)</code>: Returns the square root of the given number. <em>Helpful for all that math I learned in High School and forgot.</em></li>
+			<li><code>Math.random()</code>: Returns a random number between 0 and 1. <em>Useful when you need an element of randomness, like in a game.</em></li>
+			<li><code>Math.round(<var>number</var>)</code>: Returns the next nearest integer. <em>Great for rounding numbers when displaying values to users.</em></li>
 		</ul>
 		
 		<h2>Class Exercise</h2>
 		<p>Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document, every time the user refreshes the page.</p>
 		<h3>Instructions:</h3>
 		<ul>
-			<li>Acquire four images from the Internet that look different, and save them in the folder you're working in</li>
+			<li>Acquire four images from the Internet that look different, and save them in the folder you're working in.</li>
 			<li>Store the image names in an array.</li>
 			<li>Use Math.random() to generate the random number.</li>
 			<li>Use document.write() to create an image tag for the user to see.</li>
@@ -167,12 +156,18 @@ for( var index = 0; index &lt;= numTimes; index++ ) {
 			<li>A modified version of the for loop is the for...in loop</li>
 			<li>It allows you to iterate over all of the values in an object or array</li>
 			<li>It's syntax is simpler, and quite useful
-				<pre><code class="javascript">var browsers = ["Mozilla Firefox","Opera","Safari","Microsoft Internet Explorer"];
+				<pre><code class="javascript">var browsers = {
+	firefox: {title: "Mozilla Firefox", version: "4.0"},
+	opera: {title: "Opera", version: "10.11"},
+	safari: {title: "Safari", version: "5.0"},
+	ie: {title: "Microsoft Internet Explorer", version: "9"}
+};
+
 for(var key in browsers) {
-	alert(key + ": " + browsers[key]);
+	alert(key + " version: " + browsers[key].version);
 }</code></pre>
 			</li>
-			<li>Do note that, unlike other languages, the <code>key</code> variable is set to the array index (0, 1, 2, etc.) rather than the value (Mozilla Firefox, Opera, etc.).</li>
+			<li>Do note that, unlike other languages, the <code>key</code> variable is set to the object key (<code>firefox</code>, <code>opera</code>, etc.) rather than the value (<code>{title: "Mozilla Firefox", version: "4.0"}</code>, etc.).</li>
 		</ul>
 			
 		<h2><code>while</code> loop</h2>
