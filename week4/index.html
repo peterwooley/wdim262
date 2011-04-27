@@ -20,16 +20,76 @@
 		<h2>Turn in Assignment 3</h2>
 		<ul>
 			<li>Turn in to <code>S:\Data\wdim262\assignment3\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment3.zip.</li>
-			<li>We'll take a look at the one with the highest shoe company worth (excluding infinity).</li>
 		</ul>
-		
-		<h2>JavaScript is What?</h2>
+	
+		<h2>Loops</h2>
 		<ul>
-			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
-			<li>Client-side (<strong>not</strong> Server-side)</li>
-			<li>Interpreted (<strong>not</strong> Compiled)</li>
+			<li>Loops allow you to keep running the same block of script over and over again, until some condition is met.</li>
+			<li>There are two types of loops in JavaScript:
+				<ul>
+					<li><code>for</code> loop, which loops through a block of script a set number of times.</li>
+					<li><code>while</code> loop, which loops through a block of script until a specified condtion is true.</li>
+				</ul>
+			</li>
 		</ul>
 		
+		<h2><code>for</code> loop</h2>
+		<ul>
+			<li>The for loop is used when you know in advance how many times the script should run. <a href="http://www.w3schools.com/js/js_loop_for.asp">#</a></li>
+			<li>The syntax is a bit difficult to look at (so keep this as reference for a while), but it makes sense:
+				<pre><code class="javascript">var numTimes = 10;
+for( var index = 0; index &lt;= numTimes; index++ ) {
+	alert(index + " Times!");
+	alert(index + " Times!");
+}</code></pre>
+			</li>
+			<li>The three statements in the for loop's call are:
+				<ul>
+					<li>Initializer, which runs one when the loop starts, typically declaring a counter variable and setting it to the desired starting value</li>
+					<li>Loop-test, which runs at the beginning of every loop and, if it evaluates to false, the loop ends</li>
+					<li>Counting expression, which runs at the end of every loop, and is typically used to increment the counter variable</li>
+				</ul>
+			</li>
+		</ul>
+			
+		<h2><code>for...in</code> loop</h2>
+		<ul>
+			<li>A modified version of the for loop is the for...in loop</li>
+			<li>It allows you to iterate over all of the values in an object or array</li>
+			<li>It's syntax is simpler, and quite useful
+				<pre><code class="javascript">var browsers = {
+	firefox: {title: "Mozilla Firefox", version: "4.0"},
+	opera: {title: "Opera", version: "10.11"},
+	safari: {title: "Safari", version: "5.0"},
+	ie: {title: "Microsoft Internet Explorer", version: "9"}
+};
+
+for(var key in browsers) {
+	alert(key + " version: " + browsers[key].version);
+}</code></pre>
+			</li>
+			<li>Do note that, unlike other languages, the <code>key</code> variable is set to the object key (<code>firefox</code>, <code>opera</code>, etc.) rather than the value (<code>{title: "Mozilla Firefox", version: "4.0"}</code>, etc.).</li>
+		</ul>
+			
+		<h2><code>while</code> loop</h2>
+		<ul>
+
+			</li>
+			<li>The while loop can make some tasks much simpler than using a for loop, especially when the number of times you need to loop is unknown
+				<pre><code class="javascript">var number;
+var valueIsNumeric = false;
+while(!valueIsNumeric) {
+	number = prompt("Please enter a number.");
+	
+	number = parseFloat(number); // Parses a float (decimal number) from the string
+	
+	if(!isNaN(number)) { // Check if the value is Not a Number (NaN)
+		valueIsNumeric = true;
+	}
+}</code></pre>
+			</li>
+		</ul>
+
 		<h2>Quiz 2!</h2>
 		<ul>
 			<li>The quiz is up on Google Docs: <a href="http://is.gd/gisz2">Quiz 2 (http://is.gd/gisz2)</a></li>
@@ -38,34 +98,15 @@
 		</ul>
 		
 		<h2>Class Exercise</h2>
-		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
+		<p>Mission: Using arrays and loops, create a table that lists the brands of five shoe companies next to how much money each company is worth (these numbers can be fictional).</p>
 		<h3>Instructions:</h3>
 		<ul>
-			<li>Use the prompt() function to ask the user for their preference, and have them type in their answer.</li>
-			<li>Use a <code>switch</code> statement to determine which musical style they prefer.</li>
-			<li>Use <code>document.write()</code> to show the user style-specific content, based on their preference.</li>
-			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
-			<li>Tip: use .toLowerCase() on the user's preference variable (ex. <code>userPreference.toLowerCase() === "indie";</code>)</li>
+			<li>Store the information (shoe company names and assosiated value) using arrays</li>
+			<li>Using either type of loop, add the HTML elements for a table (&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;, etc.) to the document.</li>
+
+			<li>The easiest way to store the data is in two separate arrays, where each numerical index of one array assosiates to the other. You could also use a multi-dimensional array or object.</li>
 		</ul>
 		
-		<h2>Type <code>undefined</code></h2>
-		<ul>
-			<li><code>undefined</code> is a JavaScript type.</li>
-			<li>Variables that have been declared, but not set, are automatically set to <code>undefined</code>:
-				<pre><code class="javascript">var foo;
-alert(foo); // alerts "undefined"</code></pre>
-			</li>
-			<li>Functions that do not explicitly return a value, return <code>undefined</code>:
-				<pre><code class="javascript">function bar() {};
-alert(bar()); // alerts "undefined"</code></pre>
-			</li>
-			<li><code>undefined</code> is a reserved word you can use for comparison:
-				<pre><code class="javascript">function bar() {};
-alert(bar() === undefined); // alerts true</code></pre>
-			</li>
-		</ul>
-			
-			
 		<h2>Function the Ultimate</h2>
 		<ul>
 			<li>We're going to <del>steal</del><ins>use</ins> Douglas Crockford's <a href="http://developer.yahoo.com/yui/theater/video.php?v=crockonjs-3">Function the Ultimate</a> to learn about Functions in JavaScript.</li>
@@ -74,12 +115,17 @@ alert(bar() === undefined); // alerts true</code></pre>
 		
 		<h2>Pseudo parameters</h2>
 		<ul>
-			<li>Inside of a function, you have access to two pseduo parameters: <code>arguments</code> &amp; <code>this</code>.
+			<li>Inside of a function, you have access to two pseudo parameters: <code>arguments</code> &amp; <code>this</code>.
 			</li>
+			<li><code>arguments</code> is easy to explain and use, where as <code>this</code> is tricky, but makes JavaScript funcions amazingly powerful.</li>
 		</ul>
 		
-		<h2><code>arguments</code></h2>		<ul>
-			<li>When a function is invoked, in addition to its parameters, it also gets a special parameter called arguments.</li>			<li>It contains all of the arguments from the invocation.</li>			<li>It is an array-like object.</li>			<li><code>arguments.length</code> is the number of arguments passed.</li>			<li>Weird interaction with parameters.</li>
+		<h2><code>arguments</code></h2>
+		<ul>
+			<li>When a function is invoked, in addition to its parameters, it also gets a special parameter called arguments.</li>
+			<li>It contains all of the arguments from the invocation.</li>			<li>It is an array-like object.</li>
+			<li><code>arguments.length</code> is the number of arguments passed.</li>
+			<li>Weird interaction with parameters.</li>
 		</ul>
 		
 		<h2><code>arguments</code> Example</h2>
@@ -95,7 +141,60 @@ var ten = sum(1, 2, 3, 4);</code></pre>
 
 		<h2><code>this</code></h2>
 		<ul>
-			<li>The <code>this</code> parameter contains a reference to the object of invocation.</li>			<li><code>this</code> allows a method to know what object it is concerned with.</li>			<li><code>this</code> allows a single function object to service many functions.</li>			<li><code>this</code> is key to prototypal inheritance.</li>
+			<li>When a function run, <code>this</code> is set to the global (window) object.</li>
+			<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. (e.g., <code>window.alert() === alert()</code>)</li>
+		</ul>
+		<pre><code class="javascript">function foo() {
+    console.log(this);
+}
+foo(); // logs reference to window</code></pre>
+
+		<h2><code>this</code> in a Method</h2>
+		<ul>
+			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
+			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
+			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
+		</ul>
+		<pre><code class="javascript">var user = {
+	name: "Johnny Alabaster",
+	age: 43
+};
+user.getInfo = function() {
+    console.log(this);
+};
+user.getInfo(); // logs reference to user</code></pre>
+
+function foo() {
+    console.log(this);
+}
+foo(); // logs reference to window
+
+		<h2><em>this</em> as a Constructor</h2>
+		<ul>
+			<li>If your mind has yet to be blown, this will do it.</li>
+			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
+			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
+		</ul>
+		<pre><code class="javascript">function User(name, password) {
+	this.name = name;
+	this.password = password;
+
+	this.getInfo = function() {
+		console.log(this.name, this.password);
+	};
+}
+var user1 = new User("peterwooley", "Freedom");
+var user2 = new User("thor", "HammerTime");
+
+// logs both users names and passwords
+user1.getInfo();
+user2.getInfo();</code></pre>
+
+		<h2>The low-down on <code>this</code></h2>
+		<ul>
+			<li>The <code>this</code> parameter contains a reference to the object of invocation.</li>
+			<li><code>this</code> allows a method to know what object it is concerned with.</li>
+			<li><code>this</code> allows a single function object to service many functions.</li>
 		</ul>
 		
 		<h2>The Four Ways to Invoke a Function</h2>
@@ -108,42 +207,9 @@ thisObject["methodName"](arguments);</code></pre></li>
 functionObject.call(thisObject, argument)</code></pre></li>
 		</ul>
 		
-		<h2>Function form</h2>
-		<ul>
-			<li>When a function is called in the functionform, <code>this</code> is set to the global (window) object.</li>
-		</ul>
-		<pre><code class="javascript">function foo() {
-    console.log(this);
-}
-foo(); // logs reference to window</code></pre>
-		
-		<h2>Method form</h2>
-		<ul>
-			<li>When a function is called in the methodform, this is set to thisObject, the object containing the function.</li>
-			<li>This allows methods to have a reference to the object of interest.</li>
-		</ul>
-		<pre><code class="javascript">var myObject = {};
-myObject.foo = function() {
-    console.log(this);
-};
-myObject.foo(); // logs reference to myObject</code></pre>
-
-		<h2>Constructor form</h2>
-		<ul>
-			<li>When a function is called in the methodform, this is set to thisObject, the object containing the function.</li>
-			<li>This allows methods to have a reference to the object of interest. When a function is called with the new operator, a new object is created and assigned to this.</li>
-			<li>If there is not an explicit return value, thenthis will be returned.</li>
-			<li>Used in the Pseudoclassical style.</li>
-		</ul>
-		<pre><code class="javascript">function Animal(name) {
-    this.name = name;
-}
-var molly = new Animal("Molly");
-console.log(molly.name); // logs "Molly"</code></pre>
-
 		<h2>Apply form</h2>
 		<ul>
-			<li>A function’s apply or call method allows for calling the function, explicitly specifying thisObject.</li>
+			<li>A function’s apply or call method allows for calling the function, explicitly specifying the value of <code>this</code>.</li>
 			<li>It can also take an array of parameters or a sequence of parameters.</li>
 		</ul>
 		<pre><code class="javascript">function getName() {
@@ -168,32 +234,8 @@ getName.call(molly, "arg1", "arg2");</code></pre>
 			<li>Higher Order</li>
 		</ul>
 		
-		<h2>Recursion</h2>
+		<h2>Pseudoclassical Inheritance</h2>
 		<ul>
-			<li>When a function calls itself.</li>
-		</ul>
-		<pre><code class="javascript">function factorial(n) {
-    if(n &lt;= 1) return 1; // Exit clause
-    return n * factorial(n-1);
-}
-
-console.log(factorial(0)) // logs 1
-console.log(factorial(5)) // logs 120
-console.log(factorial(15)) // logs 1307674368000</code></pre>			
-		<h2>Closures</h2>
-		<ul>
-			<li>The context of an inner function includes the scope of the outer function.</li>			<li>An inner function enjoys that context even after the parent functions have returned.</li>
-		</ul>
-		<pre><code class="javascript">var digit_name = (function () {
-    var names = ['zero', 'one', 'two',        'three', 'four', 'five', 'six',
-        'seven', 'eight', 'nine'];
-    return function (n) {        return names[n];
-    }
-}());
-console.log(digit_name(3));	// logs 'three'</code></pre>
-		
-		<h2>Pseudoclassical Inheritance</h2>		<ul>
-			<li>Function objects inherit from the <code>Function.prototype</code> property.</li>
 			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
 			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
 		</ul>
