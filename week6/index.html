@@ -24,35 +24,6 @@
 			<li>We'll take a look at the Mad Lib with the least number of words.</li>
 		</ul>
 	
-
-		<h2>Pseudoclassical Inheritance</h2>
-		<ul>
-			<li>Function objects inherit from the <code>Function.prototype</code> property.</li>
-			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
-			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
-		</ul>
-		<pre><code class="javascript">function Animal(name) {
-    this.type = "animal";
-    this.getName = function() { return this.name };
-}
-function Cat(name) {
-    this.name = name;
-}
-Cat.prototype = new Animal();
-
-var zoe = new Cat("Zoe");
-console.log(zoe.getName()); // logs "Zoe"</code></pre>
-
-		<h2>Doctypes</h2>
-		<ul>
-			<li>A Tag that tells the browser what HTML or XHTML specification the Web page uses.</li>
-			<li>Helpful for making sure browsers render your Web page in Standards mode (instead of Quirks mode)</li>
-			<li>It's always put at the very top of an HTML document.</li>
-			<li>It's basically safe to make full use of the HTML5 doctype now:
-				<pre><code class="html">&lt;!DOCTYPE html&gt;</code></pre>
-			</li>
-		</ul>
-		
 		<h2>Primitives vs. Constructors</h2>
 		<ul>
 			<li>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.
@@ -147,9 +118,9 @@ link.onclick = function() { alert('You clicked me!'); };</code></pre>
 			<li>Information about the event is passed to the event handler in different ways between IE &amp; every other browser:
 				<pre><code class="javascript">link.onclick = doSomething;
 				
-function doSomething(e) {
-	if(!e) var e = window.event; // Detect if the event info was passed through an argument, or needs to be set through window (as is the case with IE)
-	alert(e); // alerts information about the event
+function doSomething(event) {
+	event = event || window.event; // Detect if the event info was passed through an argument, or needs to be set through window (as is the case with IE)
+	alert(event); // alerts information about the event
 	return false; // stops the &lt;a&gt; tag from following the href link
 }</code></pre>
 			</li>
@@ -161,9 +132,7 @@ function doSomething(e) {
 			<li>In event handlers, <code>this</code> contains a reference to the HTML Element that caused the event handler to fire.
 				<pre><code class="javascript">link.onclick = doSomething;
 				
-function doSomething(e) {
-	if(!e) var e = window.event;
-
+function doSomething() {
 	this.innerHTML = "I've been affected by an event!";
 	return false;
 }</code></pre>
