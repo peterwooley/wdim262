@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WDIM262: Practical!</title>
+		<script type="text/javascript">
+			var running = true;
+			while(running) {
+				var favorite = prompt("What's your favorite browser (Enter name or number)? Firefox, Chrome, or Safari.");
+				
+				switch(favorite.toLowerCase()) {
+					case "firefox":
+					case "1":
+						document.write("<h1>You chose Firefox! Raar!</h1>");
+						document.write("<img src='http://placekitten.com/200/300' />");
+						running = false;
+						break;
+					case "chrome":
+					case "2":
+						document.write("<h1>You chose Chrome! Raar!</h1>");
+						document.write("<img src='http://placekitten.com/400/200' />");
+						running = false;
+						break;
+					case "safari":
+					case "3":
+						document.write("<h1>You chose Safari! Raar!</h1>");
+						document.write("<img src='http://placekitten.com/600/600' />");
+						running = false;
+						break;
+					default:
+						alert("Wrong! Try again!");
+				}
+			}
+		</script>		
+	</head>
+	<body>
+		<noscript>Hey you! You don't have JavaScript enabled!</noscript>
+	</body>
+</html>
