@@ -21,14 +21,8 @@
 		<h2>Turn in Assignment 5</h2>
 		<ul>
 			<li>Turn in to <code>S:\Data\wdim262\assignment5\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment5.zip.</li>
-			<li>We'll take a look at the Mad Lib with the least number of words.</li>
 		</ul>
 			
-		<h2>Playing with Event Handlers</h2>
-		<ul>
-			<li>Open up <a href="inclass/events.html">inclass/events.html</a> in your Text Editor.</li>
-		</ul>
-		
 		<h2>Quiz 3!</h2>
 		<ul>
 			<li>The quiz is up on Google Docs: <a href="http://is.gd/h5UQa">Quiz 3 (http://is.gd/h5UQa)</a></li>
@@ -36,18 +30,11 @@
 			<li>You've got 15 minutes!</li>
 		</ul>
 		
-		
-		<h2>Music Search App</h2>
+		<h2>If nothing else, use Quirksmode.</h2>
 		<ul>
-			<li>Let's make a JavaScript app that can search a list of music, and filter the results.</li>
-			<li>In addition to what we've talked about today, we'll be looking at some new properties and methods:
-				<ul>
-					<li><code>getElementsByTagName()</code>, which lets us get a set of elements based on their tag name.</li>
-					<li><code>value</code>, which lets us get the value out of a form field.</li>
-					<li><code>indexOf()</code>, which tells us if a string is present in another string.</li>
-				</ul>
-			</li>
-			<li>Open up <a href="inclass/search.html">inclass/search.html</a> in your Text Editor.</li>
+			<li>In general, <a href="http://www.quirksmode.org/">Quirksmode</a> is an amazing resource for JavaScripters.</li>
+			<li>Specifically, <del>bookmark</del> <del>digg</del> <del>delicious</del> tweet the <a href="http://www.quirksmode.org/dom/w3c_core.html#fivemethods">W3C DOM Compatibility</a> page to yourself and read it like a holy text.</li>
+			<li>What we can cover is nothing compared to sitting down and spending an evening reading and testing everything on that page.</li>
 		</ul>
 
 		<h2>Traversing the DOM</h2>
@@ -61,6 +48,8 @@
 					<li><code>.childNodes</code></li>
 					<li><code>.lastChild</code></li>
 					<li><code>.firstChild</code></li>
+					<li><code>.previousSibling</code></li>
+					<li><code>.nextSibling</code></li>
 				</ul>
 			</li>
 			<li>Open up <a href="inclass/moreDom.html">inclass/moreDom.html</a> in your Text Editor.</li>
@@ -72,6 +61,12 @@
 			<li>Knowing this, you can access text in a Text Node with the <code>.nodeValue</code> property.</li>
 		</ul>
 		
+		<h2>Getting elements by Class Name</h2>
+		<ul>
+			<li>In IE9, Firefox 3+, Safari 4+, Chrome, and Opera you can get an array of elements by their class name:
+				<pre><code class="javascript">var posts = document.getElementsByClassName("post"); // Returns all elements with "post" in their class attribute
+var topPosts = document.getElementsByClassName("post top"); // Returns all elements with "post" and "top" in their class attribute.
+
 		<h2>Attributes</h2>
 		<ul>
 			<li>You can modify attributes of nodes using setters, which simply require you set a value to a property.</li>
@@ -115,8 +110,7 @@
 	document.favorites.onsubmit = validateForm;
 }
 
-function validateForm(e) {
-	if(!e) e = window.event;
+function validateForm() {
 	
 	if(document.favorites.realname.value == '') {
 		alert("Please enter a name into the form.");
