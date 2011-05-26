@@ -18,10 +18,37 @@
 		</div>
 	
 
-		<h2>Turn in Assignment 5</h2>
+		<h2>Turn in Assignment 6</h2>
 		<ul>
 			<li>Turn in to <code>S:\Data\wdim262\assignment6\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment6.zip.</li>
-			<li>We'll take a look at the Comment Form with the largest &lt;textarea /&gt;</li>
+		</ul>
+		
+		<h2>Using Cookies</h2>
+		<ul>
+			<li>Cookies are small text files that are stored on a user's computer to remember information about a website.</li>
+			<li>Cookie information is available to JavaScript in <code>document.cookie</code>:
+				<pre><code class="javascript">alert(document.cookie); // Will probably alert an empty string</code></pre>
+			</li>
+			<li>Creating a cookie looks pretty complicated, but should make some amount of sense:
+				<pre><code class="javascript">document.cookie = 'myCookieName=theValue; expires=Mon, 16 May 2010 04:35:14 GMT; path=/';</code></pre>
+			</li>
+			<li>Cookies work by storing a name/value pair, an expire time, and a domain and path limitation.</li>
+			<li>The name/value pair stores the name of the cookie and the value it is storing</li>
+			<li>The expire time sets when the cookie will expire, if it is not present, the cookie is a "session cookie" and is only stored until the user's browser session ends (typically, when the browser is shutdown, but with Firefox and other browsers saving sessions, sessions can last much longer). The expire date must be set in GMT.</li>
+		</ul>
+			
+		<h2>Using Cookies, Continued</h2>
+		<ul>
+			<li>The domain and path limit the cookie so that it is only visible on the Web site that saved it.
+				<ul>
+					<li>You can limit the domain to only a subdomain (i.e., dev.yoursite.com) or all domains (yoursite.com).</li>
+					<li>You can limit the availability of the cookie to just a directory by setting the path (ie. /music), but most of the time, you'd leave it at the root path (ie. /).</li>
+				</ul>
+			</li>
+			<li>Strangely, after setting a cookie with an expire time, path, and domain, those values are no longer present in document.cookie. When reading out document.cookie, only the name/value pairs are displayed.</li>
+			<li>Lastly, there is no removeCookie method, by default. The way to delete a cookie is to overwrite a cookie and set its expire time to some time in the past.</li>
+			<li>In order to handle cookies more effectively, we can <a href="http://www.quirksmode.org/js/cookies.html">turn to Quirksmode</a>.</li>
+			<li>Let's play with cookies; open up <a href="inclass/cookies.html">inclass/cookies.html</a> in your Text Editor.</li>
 		</ul>
 			
 		<h2>Libraries</h2>
@@ -63,6 +90,7 @@
 		<ul>
 			<li>We'll be looking at jQuery based on its small size, browser compatibility, AJAX support, and revolutionary syntax</li>
 			<li>Documentation URL: <a href="http://docs.jquery.com/">http://docs.jquery.com/</a></li>
+			<li>API URL (Good for quick searches): <a href="http://api.jquery.com">http://api.jquery.com</a></li>
 		</ul>
 		
 		<h2>CSS Selectors</h2>
@@ -92,8 +120,6 @@
 		<ul>
 			<li>jQuery has extensive support for events, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
 			<li>Utilizing the bind() method, or individual helper methods: click(), dblclick(), focus(), keyup(), etc.</li>
-
-			<li>You can use the optional 'data' parameter of the bind method to pass along data into the event.data scope.</li>
 			<li>Let's look at the <a href="inclass/events.html">Events example script</a>.</li>
 		</ul>
 		
