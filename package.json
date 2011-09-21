@@ -1,0 +1,13 @@
+{
+    "name": "wdim262",
+    "description": "Class notes and assignments for AIPD's WDIM262 Web Scripting: JavaScript class.",
+    "version": "1.0.0",
+    "contributers": [{
+        "name": "Peter Wooley",
+        "email": "peterwooley@gmail.com",
+        "web": "http://peterwooley.com"
+    }],
+    "dependencies": {
+       "node-static": "0.5.9"
+    }
+}
