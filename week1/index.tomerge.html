@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>WDIM262 Web Scripting: JavaScript, Week 1</title>
+		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
+		<script type="text/javascript">
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
+		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM262 Web Scripting: JavaScript</h1>
+			<p class="tagline">The JavaScript Class, Week 1</p>
+		</div>
+		
+		<h2>Class Notes</h2>
+		<ul>
+			<li>Class notes will be made available in <code>S:\Data\wdim262</code> every week.</li>
+			<li>You can also get the notes up to 24 hours in advance on my <a href="http://github.com/peterwooley/wdim262">WDIM262 Repository on GitHub</a>.</li>
+		</ul>
+
+		<h2>Me!</h2>
+		<ul>
+			<li>Work at McAfee doing UI Development for <a href="http://www.mcafee.com/us/enterprise/products/security_management_console/epolicy_orchestrator.html">ePO/MFS</a>.</li>
+			<li><a href="http://userscripts.org/scripts/show/57280">Released</a> <a href="http://userscripts.org/scripts/show/24430">several</a> <a href="http://userscripts.org/scripts/show/46615">userscripts</a> that are now in the <a href="https://addons.mozilla.org/en-US/firefox/addon/6076">Better Gmail</a> &amp; <a href="https://addons.mozilla.org/en-US/firefox/addon/6424?src=reco">Better GReader</a> Firefox Addons.</li>
+			<li>Designing a <dfn title="Dungeons and Dragons">D&amp;D</dfn> iOS app.</li>
+			<li>Married with <a href="http://thewooleys.com/">a baby boy</a>!</li>
+		</ul>
+		
+		<h2>Introductions</h2>
+		<ol>
+			<li>What's your preferred greeting? (ex. Mark, Marky, m42x, etc.) And does that match your real name (so I can mark your attendance)?</li>
+	    	<li>On a scale of 0 to 1337, how much do you love the Internet?</li>
+	    	<li>Have you had any experience with JavaScript? (copied and pasted scripts, know the basics, or consider yourself a JavaScript god who should be teaching the class?)</li>
+	    	<li>Have you had any experience with other programming languages? Any ones in particular (ActionScript, PHP, Ruby, Python, Java, C, Lisp, Haskell)?</li>
+		</ol>
+
+		<h2>Getting Started</h2>
+		<ul>
+			<li><a href="SP11_WDIM262_A.pdf">The Syllabus</a></li>
+		</ul>
+		
+		<h2>Your Text Editor</h2>
+		<p>Choosing the right text editor is important. Whether it be a full IDE (Integrated development environment) down to a simple Notepad replacement.</p>
+		<ul>
+			<li><strong><a href="http://notepad-plus.sourceforge.net">Notepad++</a> (Windows)</strong></li>
+			<li><a href="http://macromates.com/">TextMate</a></li>
+			<li><a href="http://macrabbit.com/espresso/">Espresso</a></li>
+			<li><a href="http://www.panic.com/coda/">Coda</a></li>
+			<li><a href="http://vim.org">Vim (All Platforms)</a></li>
+		</ul>
+		
+		<h2>The Web Trifecta</h2>
+		<ul>
+			<li>HTML for Content</li>
+			<li>CSS for Style</li>
+			<li>JavaScript for Behavior</li>
+		</ul>
+		
+		<h2>Hello, World!</h2>
+		<ul>
+			<li>Let's start hacking.</li>
+			<li>Open up <a href="inclass/hello_world.html">inclass/hello_world.html</a> your favorite text editor.</li>
+		</ul>
+		
+		<h2>The &lt;script&gt; tag and you</h2>
+		<ul>
+			<li>Where the &lt;script&gt; tag should go to be executed immediatly.
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// In the head tag
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</li>
+			<li>Where the &lt;script&gt; tag should go to be executed after the HTML loads.
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// Just before the end of the body tag
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</li>
+		</ul>
+
+		<h2>Code Comments</h2>
+		<ul>
+			<li>Comments are annotations to code that help summarize or explain how code works.</li>
+			<li>Single Line Comment
+			<pre><code class="javascript">// Single-line Comment</code></pre></li>
+			<li>Multi-line Comment
+			<pre><code class="javascript">/*
+Multi
+Line
+Comment
+*/</code></pre></li>
+		</ul>
+		
+		<h2>Variables in JavaScript</h2>
+		<ul>
+			<li>You can store different types of information in variables (Numbers, Strings, Objects, etc.)</li>
+			<li>They often start with the <code>var</code> declaration.</li>
+			<li>Then followed by the name of the variable
+				<ul>
+					<li>Variable names are case-sensitive</li>
+          			<li>Must begin with a letter, <code>$</code> or <code>_</code>.</li>
+          		</ul>
+          	</li>
+          	<li>Then followed by the assignment of the variable's value after an <code>=</code> sign.</li>
+          	<li>And finished off with a semi-colon;</li>
+        </ul>
+        <pre><code class="javascript">var theNumber = 42;
+var sentence = "This is a sentence. Note the surrounding quotes.";
+</code></pre>
+
+		<h2>Using Variables</h2>
+		<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScript: Hello, World!&lt;/title&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			var hello = &quot;Hello, World!&quot;;
+			
+			// Create an alert box that requires the user to click &quot;OK&quot;
+			alert(hello);
+			
+			// Use the document object's write function to add the message to the page itself.
+			document.write(hello);
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+    	&lt;p id=&quot;paragraph&quot;&gt;I've written a Hello, World script in JavaScript.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<h2>What JavaScript Is</h2>
+		<ul>
+			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+			<li>Client-side (<strong>not</strong> Server-side)</li>
+			<li>Interpreted (<strong>not</strong> Compiled)</li>
+		</ul>
+		
+		<h2>Interpreted Languages</h2>
+		<p>What could some of the benefits be of using an Interpreted language?</p>
+		
+		<h2>Interpreted Language Breakdown</h2>
+		<ul>
+			<li>Pros
+				<ul>
+					<li>Multi-platform</li>
+					<li>Indirectly Executed by an Interpreter</li>
+					<li>Smaller file size</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+			<li>Cons
+				<ul>
+					<li>Requires an Interpreter</li>
+					<li>Always Editable</li>
+				</ul>
+			</li>
+		</ul>
+
+		<h2>What can it do?</h2>
+		<ol>
+			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
+			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
+			<li><a href="http://www.datejs.com">It can interpret.</a></li>
+			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
+			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
+			<li><a href="examples/scripts/03_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
+		</ol>
+		
+		<h2>What can't it do?</h2>
+		<ol>
+			<li>It cannot access files on your computer directly, for safety reasons.</li>
+			<li>It cannot directly create or modify files on a web server, as it runs on the client-side.</li>
+			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
+		</ol>
+		
+		<h2>Debugging JavaScript with Firebug</h2>
+		<ul>
+			<li>Open Firebug (in Firefox, that little bug in the bottom-right corner).</li>
+			<li>Add this bit of JavaScript to a page:
+			<pre><code class="javascript">console.log("I'm sending a message to the Console!");</code></pre>
+			</li>
+			<li>Reload the page.</li>
+			<li>Rejoice!</li>
+			<li><a href="http://getfirebug.com/">Install Firebug in every instance of Firefox.</a></li>
+		</ul>
+		
+		<h2>Scripting</h2>
+		<ul>
+			<li>Is there anything (relatively simply) you'd like to try doing in JavaScript right now?</li>
+			<li>Are there any burning questions about JavaScript you'd like answered?</li>
+		</ul>
+		
+		
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Assignment 1</a></li>
+		</ul>
+		
+	</body>
+</html>
