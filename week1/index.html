@@ -53,7 +53,7 @@
 
         <div class="slide">
             <h1>Me!</h1>
-			<img src="images/pwooley-256px.png" alt="" style="float:right;" />
+			<img src="images/pwooley-256px.png" alt="" style="float:right;" title="Tyler Sticka made this avatar for me." />
 			<p>I work at McAfee doing UI Development, just across the way from <a href="http://designsjh.com/">Mr. Jeffrey Hogan</a>.</p>
 			<p>Any time I get a free moment to code, I write in JavaScript for fun. Lately, using <a href="http://nodejs.org">node.js</a>.</p>
 			<p>My favorite games are Portal 2, Portal, Final Fantasy VIII, Half-Life 2, Battleheart &amp; World of Warcraft.</p>
@@ -103,27 +103,32 @@
 
 		<div class="slide">
             <h1>The &lt;script&gt; tag and you</h1>
-    	<ul>
 			<p>Where the &lt;script&gt; tag should go to be executed immediatly.<p>
 			<pre class="brush: js">&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;JavaScripting&lt;/title&gt;
-		&lt;script type=&quot;text/javascript&quot;&gt;
+		&lt;script&gt;
 			// In the head tag
 		&lt;/script&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
 	&lt;/body&gt;
 &lt;/html&gt;</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>More &lt;script&gt;</h1>
 			<p>Where the &lt;script&gt; tag should go to be executed after the HTML loads.</p>
-				<pre><code class="html">&lt;!DOCTYPE html&gt;
+				<pre class="brush: js">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;JavaScripting&lt;/title&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;script type=&quot;text/javascript&quot;&gt;
+        &lt;h1&gt;A Header&lt;/h1&gt;
+        &lt;p&gt;Lovely content.&lt;/p&gt;
+		&lt;script&gt;
 			// Just before the end of the body tag
 		&lt;/script&gt;
 	&lt;/body&gt;
@@ -131,74 +136,135 @@
         </div>
 
 		<div class="slide">
-			<h1>Git the Class Notes</h1>
-			<p>The notes for this class are <a href="https://github.com/peterwooley/wdim387">hosted on GitHub</a>.</p>
-			<p>Clone the repository by opening a terminal and typing:</p>
-			<pre class="brush: js">git clone git://github.com/peterwooley/wdim387.git</pre>
+			<h1>Code Comments</h1>
+    		<p>Comments are annotations to code that help summarize or explain how code works.</p>
+    		<pre class="brush: js">// Single-line Comment
+            
+alert("The surrounding comments will not be executed as code.");
 
-			<p>In future classes, or a few hours before them, you can grab the latest changes like so:</p>
-			<pre class="brush: js">cd wdim387
-git pull origin master</pre>	
+/*
+ Multi
+ Line
+ Comment
+*/</pre>	
 		</div>
 
 		<div class="slide title">
-			<h1>Watch Me <del>Try To</del> Explain Git.</h1>
+			<h1>Variables in JavaScript</h1>
+        	<ul>
+    			<li>You can store different types of information in variables (Numbers, Strings, Objects, etc.)</li>
+    			<li>They often start with the <code>var</code> declaration.</li>
+    			<li>Then followed by the name of the variable
+    				<ul>
+    					<li>Variable names are case-sensitive</li>
+              			<li>Must begin with a letter, <code>$</code> or <code>_</code>.</li>
+              		</ul>
+              	</li>
+              	<li>Then followed by the assignment of the variable's value after an <code>=</code> sign.</li>
+              	<li>And finished off with a semi-colon;</li>
+            </ul>
+            <pre class="brush: js">var theNumber = 42;
+var sentence = "This is a sentence. Note the surrounding quotes.";</pre>
 		</div>
 
 		<div class="slide">
-			<h1>Ajaxed</h1>
-			<p>Using Ajax to fetch the last thing I said on Twitter:</p>
-			<pre class="brush: js">$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=peterwooley&callback=?", function(data) {
-	alert(data[0].text); 
-);</pre>
-			<p>Using Ajax to get the most recently uploaded Flickr photo:</p>
-			<pre class="brush: js">$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?",function(data) {
-	alert(data.items[0].media.m);
-});</pre>	
+			<h1>Using Variables</h1>
+        	<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScript: Hello, World!&lt;/title&gt;
+		&lt;script&gt;
+			var hello = &quot;Hello, World!&quot;;
+			
+			// Create a dialog box containing the value
+            // of the hello variable.
+			alert(hello);
+			
+			// Write the value of the hello variable
+            // into the document (page).
+			document.write(hello);
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+    	&lt;p&gt;I've written a Hello, World script in JavaScript.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
 		</div>
 
 		<div class="slide">
-			<h1><a href="http://json.org/">JSON</a> &mdash; JavaScript Object Notation</h1>
-			<p>JSON is a lightweight data-interchange format.</p>
-			<p>For us, it gets data from the server to the client and back again.</p>
-			<p>It is valid JavaScript.</p>
-			<p>It's simple for Server-side languages to parse and even simpler for JavaScript.</li>
-			<p>Here's a delicious sample:</p>
-			<pre class="brush: js">{"menu": {
-  "id": "file",
-  "value": "File",
-  "popup": {
-    "menuitem": [
-      {"value": "New", "onclick": "CreateNewDoc()"},
-      {"value": "Open", "onclick": "OpenDoc()"},
-      {"value": "Close", "onclick": "CloseDoc()"}
-    ]
-  }
-}}</pre>
+    		<h1>What JavaScript Is</h1>
+        	<ul>
+    			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+    			<li>Client-side (<strong>not</strong> Server-side)</li>
+    			<li>Interpreted (<strong>not</strong> Compiled)</li>
+    		</ul>
 		</div>
 
 		<div class="slide">
-			<h1>Server- and Client-Side Frameworks</h1>
-			<h2>Server-side (PHP, specifically)</h2>
-			<ul>
-				<li><em><a href="http://codeigniter.com/">CodeIgniter</a></em></li>
-				<li><a href="http://www.symfony-project.com/">symfony</a></li>
-				<li><em><a href="http://framework.zend.com/">Zend Framework</a></em></li>
-			</ul>
-			<h2>Client-side</h2>
-			<ul>
-				<li><em><a href="http://jquery.com">jQuery</a></em></li>
-				<li><a href="http://developer.yahoo.com/yui/">YUI</a></li>
-				<li><a href="http://prototypejs.org/">Prototype</a></li>
-			</ul>
+			<h1>Interpreted Languages</h1>
+    	    <p>What could some of the benefits be of using an Interpreted language?</p>
+            <div class="incremental">
+            	<h2>Pros</h2>
+    			<ul>
+    				<li>Multi-platform</li>
+    				<li>Indirectly Executed by an Interpreter</li>
+    				<li>Smaller file size</li>
+    				<li>Always Editable</li>
+    			</ul>
+    			<h2>Cons</h2>
+				<ul>
+					<li>Requires an Interpreter</li>
+					<li>Always Editable</li>
+				</ul>
+    		</div>
 		</div>
 
 		<div class="slide">
-			<h1>CodeIgniter & jQuery, FTW!</h1>
-			<p>For my demos and explanations, I'll be using <a href="http://codeigniter.com/">CodeIgniter</a> &amp; <a href="http://jquery.com/">jQuery</a>.</p>
-			<p>To demonstrate code locally, I'll use <a href="http://www.mamp.info">Mamp</a>.</p>
-			<p>The code for today's demo can be found in <a href="demo">week1/demo</a>.</p>
+			<h1>What can it do?</h1>
+        	<ol>
+    			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
+    			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
+    			<li><a href="http://www.datejs.com">It can interpret.</a></li>
+    			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
+    			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
+    			<li><a href="examples/scripts/03_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
+    		</ol>
 		</div>
+
+        <div class="slide">
+            <h1>What can't it do?</h1>
+        	<ol>
+    			<li>It cannot access files on your computer directly, for safety reasons.</li>
+    			<li>It cannot directly modify files on a server, when it runs on the client-side.</li>
+    			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
+    		</ol>
+        </div>
+        
+        <div class="slide">
+            <h1>Debugging JavaScript</h1>
+        	<ul>
+    			<li>Add this bit of JavaScript to a page:
+    			<pre class="brush: js">console.log("I'm sending a message to the Console!");</pre>
+    			</li>
+    			<li>Reload the page.</li>
+                <li>Open The Developer Tools
+                    <ul>
+                        <li>In Firefox, open Firebug (F12, or a little bug in the bottom-right or top-right corner).</li>
+                        <li>In Chrome or Safari, open Web Inspector (in Develop Menu).</li>
+                        <li>In Internet Explorer, open F12 Tools (with F12).</li>
+                    </ul>
+                </li>
+    			<li>Rejoice!</li>
+    		</ul>
+        </div>
+		
+        <div class="slide">
+    		<h1>Scripting</h1>
+    		<ul>
+    			<li>Is there anything (relatively simply) you'd like to try doing in JavaScript right now?</li>
+    			<li>Are there any burning questions about JavaScript you'd like answered?</li>
+    		</ul>
+        </div>
 
 		<div class="slide title">
 			<h1>Fin!</h1>
