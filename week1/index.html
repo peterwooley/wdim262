@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM387 Advanced Scripting &mdash; Week 1</title>
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 1</title>
         <!-- Slippy core file and dependencies -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
         <script type="text/javascript" src="slippy/src/slippy.js"></script>
         <!-- Slippy structural styles -->
@@ -47,65 +47,88 @@
     </head>
     <body>
         <div class="slide title" data-layout="title">
-            <h1>WDIM387 Advanced Scripting</h1>
+            <h1>WDIM262 Web Scripting: JavaScript</h1>
 			<h2>Week 1</h2>
         </div>
 
         <div class="slide">
             <h1>Me!</h1>
 			<img src="images/pwooley-256px.png" alt="" style="float:right;" />
-				<p>I work at McAfee doing UI Development, just across the way from <a href="http://designsjh.com/">Mr. Jeffrey Hogan</a>.</p>
-				<p>Any time I get a free moment to code, I write in JavaScript for fun. Lately, using <a href="http://nodejs.org">node.js</a>.</p>
-				<p>I used to play WoW, but then I had a kid, so now I play iOS games, like Battleheart and Ramps.</p>
-				<p>I mine <a href="">Bitcoins</a>.</p>
-
+			<p>I work at McAfee doing UI Development, just across the way from <a href="http://designsjh.com/">Mr. Jeffrey Hogan</a>.</p>
+			<p>Any time I get a free moment to code, I write in JavaScript for fun. Lately, using <a href="http://nodejs.org">node.js</a>.</p>
+			<p>My favorite games are Portal 2, Portal, Final Fantasy VIII, Half-Life 2, Battleheart &amp; World of Warcraft.</p>
         </div>
 
         <div class="slide">
             <h1>You</h1>
+            <p><em>Fair Warning: I suck at learning names, but I try.</em></p>
 			<ol>
-				<li>What's your name?</li>
-				<li>What's the geekiest thing you have ever done?</li>
-				<li>In the context of Ajax, what are you most interested in learning?</li>
-				<li>What's your favorite video game?</li>
-			</ol>
+        		<li>What's your name?</li>
+    	    	<li>On a scale of 0 to 1984, how much do you love the Internet?</li>
+    	    	<li>Have you had any experience with JavaScript? (copied and pasted scripts, know the basics, or consider yourself a JavaScript god who should be teaching the class?)</li>
+    	    	<li>Have you had any experience with other programming languages? Any ones in particular (PHP, Ruby, Python, Java, C, Lisp, Haskell)?</li>
+    		</ol>
         </div>
 
         <div class="slide title">
-			<h1>Let's all read <a href="SU11_WDIM387_A.pdf">The Syllabus</a>!</h1>
+			<h1>Let's all read <a href="FA11_WDIM262_A.pdf">The Syllabus</a>!</h1>
 		</div>
 
         <div class="slide">
-            <h1>What's Missing?</h1>
-			<ol>
-				<li class="incremental">What can you not do online that you'd like be able to do?</li>
-				<li class="incremental">What skills would you need to learn to make <strong>everything</strong> for a web app?</li>
-			</ol>
+            <h1>Your Text Editor</h1>
+        	<p>Choosing the right text editor is important. Whether it be a full IDE (Integrated development environment) down to a simple Notepad replacement.</p>
+    		<ul>
+                <li><a href="http://www.sublimetext.com/2">Sublime Text 2<a> (Windows, OS X, Linux)</li>
+        		<li><a href="http://vim.org">Vim (All Platforms)</a></li>
+    			<li><a href="http://notepad-plus.sourceforge.net">Notepad++</a> (Windows)</li>
+    			<li><a href="http://macromates.com/">TextMate</a></li>
+    			<li><a href="http://www.panic.com/coda/">Coda</a></li>
+    		</ul>
         </div>
 
         <div class="slide">
-			<h1>What I Require</h1>
-			<ol>
-				<li>Be on <a href="http://twitter.com">Twitter</a>. Follow me at @<a href="http://twitter.com/peterwooley">peterwooley</a>.</li>
-				<li>Have your own <a href="http://lifehacker.com/5545568/five-best-personal-web-hosts">web hosting</a> with SSH access and Git installed.</li>
-				<li>Know your chosen server-side language.</li>
-			</ol>
+			<h1>The Web Trifecta</h1>
+        	<ul>
+    			<li>HTML for Content</li>
+    			<li>CSS for Style</li>
+    			<li>JavaScript for Behavior</li>
+    		</ul>
         </div>
 
 		<div class="slide">
-			<h1>Git &amp; GitHub</h1>
-			<img src="images/parallax_octocat.png" alt="" style="float:right" />
-			<p><a href="http://git-scm.com/">Git</a> is used for <a href="http://en.wikipedia.org/wiki/Revision_control">version control of files</a>, so you can track every change made to any file.</p>
-			<p><a href="https://github.com/">GitHub</a> hosts Git repositories, so you can work with others and track everyone's changes.</p> 
+            <h1>Hello, World!</h1>
+			<p>Let's start hacking.</p>
+			<p>Open up <a href="inclass/hello_world.html">inclass/hello_world.html</a> in your favorite text editor.</p>
 		</div>
 
 		<div class="slide">
-			<h1>Set Up Git</h1>
-			<p>If you are not on GitHub, you must now set up Git and your GitHub Account.</p>
-			<p>If you are already on GitHub, you must help someone who isn't.</p>
-			<p>To get setup, follow the GitHub-provided guides for <a href="http://help.github.com/mac-set-up-git/">Mac</a>, <a href="http://help.github.com/win-set-up-git/">Windows</a> or <a href="http://help.github.com/linux-set-up-git/">Linux</a>.</p>
-			<p>The first person to get everything set up wins either 5 bonus points or 0.10 <dfn title="Bitcoin">BTC</dfn>.</p>
-		</div>
+            <h1>The &lt;script&gt; tag and you</h1>
+    	<ul>
+			<p>Where the &lt;script&gt; tag should go to be executed immediatly.<p>
+			<pre class="brush: js">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// In the head tag
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+			<p>Where the &lt;script&gt; tag should go to be executed after the HTML loads.</p>
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;JavaScripting&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			// Just before the end of the body tag
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
 
 		<div class="slide">
 			<h1>Git the Class Notes</h1>
@@ -188,7 +211,7 @@ git pull origin master</pre>
                 <span class="left">Peter Wooley</span>
                 <span class="right">WDIM387A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
-                <span class="right"><a href="https://github.com/peterwooley/wdim387">Notes on GitHub</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />
             </div>
         </div>
