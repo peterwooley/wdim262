@@ -1,209 +1,127 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM262 Web Scripting: JavaScript, Week 3</title>
-		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
-		<script type="text/javascript">
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">The JavaScript Class, Week 3</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 3</title>
+        <!-- Slippy core file and dependencies -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+
+        <!-- Slippy init code -->
+        <script type="text/javascript">
+            $(function() {
+                $(".slide").slippy();
+				SyntaxHighlighter.defaults.gutter = false;
+                SyntaxHighlighter.all();
+            });
+        </script>
+
+        <!-- Custom style for this deck -->
+        <style type="text/css">
+            .slide.nofooter {
+                border: 0;
+                background: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+			<h2>Week 3</h2>
+        </div>
+
+        <div class="slide">
+            <h1>Turn in Assignment 2</h1>
+        	<ul>
+    			<li>Please send your homework as <code><var>lastnameFirstName</var>_assignment2.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
+    		</ul>
+        </div>
+
+        <div class="slide">
+			<h1>Objects</h1>
+            <pre class="brush: js">
+            // Objects are named collections of any type.
+            var user = {name: "Peter Wooley", age: 25};
+            
+            // Object values are accessed via their key.
+            console.log(user.name);
+            console.log(user.age);
+            
+            // Values can be set using their key.
+            user.name = "Peter Matthew Wooley";
+            user.age = 42;
+            
+            // New values can be added using a new key
+            user.password = "Freedom";
+            
+            // You can examine an entire object by logging the object itself.
+            console.log(user);
+            </pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Objects All The Way Down</h1>
+            <pre class="brush: js">
+            // Objects can contain any type, including other objects.
+            var bands = { 
+                radiohead: {name: "Radiohead", founded: 1985},
+                primus: {name: "Primus", founded: 1492},
+                wutangclan: ["Wu Tang Clan", 1992]
+            };
+            
+            console.log(bands.radiohead.founded); // 1985 
+            </pre>
+        </div>
+
+		<div class="slide">
+            <h1>Functions</h1>
+            <pre class="brush: js">
+            </pre>
 		</div>
-		
-		<h2>Turn in Assignment 2</h2>
-		<ul>
-			<li>Turn in to <code>S:\Data\wdim262\assignment2\</code> using the following naming convention: <var>lastnameFirstname_assignment2.zip</var>.</li>
-			<li>We'll take a look at the two that have the least &amp; most lines of code.</li>
-		</ul>
-		
-		<h2>JavaScript is What?</h2>
-		<ul>
-			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
-			<li>Client-side (<strong>not</strong> Server-side)</li>
-			<li>Interpreted (<strong>not</strong> Compiled)</li>
-		</ul>
-		
-		<h2>Quiz 1!</h2>
-		<ul>
-			<li>The quiz is up on Google Docs: <a href="https://spreadsheets.google.com/viewform?hl=en&formkey=dDBrdmE5WmszU1RQZFBkZlBnVUVNZ2c6MA">Quiz 1</a></li>
-			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
-			<li>You've got 15 minutes!</li>
-		</ul>
-		
-		<h2>Getting data from the user</h2>
-		<p>There exist three ways of getting data from the user using pure JavaScript.</p>
-		<ul>
-			<li><code>alert(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until the user clicks "OK".</li>
-			<li><code>confirm(<var>message</var>)</code>: Shows the user the <var>message</var>, then waits until they click "OK" or "Cancel".</li>
-			<li><code>prompt(<var>message</var>, <var>placeholder</var>)</code>: Shows the user the <var>message</var>, allows them to write in a single-line text box that is pre-filled with <var>placeholder</var>, and waits until they click "OK" or "Cancel".</li>
-		</ul>
-		
-		<h2>The <a href="http://www.w3schools.com/jsref/jsref_obj_math.asp">Math</a> Object</h2>
-		<ul>
-			<li><code>Math.sqrt(<var>number</var>)</code>: Returns the square root of the given number. <em>Helpful for all that math I learned in High School and forgot.</em></li>
-			<li><code>Math.random()</code>: Returns a random number between 0 and 1. <em>Useful when you need an element of randomness, like in a game.</em></li>
-			<li><code>Math.round(<var>number</var>)</code>: Returns the next nearest integer. <em>Great for rounding numbers when displaying values to users.</em></li>
-		</ul>
-		
-		<h2>Class Exercise</h2>
-		<p>Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document, every time the user refreshes the page.</p>
-		<h3>Instructions:</h3>
-		<ul>
-			<li>Acquire four images from the Internet that look different, and save them in the folder you're working in.</li>
-			<li>Store the image names in an array.</li>
-			<li>Use Math.random() to generate the random number.</li>
-			<li>Use document.write() to create an image tag for the user to see.</li>
-			<li>Do it in 25 minutes.</li>
-		</ul>	
-		
-		<h2>The &lt;noscript /&gt; tag</h2>
-		<ul>
-			<li>The &lt;noscript&gt; tag is an HTML tag that will hide whatever content is inside of it when JavaScript is turned on, and show that content whenever it is turned off.
-			<li>This is important, as every modern browser gives you the ability to turn off JavaScript.
-				<ul>
-					<li>In Firefox: Tools &gt; Options &gt; Content (Tab), uncheck &quot;Enable JavaScript&quot;</li>
-					<li>In Internet Explorer (7+): Tools &gt; Internet Options &gt; Security (Tab) &gt; Custom level... &gt; Scripting &gt; Active Scripting, select &quot;Disable&quot;</li>
-				</ul>
-			</li>
-			<li>By including the &lt;noscript&gt; tag and content inside, you can either alert people to turn on JavaScript, or show content that doesn't require JavaScript.</li>
-		</ul>
-		
-		<h2>Logical Operators</h2>
-		<ul>
-			<li><code>&&</code> and
-				<pre><code class="javascript">var animal = "leopard", wild = true;
-if (animal === "leopard" && wild === true) {
-	// This block will be executed only if animal is leopard and wild is true
-	alert("The animal is a Wild Leopard!");
-}</code></pre>
-			</li>
-			<li><code>||</code> or
-				<pre><code class="javascript">var animal = "leopard";
-if (animal === "leopard" || animal === "tiger") {
-	// This block will be executed if animal is either leopard or tiger
-	alert("The animal is a Leopard or Tiger!");
-}</code></pre>
-			</li>
-			<li><code>!</code> not
-				<pre><code class="javascript">var isAdmin = false;
-if (!isAdmin) {
-	// This block will be executed only if isAdmin is set to false
-	alert("You are not an Admin!");
-}</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Switch Statement</h2>
-		<ul>
-			<li>Based on how the variable being 'switched' matches 'cases', different pieces of code are run</li>
-			<li>Similar to if() statement
-				<pre><code class="javascript">switch(animal) {
-	case "panther":
-		alert("It's a Panther!");
-		break;
-	case "tiger":
-		alert("It's a Tiger!");
-		break;
-	default:
-		alert("It's some sort of animal!");
-		break;
-}</code></pre>
-			</li>
-			<li>Allows a default, much like 'else' in an if() statement, but does not require it</li>
-			<li>Allows code execution to flow from one 'case' to the next, unless a 'break' statement is present</li>
-			<li>Looks a lot cooler than the if statement, when used in moderation</li>
-		</ul>
-		
-		<h2>Loops</h2>
-		<ul>
-			<li>Loops allow you to keep running the same block of script over and over again, until some condition is met.</li>
-			<li>There are two types of loops in JavaScript:
-				<ul>
-					<li><code>for</code> loop, which loops through a block of script a set number of times.</li>
-					<li><code>while</code> loop, which loops through a block of script until a specified condtion is true.</li>
-				</ul>
-			</li>
-		</ul>
-		
-		<h2><code>for</code> loop</h2>
-		<ul>
-			<li>The for loop is used when you know in advance how many times the script should run. <a href="http://www.w3schools.com/js/js_loop_for.asp">#</a></li>
-			<li>The syntax is a bit difficult to look at (so keep this as reference for a while), but it makes sense:
-				<pre><code class="javascript">var numTimes = 10;
-for( var index = 0; index &lt;= numTimes; index++ ) {
-	alert(index + " Times!");
-	alert(index + " Times!");
-}</code></pre>
-			</li>
-			<li>The three statements in the for loop's call are:
-				<ul>
-					<li>Initializer, which runs one when the loop starts, typically declaring a counter variable and setting it to the desired starting value</li>
-					<li>Loop-test, which runs at the beginning of every loop and, if it evaluates to false, the loop ends</li>
-					<li>Counting expression, which runs at the end of every loop, and is typically used to increment the counter variable</li>
-				</ul>
-			</li>
-		</ul>
-			
-		<h2><code>for...in</code> loop</h2>
-		<ul>
-			<li>A modified version of the for loop is the for...in loop</li>
-			<li>It allows you to iterate over all of the values in an object or array</li>
-			<li>It's syntax is simpler, and quite useful
-				<pre><code class="javascript">var browsers = {
-	firefox: {title: "Mozilla Firefox", version: "4.0"},
-	opera: {title: "Opera", version: "10.11"},
-	safari: {title: "Safari", version: "5.0"},
-	ie: {title: "Microsoft Internet Explorer", version: "9"}
-};
 
-for(var key in browsers) {
-	alert(key + " version: " + browsers[key].version);
-}</code></pre>
-			</li>
-			<li>Do note that, unlike other languages, the <code>key</code> variable is set to the object key (<code>firefox</code>, <code>opera</code>, etc.) rather than the value (<code>{title: "Mozilla Firefox", version: "4.0"}</code>, etc.).</li>
-		</ul>
-			
-		<h2><code>while</code> loop</h2>
-		<ul>
+		<div class="slide title">
+			<h1>All Done!</h1>
+			<h2>The <a href="homework.html">Homework</a>.</h2>
+		</div>
 
-			</li>
-			<li>The while loop can make some tasks much simpler than using a for loop, especially when the number of times you need to loop is unknown
-				<pre><code class="javascript">var number;
-var valueIsNumeric = false;
-while(!valueIsNumeric) {
-	number = prompt("Please enter a number.");
-	
-	number = parseFloat(number); // Parses a float (decimal number) from the string
-	
-	if(!isNaN(number)) { // Check if the value is Not a Number (NaN)
-		valueIsNumeric = true;
-	}
-}</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Class Exercise 2</h2>
-		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
-		<h3>Instructions:</h3>
-		<ul>
-			<li>Use the prompt() function to ask the user for their preference, and have them type in their answer</li>
-			<li>Use a switch statement to determine which musical style they prefer</li>
-			<li>Use document.write() to show the user style-specific content, based on their preference</li>
-			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
-			<li>Tip: use .toLowerCase() on the user's preference variable</li>
-		</ul>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li><a href="homework.html">Assignment 3</a></li>
-		</ul>
-		
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM387A</span>
+                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
 	</body>
 </html>
