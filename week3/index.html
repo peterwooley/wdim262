@@ -27,23 +27,6 @@
 		<!-- Common Styles -->
 		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
 		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
-
-        <!-- Slippy init code -->
-        <script type="text/javascript">
-            $(function() {
-                $(".slide").slippy();
-				SyntaxHighlighter.defaults.gutter = false;
-                SyntaxHighlighter.all();
-            });
-        </script>
-
-        <!-- Custom style for this deck -->
-        <style type="text/css">
-            .slide.nofooter {
-                border: 0;
-                background: 0;
-            }
-        </style>
     </head>
     <body>
         <div class="slide title" data-layout="title">
@@ -57,9 +40,25 @@
     			<li>Please send your homework as <code><var>lastnameFirstName</var>_assignment2.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
     		</ul>
         </div>
+        
+        <h2>Quiz 1!</h2>
+    	<ul>
+			<li>The quiz is up on Google Docs: <a href="https://spreadsheets.google.com/viewform?hl=en&formkey=dDBrdmE5WmszU1RQZFBkZlBnVUVNZ2c6MA">Quiz 1</a> (<a href="http://is.gd/X5nfCt">http://is.gd/X5nfCt</a>)</li>
+			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
+			<li>You've got 15 minutes!</li>
+		</ul>
 
         <div class="slide">
-			<h1>Objects</h1>
+            <h1>The &lt;noscript /&gt; tag</h1>
+        	<ul>
+        		<li>The &lt;noscript&gt; tag is an HTML tag that will hide whatever content is inside of it when JavaScript is turned on, and show that content whenever it is turned off.</li>
+        		<li>You can always disable JavaScript (<a href="http://enable-javascript.com/">enable-javascript.com</a> explains).
+        		<li>By including the &lt;noscript&gt; tag and content inside, you can either alert people to turn on JavaScript, or show content that doesn't require JavaScript.</li>
+        	</ul>
+        </div>
+
+        <div class="slide">
+    		<h1>Objects</h1>
             <pre class="brush: js">
             // Objects are named collections of any type.
             var user = {name: "Peter Wooley", age: 25};
@@ -87,21 +86,164 @@
             var bands = { 
                 radiohead: {name: "Radiohead", founded: 1985},
                 primus: {name: "Primus", founded: 1492},
-                wutangclan: ["Wu Tang Clan", 1992]
+                wutangclan: {"Wu Tang Clan", 1992}
             };
             
-            console.log(bands.radiohead.founded); // 1985 
+            console.log(bands.radiohead.founded); // 1985
             </pre>
         </div>
 
+        <div class="slide">
+            <h1>Switch Statement</h1>
+    		<p>Switch which block of code to run based on the value of a variable.</p>
+    		<pre class="brush: js">var animal = "tiger";
+            
+switch(animal) {
+    case "panther":
+    	console.log("It's a Panther!");
+    	break;
+    case "tiger":
+    	console.log("It's a Tiger!");
+    	break;
+    default:
+    	console.log("It's some sort of animal!");
+}</pre>
+    		<ul>
+    			<li>Allows a default, much like 'else' in an if() statement.</li>
+    			<li>Allows code execution to flow from one 'case' to the next, unless a 'break' statement is present.</li>
+    			<li>Looks cooler than the if statement.</li>
+    		</ul>
+        </div>
+    	
+        <div class="slide">
+    		<h1>Loops</h1>
+    		<p>Loops allow you to keep running the same block of script over and over again, until some condition is met.</p>
+    		<p>There are two types of loops in JavaScript:</p>
+			<ul>
+				<li>The <code>for</code> loop, which traditionally loops through a block a set number of times.</li>
+				<li>The <code>while</code> loop, which loops through a block until a specified condtion is true.</li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+    		<h1><code>for</code> Loop</h1>
+    		<p>The for loop is great when you need run a block of code a set number of times.</p>
+    		<p>The syntax is a bit tricky (so keep this as reference):</p>
+    		<pre class="brush: js">var num = 10;
+                    
+for( var i = 0; i &lt;= num; i++ ) {
+	console.log(i + " Times!");
+}</code></pre>
+            <p>The three statements in the for loop's call are:</p>
+			<ul>
+				<li>Initializer, which runs one when the loop starts, typically declaring a counter variable and setting it to the desired starting value</li>
+				<li>Loop-test, which runs at the beginning of every loop and, if it evaluates to false, the loop ends</li>
+				<li>Counting expression, which runs at the end of every loop, and is typically used to increment the counter variable</li>
+			</ul>
+    	</div>
+        
+        <div class="slide">
+    		<h1><code>for...in</code> Loop</h1>
+    		<p>The <code>for...in</code> loop allows you to iterate over all of the values in an object or array.</li>
+    		<pre class="brush: js">var browsers = {
+	firefox: {title: "Mozilla Firefox", version: "7.0.1"},
+	opera: {title: "Opera", version: "11.52"},
+	safari: {title: "Safari", version: "5.1"},
+	ie: {title: "Microsoft Internet Explorer", version: "9"}
+};
+    
+for(var key in browsers) {
+    // The key variable can be used to get each browser object.
+    var browser = browsers[key];
+    
+    console.log(key);
+	console.log(browser.title + " Version " + browser.version);
+}</pre>
+        </div>
+    		
+        <div class="slide">
+    		<h1><code>while</code> Loop</h1>
+    		<p>The while loop can make some tasks much simpler than using a for loop, especially when the number of times you need to loop is unknown.</p>
+    		<pre class="brush: js">var number;
+var valueIsNumeric = false;
+while(!valueIsNumeric) {
+	number = parseFloat(prompt("Please enter a number."));
+	
+	if( !isNaN(number) ) { // Check if the value is not Not a Number (NaN)
+		valueIsNumeric = true;
+	}
+}
+
+// This is an infinite loop.
+// Don't do this.
+//while(true) {}</pre>
+        </div>
+    		
+        <div class="slide">
+    		<h1>Hackathon</h1>
+    		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
+    		<h3>Instructions:</h3>
+    		<ul>
+    			<li>Use the prompt() function to ask the user for their preference out of 3 options.</li>
+    			<li>Use a switch statement to determine which musical style they prefer.</li>
+    			<li>Use document.write() to show the user style-specific content, based on their preference.</li>
+    			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
+    			<li>Tip: use .toLowerCase() on the user's preference variable.</li>
+    		</ul>
+        </div>
+        
 		<div class="slide">
             <h1>Functions</h1>
-            <pre class="brush: js">
-            </pre>
+            <p>Functions are JavaScript's Killer Feature. We'll look at them tonight and next week.</p>
+            <pre class="brush: js">// Functions are declared with the keyword function &amp; can have a name.
+function message(string) {
+    // The body is a block that runs when functions are called.
+    
+    // Arguments passed to the function are bound to variables.
+    // Here, we're using the string argument.
+	console.log("From message: " + string);
+}
+
+// To call (aka invoke) a function, just use the function name
+// and add parens at the end. Arguments are placed inside the parens.
+message("I like my message!");
+message("Messages are neat.");
+</pre>
 		</div>
+        
+        <div class="slide">
+            <h1>Functions Return</h1>
+            <pre class="brush: js">// Functions can return data to the code that called them.
+function add(number1, number2) {
+    // Multiple arguments can be provided in the argument list.
+    // They're comma-separated, as you can see.
+	return parseFloat(number1) + parseFloat(number2);
+}
+
+// Returned values can be stored in variables.
+var val = add(2, 3);
+console.log(val);
+
+// Return values can also be used directly by other functions.
+console.log(add(2, 3));      
+</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Functions &#x2764; Users</h1>
+            <pre class="brush: js">function add(number1, number2) {
+    return parseFloat(number1) + parseFloat(number2);
+}
+
+// We can use user-entered data in our functions.
+var num1 = prompt("Enter a number.");
+var num2 = prompt("Enter another number.");
+
+console.log("The sum is " + add(num1, num2));</pre>
+        </div>
 
 		<div class="slide title">
-			<h1>All Done!</h1>
+			<h1>Finished!</h1>
 			<h2>The <a href="homework.html">Homework</a>.</h2>
 		</div>
 
