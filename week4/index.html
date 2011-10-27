@@ -1,181 +1,226 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM262 Web Scripting: JavaScript, Week 4</title>
-		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
-		<script type="text/javascript">
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">The JavaScript Class, Week 4</p>
-		</div>
-		
-		<h2>Turn in Assignment 3</h2>
-		<ul>
-			<li>Turn in to <code>S:\Data\wdim262\assignment3\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment3.zip.</li>
-		</ul>
-	
-		<h2>Loops</h2>
-		<ul>
-			<li>Loops allow you to keep running the same block of script over and over again, until some condition is met.</li>
-			<li>There are two types of loops in JavaScript:
-				<ul>
-					<li><code>for</code> loop, which loops through a block of script a set number of times.</li>
-					<li><code>while</code> loop, which loops through a block of script until a specified condtion is true.</li>
-				</ul>
-			</li>
-		</ul>
-		
-		<h2><code>for</code> loop</h2>
-		<ul>
-			<li>The for loop is used when you know in advance how many times the script should run. <a href="http://www.w3schools.com/js/js_loop_for.asp">#</a></li>
-			<li>The syntax is a bit difficult to look at (so keep this as reference for a while), but it makes sense:
-				<pre><code class="javascript">var numTimes = 10;
-for( var index = 0; index &lt;= numTimes; index++ ) {
-	alert(index + " Times!");
-	alert(index + " Times!");
-}</code></pre>
-			</li>
-			<li>The three statements in the for loop's call are:
-				<ul>
-					<li>Initializer, which runs one when the loop starts, typically declaring a counter variable and setting it to the desired starting value</li>
-					<li>Loop-test, which runs at the beginning of every loop and, if it evaluates to false, the loop ends</li>
-					<li>Counting expression, which runs at the end of every loop, and is typically used to increment the counter variable</li>
-				</ul>
-			</li>
-		</ul>
-			
-		<h2><code>for...in</code> loop</h2>
-		<ul>
-			<li>A modified version of the for loop is the for...in loop</li>
-			<li>It allows you to iterate over all of the values in an object or array</li>
-			<li>It's syntax is simpler, and quite useful
-				<pre><code class="javascript">var browsers = {
-	firefox: {title: "Mozilla Firefox", version: "4.0"},
-	opera: {title: "Opera", version: "10.11"},
-	safari: {title: "Safari", version: "5.0"},
-	ie: {title: "Microsoft Internet Explorer", version: "9"}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 4</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+			<h2>Week 4</h2>
+        </div>
+
+        <div class="slide">
+            <h1>Turn in Assignment 3</h1>
+        	<ul>
+    			<li>Please send your homework as <code><var>lastnameFirstName</var>_assignment3.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Sign Your Name</h1>
+            <p>On the White Board, add your name.</p>
+        </div>
+        
+        <div class="slide">
+            <h1>Quiz 2!</h1>
+        	<ul>
+    			<li>The quiz is up on Google Docs: <a href="http://is.gd/gisz2">Quiz 2 (http://is.gd/gisz2)</a></li>
+    		</ul>
+        </div>
+
+        <div class="slide title">
+            <h1>Divide & Code</h1>
+        </div>
+
+        <div class="slide">
+            <h1>Scope</h1>
+            <p>All variables are defined within a <em>Scope</em>.</p>
+            <p>In JavaScript, functions create a new, local Scope.</p>
+            <pre class="brush: js">var num = 1,
+str = "Dude.";
+
+function foo() {
+    var num = 2,
+        str = "Sweet.";
+        
+    console.log(num, str);
 };
 
-for(var key in browsers) {
-	alert(key + " version: " + browsers[key].version);
-}</code></pre>
-			</li>
-			<li>Do note that, unlike other languages, the <code>key</code> variable is set to the object key (<code>firefox</code>, <code>opera</code>, etc.) rather than the value (<code>{title: "Mozilla Firefox", version: "4.0"}</code>, etc.).</li>
-		</ul>
-			
-		<h2><code>while</code> loop</h2>
-		<ul>
-
-			</li>
-			<li>The while loop can make some tasks much simpler than using a for loop, especially when the number of times you need to loop is unknown
-				<pre><code class="javascript">var number;
-var valueIsNumeric = false;
-while(!valueIsNumeric) {
-	number = prompt("Please enter a number.");
-	
-	number = parseFloat(number); // Parses a float (decimal number) from the string
-	
-	if(!isNaN(number)) { // Check if the value is Not a Number (NaN)
-		valueIsNumeric = true;
-	}
-}</code></pre>
-			</li>
-		</ul>
-
-		<h2>Quiz 2!</h2>
-		<ul>
-			<li>The quiz is up on Google Docs: <a href="http://is.gd/gisz2">Quiz 2 (http://is.gd/gisz2)</a></li>
-			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
-			<li>You've got 15 minutes!</li>
-		</ul>
-		
-		<h2>Class Exercise</h2>
-		<p>Mission: Using arrays and loops, create a table that lists the brands of five shoe companies next to how much money each company is worth (these numbers can be fictional).</p>
-		<h3>Instructions:</h3>
-		<ul>
-			<li>Store the information (shoe company names and assosiated value) using arrays</li>
-			<li>Using either type of loop, add the HTML elements for a table (&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;, etc.) to the document.</li>
-
-			<li>The easiest way to store the data is in two separate arrays, where each numerical index of one array assosiates to the other. You could also use a multi-dimensional array or object.</li>
-		</ul>
-		
-		<h2>Function the Ultimate</h2>
-		<ul>
-			<li>We're going to <del>steal</del><ins>use</ins> Douglas Crockford's <a href="http://developer.yahoo.com/yui/theater/video.php?v=crockonjs-3">Function the Ultimate</a> to learn about Functions in JavaScript.</li>
-			<li>We're only going to speak on the points that impact us, but feel free to watch the video (and others in the series) to go more in-depth with JavaScript functions.</li>
-		</ul>
-		
-		<h2>Pseudo parameters</h2>
-		<ul>
-			<li>Inside of a function, you have access to two pseudo parameters: <code>arguments</code> &amp; <code>this</code>.
-			</li>
-			<li><code>arguments</code> is easy to explain and use, where as <code>this</code> is tricky, but makes JavaScript funcions amazingly powerful.</li>
-		</ul>
-		
-		<h2><code>arguments</code></h2>
-		<ul>
-			<li>When a function is invoked, in addition to its parameters, it also gets a special parameter called arguments.</li>
-			<li>It contains all of the arguments from the invocation.</li>			<li>It is an array-like object.</li>
-			<li><code>arguments.length</code> is the number of arguments passed.</li>
-			<li>Weird interaction with parameters.</li>
-		</ul>
-		
-		<h2><code>arguments</code> Example</h2>
-		<pre><code class="javascript">function sum() {
-    var i,        n = arguments.length,        total = 0;
-    for (i = 0; i &lt; n; i += 1) {
-        total += arguments[i];
-    }
-    return total;
+foo();
+console.log(num, str);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Outer Scope</h1>
+            <p>Functions can reference variables defined in scopes outside of their own.</p>
+            <p>Can you spot the syntatic difference that makes this happen?</p>
+            <pre class="brush: js">var outer = 1;
+            
+function foo() {
+    outer++;
 }
 
-var ten = sum(1, 2, 3, 4);</code></pre>
+console.log(outer);
+foo();
+console.log(outer);
+foo();
+console.log(outer);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Closures</h1>
+            <p>Functions declared within functions can also access outer scope.</p>
+            <pre class="brush: js">function foo(name) {
+    var greeting = "Howdy, " + name + "!";
+    
+    return function() {
+        console.log(greeting);
+    }
+}
 
-		<h2><code>this</code></h2>
-		<ul>
-			<li>When a function run, <code>this</code> is set to the global (window) object.</li>
-			<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. (e.g., <code>window.alert() === alert()</code>)</li>
-		</ul>
-		<pre><code class="javascript">function foo() {
+var greet = foo("Buzz");
+greet(); // logs "Howdy, Buzz!"\</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><strong>A</strong>s, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <pre class="brush: js">// Write this function
+function basket() {};
+
+// So this code works (No, you can't edit the code below.)
+var fruitBasket = basket(['Apple', 'Banana', 'Orange', 'Lemon', 'Cherry']);
+
+var apple = fruitBasket(1),
+    lemon = fruitBasket(4);
+    
+if(apple === "Fresh Apple!" && lemon === "Fresh Lemon!") {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("apple === " + apple, "lemon === " + lemon);
+}</pre>
+        </div>
+
+        <div class="slide">
+            <h1>Everything's an Object</h1>
+            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
+            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
+            <pre class="brush: js">console.log("What did she say?".length);
+console.log(["A", "B", "C"].join(" -> "));</pre>
+
+            <p>Arbitrary properties and methods can be created:</p>
+            <pre class="brush: js">var foo = {};
+foo.awesome = true;
+console.log(foo.awesome);
+
+var bar = ['All', 'Sorts', 'of', 'Values'];
+bar.howLongIsThisArray = function() {
+    return this.length;
+};
+console.log(bar.howLongIsThisArray());
+        </div>
+        
+        <div class="slide">
+            <h1>Primitives vs. Constructors</h1>
+            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
+    		<pre class="brush: js">// Some Primitives
+var arr = [],
+    obj = {},
+    str = "",
+    bool = true;</pre>
+            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
+    		<pre class="brush: js">// Some Constructors
+var arr = new Array(),
+    obj = new Object(),
+    str = new String("""),
+    bool = new Boolean(true);</pre>
+    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
+        </div>
+
+        <div class="slide">
+            <h1><strong>B</strong>s, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <pre class="brush: js">var siblings = [];
+
+// Write this function
+// Use the "this" variable.
+siblings.asProse = function() {};
+
+// So this code works (No, you can't edit the code below.)
+siblings.push("Fred", "Jon", "Steve");
+var prose = siblings.asProse();
+
+if(prose === "Fred is older than Jon is older than Steve.") {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("Prose: " + prose);
+}</pre>
+        </div>
+
+        <div class="slide">
+    		<h1><code>this</code></h1>
+            <ul>
+        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
+        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
+        	</ul>
+            <pre class="brush: js">function foo() {
     console.log(this);
 }
-foo(); // logs reference to window</code></pre>
-
-		<h2><code>this</code> in a Method</h2>
-		<ul>
-			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
-			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
-			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
-		</ul>
-		<pre><code class="javascript">var user = {
+foo(); // logs reference to window</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><code>this</code> in a Method</h1>
+        	<ul>
+    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
+    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
+    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
+    		</ul>
+    		<pre class="brush: js">var user = {
 	name: "Johnny Alabaster",
 	age: 43
 };
 user.getInfo = function() {
     console.log(this);
 };
-user.getInfo(); // logs reference to user</code></pre>
+user.getInfo(); // logs reference to user</pre>
+        </div>
 
-function foo() {
-    console.log(this);
-}
-foo(); // logs reference to window
-
-		<h2><em>this</em> as a Constructor</h2>
-		<ul>
-			<li>If your mind has yet to be blown, this will do it.</li>
-			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
-			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
-		</ul>
-		<pre><code class="javascript">function User(name, password) {
+        <div class="slide">
+            <h1><code>this</code> as a Constructor</h1>
+        	<ul>
+    			<li>If your mind has yet to be blown, this will do it.</li>
+    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
+    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
+    		</ul>
+    		<pre class="brush: js">function User(name, password) {
 	this.name = name;
 	this.password = password;
 
@@ -188,73 +233,79 @@ var user2 = new User("thor", "HammerTime");
 
 // logs both users names and passwords
 user1.getInfo();
-user2.getInfo();</code></pre>
+user2.getInfo();</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Sorry <strong>C</strong>s, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <pre class="brush: js">
+// Write this function
+function Band() {};
 
-		<h2>The low-down on <code>this</code></h2>
-		<ul>
-			<li>The <code>this</code> parameter contains a reference to the object of invocation.</li>
-			<li><code>this</code> allows a method to know what object it is concerned with.</li>
-			<li><code>this</code> allows a single function object to service many functions.</li>
-		</ul>
-		
-		<h2>The Four Ways to Invoke a Function</h2>
-		<ul>
-			<li>Function form: <pre><code class="javascript">functionObject(arguments);</code></pre></li>
-			<li>Method form: <pre><code class="javascript">thisObject.methodName(arguments);
-thisObject["methodName"](arguments);</code></pre></li>
-			<li>Constructor form: <pre><code class="javascript">new FunctionObject(arguments);</code></pre></li>
-			<li>Apply form: <pre><code class="javascript">functionObject.apply(thisObject,[arguments]);
-functionObject.call(thisObject, argument)</code></pre></li>
-		</ul>
-		
-		<h2>Apply form</h2>
-		<ul>
-			<li>A function’s apply or call method allows for calling the function, explicitly specifying the value of <code>this</code>.</li>
-			<li>It can also take an array of parameters or a sequence of parameters.</li>
-		</ul>
-		<pre><code class="javascript">function getName() {
-    console.log("arguments", arguments);
-    console.log("this", this);
-    console.log(this.name);
-};
-function Animal(name) {
-    this.name = name;
-}
-var molly = new Animal("Molly");
-getName("arg1", "arg2");
-getName.apply(molly, ["arg1", "arg2"]);
-getName.call(molly, "arg1", "arg2");</code></pre>
-
-		<h2>Why are there subroutines (functions)?</h2>
-		<ul>
-			<li>Code reuse</li>
-			<li>Decomposition</li>
-			<li>Modularity</li>
-			<li>Expressiveness</li>
-			<li>Higher Order</li>
-		</ul>
-		
-		<h2>Pseudoclassical Inheritance</h2>
-		<ul>
-			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
-			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
-		</ul>
-		<pre><code class="javascript">function Animal(name) {
+// To make this code work.
+var radiohead = new Band("Radiohead", "alternative"),
+    modestMouse = new Band("Modest Mouse", "indie");
+    
+if(
+    radiohead.info() === "Radiohead plays alternative."
+    && modestMouse.info() === "Modest Mouse plays indie."
+) {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log(
+        "radiohead.info() = " + radiohead.info(),
+        "modestMouse.info() = " + modestMouse.info()
+    );
+}</pre>
+        </div>
+        
+        <div class="slide title">
+            <h1>One more thing...</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Pseudoclassical Inheritance</h1>
+        	<ul>
+    			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
+    			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
+    		</ul>
+    		<pre class="brush: js">function Animal(name) {
     this.type = "animal";
     this.getName = function() { return this.name };
 }
-function Cat(name) {
+function SwiftSpectralWarhorse(name) {
     this.name = name;
 }
-Cat.prototype = new Animal();
+SwiftSpectralWarhorse.prototype = new Animal();
 
-var zoe = new Cat("Zoe");
-console.log(zoe.getName()); // logs "Zoe"</code></pre>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li><a href="homework.html">Assignment 4</a></li>
-		</ul>
-		
+var zoe = new SwiftSpectralWarhorse("Zoe");
+console.log(zoe.getName()); // logs "Zoe"</pre>
+        </div>
+
+		<div class="slide title">
+			<h1>It's Over!</h1>
+			<h2>The <a href="homework.html">Homework</a>.</h2>
+		</div>
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM387A</span>
+                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
 	</body>
 </html>
