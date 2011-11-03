@@ -1,79 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
 		<meta charset="utf-8">
 		<title>WDIM262 Web Scripting: JavaScript, Assignment 4</title>
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+        <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/common.css" />
 	</head>
 	<body>
 		<div id="header">
 			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">Homework: <em>Assignment 4</em></p>
+			<p class="tagline">Homework: <em>Assignment 4</em>, due <strong>Week 6</strong>.</p>
 		</div>
 		<p>Please turn in your files in a .zip file, using the following naming convention: <var>lastnameFirstname_assignment4.zip</var></p>
-		
-		<h4>Assignment 4; due Week 6.</h4>
 		
 		<h2>Requirements</h2>
 		<p>Create a Web page-based Mad Lib. The Mad Lib can be whatever you'd like it to, within the realm of appropriateness. Make sure it fulfills these requirements:</p>
 		
 		<ul>
 			<li>The user is prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib.</li>
-			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed in the Web page.
-			<li>You must use the template provided below and can only add code where it is marked (inside the two functions).
-				<pre><code class="html">&lt;!DOCTYPE html&gt;
+			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed in the Web page.</li>
+			<li>You must use the template provided below and only add code where it is marked .</li>
+		</ul>
+        <pre class="brush: js">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
-		&lt;script type="text/javascript"&gt;
-			/**
-			 * Asks the user for words for the mad lib.
-			 *
-			 * @return {string} Completed mad lib.
-			 */
-			function getWords() {
-				// Your script should go here.
-			}
-			
-			/**
-			 * Renders the completed mad lib into the document.
-			 *
-			 * @param madlib The completed madlib as a string.
-			 */
-			function render(madlib) {
-				// Your script should go here.
-			}
+    &lt;head&gt;
+        &lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
+        &lt;script type="text/javascript"&gt;
+            function MadLib() {
+                // Create everything you need inside this MadLib function.
+            };
 		
-			window.onload = function() {
-				var madlib = getWords();
-				render(madlib);
-			}
-		&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-			</li>
-			<li><Strong>Or (for 10% Extra Credit):</strong> Implement a custom solution that uses a <code>MadLib</code> object constructor with a <code>getWords()</code> and <code>render()</code> method and adheres to this template.
-			<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
-		&lt;script type="text/javascript"&gt;
-			
-			// Your MadLib constructor should go here.
-		
-			window.onload = function() {
-				var madlib = new MadLib();
-				madlib.getWords();
-				madlib.render();
-			}
-		&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</pre></code>
+            window.onload = function() {
+                var madlib = new MadLib();
+                madlib.getWords();
+                madlib.render();
+            }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
 			</li>
 		</ul>
 	</body>

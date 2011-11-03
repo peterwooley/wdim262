@@ -1,57 +1,102 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM262 Web Scripting: JavaScript, Week 5 (Midterm)</title>
-		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
-		<script type="text/javascript">
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">The JavaScript Class, Week 5 (Midterm)</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 5</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+			<h2>Midterm</h2>
+        </div>
+    
+		<div class="slide">
+			<h1>Midterm Rules</h1>
+			<ol>
+				<li>You must complete the midterm by 9:45pm.</li>
+				<li>After 7:30pm, you can talk.</li>
+				<li>You can use any resource besides other people in class.</li>
+				<li>You may use any techniques you know of in JavaScript to complete the tasks.</li>
+			</ol>
+		</div>
+
+		<div class="slide">	
+			<h1>Midterm Theoretical</h1>
+			<p>Complete the questions here: <a href="http://is.gd/gypk1">WDIM262 Midterm (http://is.gd/gypk1)</a></p>
+		</div>
+
+		<div class="slide">
+			<h1>Midterm Practical</h1>
+			<p>To complete the Practical portion of the WDIM262 Midterm, please write a script that accomplishes the following:</p>
+			<ol>
+				<li>Ask the user which Web browser is their favorite (of three options you define), accepting both the full title or numeric position in the list you define,
+					<ul>
+						<li>i.e., if you present the user with "Choose: IE, Firefox, or Safari", the user can either enter "Firefox" or "2" to choose Firefox.</li>
+					</ul>
+				</li>
+				<li>Continue to ask the user which browser is their favorite, until a valid answer has been given.</li>
+				<li>Dynamically create an &lt;h1&gt; tag with the title of the browser they chose,</li>
+				<li>Dynamically creates an &lt;img&gt; tag in the document that features the user's chosen Web browser logo.</li>
+				<li>Randomly list three facts (true or not) about the browser the user chose. These should change every time the user reloads the page and chooses a browser.</li>
+				<li>Lastly, no content may appear on the page if JavaScript is disabled in the user's browser, except for a message telling the user they should enable JavaScript to view the content.</li>
+			</ol>
 		</div>
 		
-		<h2>Midterm Rules</h2>
-		<ol>
-			<li>You must complete the midterm by 9:45pm.</li>
-			<li>After 7:30pm, talking will be allowed for all students who are working on their assignment for next week.</li>
-			<li>You may use any resource to help you complete the practical portion, except for other students in the class (no talking, IMing, tweeting, facebooking, note-passing, emailing, or telepathy).</li>
-			<li>You may use any techniques you know of in JavaScript to complete the tasks.</li>
-		</ol>
-		
-		<h2>Midterm Theoretical</h2>
-		<ul>
-			<li>Complete the questions here: <a href="http://is.gd/gypk1">WDIM262 Midterm (http://is.gd/gypk1)</a></li>
-		</ul>
-		
-		<h2>Midterm Practical</h2>
-		<p>To complete the Practical portion of the WDIM262 Midterm, please write a script that accomplishes the following:</p>
-		<ol>
-			<li>Asks the user which Web browser is their favorite (of three options you define), accepting both the full title or numeric position in the list you define,
-				<ul>
-					<li>i.e., if you present the user with "Choose: IE, Firefox, or Safari", the user can either enter "Firefox" or "2" to choose Firefox.</li>
-				</ul>
-			</li>
-			<li>Continues to ask the user which browser is their favorite, until a valid answer has been given,</li>
-			<li>Dynamically creates an &lt;h1&gt; tag with the title of the browser they chose,</li>
-			<li>Dynamically creates an &lt;img&gt; tag in the document that features the user's chosen Web browser logo,
-				<ul>
-					<li>Yes, that means you'll need to find images on the Internet. If the network is down, let me know!</li>
-				</ul>
-			</li>
-			<li>And, lastly, no content may appear on the page if JavaScript is disabled in the user's browser, except for a message alerting the user they should enable JavaScript to view the content.</li>
-		</ol>
-		
-		<h3>When Finished</h3>
-		<ul>
-			<li>Please zip up the file with this naming convention: <var>lastnameFirstname_midterm.zip</var>.</li>
-			<li>Then place this file on the Data drive in <code>wdim262/midterm</code>, come and tell me you're finished, and I'll grab it and delete it from the drive.</li>
-		</ul>
+		<div class="slide">
+			<h1>When Finished</h1>
+			<ul>
+				<li>Please zip up the file with this naming convention: <var>lastnameFirstname_midterm.zip</var>.</li>
+				<li>Then email it to me at <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
+			</ul>
+		</div>
+
+
+		<div class="slide title">
+			<h1>Midterm Complete!</h1>
+			<h2>The <a href="homework.html">Homework for next week</a>.</h2>
+		</div>
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM387A</span>
+                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
 	</body>
 </html>
