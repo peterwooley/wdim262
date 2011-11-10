@@ -1,166 +1,362 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM262 Web Scripting: JavaScript, Week 6</title>
-		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
-		<script type="text/javascript">
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">The JavaScript Class, Week 6</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 6</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+			<h2>Week 6</h2>
+        </div>
+    
+		<div class="slide">
+			<h1>DOM &mdash; Document Object Model</h1>
+            <h2>Document</h2>
+            <ul>
+				<li>History (Back/Forward)</li>
+				<li>HTML elements</li>
+				<li>Styles</li>
+				<li>Web browser window</li>
+			</ul>
+            
+            <h2>Object Model</h2>
+            <ul>
+                <li>A collection of objects through which a program can examine and manipulate some specific parts of its world.</li>
+            </ul>
+            
+            <h2>Document Object Model</h2>
+            <ul>
+                <li>The API (Application Programming Interface) linking JavaScript with the Web Browser.</li>
+                <li>The most important piece of JavaScript in the browser. <a href="http://en.wikipedia.org/wiki/Wikipedia:Citation_needed"><sup>[citation needed]</sup></a></li>
+            </ul>
+            
 		</div>
-	
 
-		<h2>Turn in Assignment 4</h2>
-		<ul>
-			<li>Turn in to <code>S:\Data\wdim262\assignment4\</code> using the following naming convention: <var>lastnameFirstname</var>_assignment4.zip.</li>
-			<li>We'll take a look at the Mad Lib with the least number of words.</li>
-		</ul>
-	
-		<h2>Primitives vs. Constructors</h2>
-		<ul>
-			<li>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.
-				<ul>
-					<li>e.g., <code>[]</code>, <code>{}</code>, <code>""</code>, <code>true</code>, and <code>false</code> are all primitives.</li>
-				</ul>
-			</li>
-			<li>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator we looked at with Functions.
-				<ul>
-					<li>e.g., <code>new Array()</code>, <code>new Object()</code>, <code>new String()</code>, <code>new Boolean(true)</code>, and <code>new Boolean(false)</code>, are all constructors for basic JavaScript types.</li>
-				</ul>
-			</li>
-			<li>Typically, there is little reason to use the constructor method, as primitives are built-in and shorter.</li>
-		</ul>
+		<div class="slide">	
+			<h1><del>document.write</del> <ins>document.createElement</ins></h1>
+			<p>Unless otherwise noted, the use of <code>document.write()</code> is no longer allowed.</li>
+            <p>Instead, we'll use the appropriate DOM methods for creating elements.</li>
+            <pre class="brush: js eval">// We can create any HTML Element
+// An HTMLElement object is created &amp; stored in variable div.
+var div = document.createElement("div");
 
-		<h2>Gotchas</h2>
-		<ul>
-			<li>If you do feel inclined to use the constructors, pay attention to this Gotcha:
-				<pre><code class="javascript">var primative_array = [7]; // This represents an array with one element, containing the number 7.
-var constructor_array = new Array(7); // This represents an array with seven elements, all set to undefined.
-var constructor_array_several = new Array(7,8,9); // This represents an array with three elements, set to 7,8 & 9 respectively.</code></pre>
-			</li>
-			<li>Also be aware that, because everything is an Object in JavaScript, primatives have properties and methods as well:
-				<pre><code class="javascript">"Primatives are objects, too!".length; // Returns 28
-"Mozilla Firefox".toLowerCase(); // Returns "mozilla firefox"</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Document Object Model</h2>
-		<ul>
-			<li>A "document" refers to any XML or HTML.</li>
-			<li>For our Web purposes, a "document" is a Web page, including:
-				<ul>
-					<li>History (Back/Forward)</li>
-					<li>All HTML Elements</li>
-					<li>Styles</li>
-					<li>Web Browser Window!</li>
-				</ul>
-			</li>
-		</ul>
-		
-		<h2>What's the object model?</h2>
-		<ul>
-			<li>The Document Object Model (or DOM) is an API (Application Programming Interface).</li>
-			<li>An API is way for two different technologies (here: HTML and JavaScript) to interact.</li>
-			<li>In JavaScript, the document is implmented using JavaScript Objects:
-				<pre><code class="javascript">window.history.back();
-document.getElementById('picture');
-document.getElementById('picture').style.border = "1px solid red";</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Web Browser Gotcha of the DOM: window</h2>
-		<ul>
-			<li>The <code>window</code> and <code>document</code> objects appear to be wholly separated, but this is not true.</li>
-			<li>By calling <code>window.document.getElementById('picture');</code>, you'd get the same result as <code>document.getElementById('picture');</code>.</li>
-			<li>For ease of use, modern web browsers assume you'll be using the window object of the DOM.</li>
-		</ul>
-		
-		<h2>In Class Exercise</h2>
-		<ul>
-			<li>Mission: Utilizing <a href="inclass/inclass_exercise.html">the given template</a>, fill in all the personalized information, being sure to maintain the current markup.
-		Instructions:
-				<ul>
-					<li>Prompt the user for their name and email address.</li>
-					<li>Modify the <code>&lt;p id=&quot;myName&quot; /&gt;</code> element and add the user's input name to the end of the sentence.</li>
-					<li>Modify the <code>innerHTML</code> of the <code>&lt;p id=&quot;myEmail&quot; /&gt;</code> element to be an <code>&lt;a/&gt;</code> tag that will mailto the user.</li>
-					<li>Fill in each of the <code>&lt;span/&gt;</code> elements under the My Browser Information with the appropriate information.</li>
-					<li>Finally, concatenate the document's last modified date onto the end of the <code>&lt;p id=&quot;modified&quot; /&gt;</code> element.</li>
-				</ul>
-			</li>
-		</ul>
-		
-		<h2>Events</h2>
-		<ul>
-			<li><q>Events are the beating heart of any JavaScript application.</q><a href="http://www.quirksmode.org/js/introevents.html">Quirksmode.org</a></li>
-			<li>In order for there to be a two-way interaction between your scripts and your users, you must rely on events.</li>
-			<li>When the user does nearly anything in the browser and when the web page loads or unloads, an event is fired.</li>
-			<li>Back when Netscape first implemented what would become JavaScript, event handlers were attributes you placed on elements in your Markup:
-				<pre><code class="html">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;alert('You clicked me!')&quot;&gt;Click me!&lt;/a&gt;</code></pre>
-			</li>
-			<li>These days, we create event handlers (which are usually functions), in our &lt;script /&gt; tag:
-				<pre><code class="javascript">var link = document.getElementById('aTag');
-link.onclick = function() { alert('You clicked me!'); };</code></pre>
-			</li>
-			<li>Cross-browser compatibility issues really start to show up with event handling, so make sure to test in all your target browsers.</li>
-		</ul>
-		
-		<h2>Event Handlers</h2>
-		<ul>
-			<li>Event handlers are functions that get called when an event takes place (or is "fired").</li>
-			<li>Information about the event is passed to the event handler in different ways between IE &amp; every other browser:
-				<pre><code class="javascript">link.onclick = doSomething;
-				
-function doSomething(event) {
-	event = event || window.event; // Detect if the event info was passed through an argument, or needs to be set through window (as is the case with IE)
-	alert(event); // alerts information about the event
-	return false; // stops the &lt;a&gt; tag from following the href link
-}</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Using <code>this</code> in Event Handlers</h2>
-		<ul>
-			<li><code>this</code> is the special variable that is automatically set, depending on how a function was invoked.</li>
-			<li>In event handlers, <code>this</code> contains a reference to the HTML Element that caused the event handler to fire.
-				<pre><code class="javascript">link.onclick = doSomething;
-				
-function doSomething() {
-	this.innerHTML = "I've been affected by an event!";
-	return false;
-}</code></pre>
-			</li>
-		</ul>
-		
-		<h2>Playing with Event Handlers</h2>
-		<ul>
-			<li>Open up <a href="inclass/events.html">week6/inclass/events.html</a> in your Text Editor.</li>
-		</ul>
-		
-		<h2>Music Search App</h2>
-		<ul>
-			<li>Let's make a JavaScript app that can search a list of music, and filter the results.</li>
-			<li>In addition to what we've talked about today, we'll be looking at some new properties and methods:
-				<ul>
-					<li><code>getElementsByTagName()</code>, which lets us get a set of elements based on their tag name.</li>
-					<li><code>value</code>, which lets us get the value out of a form field.</li>
-					<li><code>indexOf()</code>, which tells us if a string is present in another string.</li>
-				</ul>
-			</li>
-			<li>Open up <a href="inclass/search.html">week6/inclass/search.html</a> in your Text Editor.</li>
-		</ul>
+// All HTMLElement objects have a style object.
+// It can be used to set CSS styles directly on the element.
+div.style.width = div.style.height = "150px";
+div.style.margin = "10px";
+div.style.backgroundColor = "red";
 
-		<h2>Homework</h2>
-		<ul>
-			<li><a href="homework.html">Assignment 5</a></li>
-		</ul>
-</body>
+div.id = "demo";
+
+// document.body is an HTMLELement object of the &lt;body&gt;.
+// When you create an element, you must add it to the document.
+document.body.appendChild(div);
+            </pre>
+		</div>
+        
+        <div class="slide">
+            <h1>Finding Elements in the DOM</h1>
+            <p>After creating elements, you'll want to get access to them.</p>
+            <pre class="brush: js eval">// You can find all tags by their name.
+var divs = document.getElementsByTagName("div");
+alert("Number of divs: " + divs.length);</pre>
+
+            <pre class="brush: js eval">// You can find tags by their class name (IE9+)
+var slides = document.getElementsByClassName("slide");
+alert("Number of divs with 'slide' class: " + slides.length);</pre>
+
+            <pre class="brush: js eval">// You can find a specific tag with its ID
+var demo = document.getElementById("demo");
+alert("The #demo div: " + demo);</pre>
+        </div>
+
+		<div class="slide">
+			<h1>Changing Elements in the DOM</h1>
+            <p>After you find an element, you'll want to change it.</p>
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
+
+// You can modify the style of an element you find.
+demo.style.border = "10px solid black";
+demo.style.color = "white";
+
+// You can add text to the element.
+var text = document.createTextNode("This is not a pipe.");
+demo.appendChild(text);</pre>
+
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
+
+// You can modify the contents of an element with HTML.
+demo.innerHTML =
+    "Stay <em>hungry</em>, stay <strong>foolish.</strong>";</pre>
+		</div>
+		
+		<div class="slide">
+			<h1>Removing Elements from the DOM</h1>
+            <p>Often, when an element is no longer necessary, you want to delete it from the DOM.</p>
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
+
+// Deleting a node is a little complex.
+demo.parentNode.removeChild(demo);</pre>
+        </div>
+        
+        <div class="slide title">
+            <h1>Congratulations!</h1>
+            <h2>You can <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete" title="Create, Read, Update &amp; Delete">CRUD</a> the DOM!</h2>
+        </div>
+        
+        <div class="slide">
+            <h1>Calling Functions on a Timer</h1>
+            <p>Using <code>setTimeout</code> and <code>setInterval</code>, you can call functions on a timer.</li>
+            <pre class="brush: js eval">// Call this function after 1000ms (1 second).
+function timeout() { alert("Timeout!") };
+window.timeoutId = setTimeout(timeout, 1000);
+
+// Call this function every 3000ms (3 seconds).
+function interval() { alert("Interval!") };
+window.intervalId = setInterval(interval, 3000);</pre>
+
+            <pre class="brush: js eval">// Stop the timeout from occurring.
+clearTimeout(window.timeoutId);
+
+// Stop the interval from occurring.
+clearInterval(window.intervalId);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><code>position:absolute;</code></h1>
+            <p>In order to control the location of an element, you can use <code>position: absolute;</code>.</p>
+            <pre class="brush: js eval">var box = document.createElement("div");
+box.id = "absolute";
+box.style.width = box.style.height = "100px";
+box.style.background = "red";
+
+// Here, we set the position and move the box.
+box.style.position = "absolute";
+box.style.left = "400px";
+
+document.body.appendChild(box);</pre>
+
+            <pre class="brush: js eval">var box = document.getElementById("absolute");
+
+// After half a second, we can change the left style
+setTimeout(function() { box.style.left = "600px"; }, 500);
+
+// After 4 seconds we can delete the element.
+setTimeout(function() { box.parentNode.removeChild(box); }, 4000);
+        </div>
+        
+        
+        <div class="slide">
+            <h1>Driver #1, You're Up!</h1>
+            <p>You'll be coding up some animation.</p>
+            <ul>
+                <li>Get the #box div from the DOM and save it to a variable.</li>
+                <li>Set the appropriate styles so the element can move around the page.</li>
+                <li>Animate the element to the right for 500px then back 500px.</li>
+            </ul>
+            <pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Animation!&lt;/title&gt;
+        &lt;script&gt;
+            function animate() {
+                // Only add code in this function.
+            }
+            
+            setInterval(animate, 20);
+        &lt;/script&gt;
+        <style>
+            #box { width:200px; height:200px; background:#000; }
+        </style>
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="box"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+        
+        <div class="slide title">
+            <h1>B-B-B-Break</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Togetherness Exercise</h1>
+            <p>Let's work together to complete the tasks below using <a href="inclass/dom.html">the given template</a>.</p>
+			<ul>
+				<li>Prompt the user for their name and email address.</li>
+				<li>Modify the <code>&lt;p id=&quot;myName&quot; /&gt;</code> element and add the user's input name to the end of the sentence.</li>
+				<li>Modify the <code>innerHTML</code> of the <code>&lt;p id=&quot;myEmail&quot; /&gt;</code> element to be an <code>&lt;a/&gt;</code> tag that will mailto the user.</li>
+				<li>Fill in each of the <code>&lt;span/&gt;</code> elements under the My Browser Information with the appropriate information.</li>
+				<li>Finally, concatenate the document's last modified date onto the end of the <code>&lt;p id=&quot;modified&quot; /&gt;</code> element.</li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Traversing the DOM</h1>
+            <p>The DOM is a <a href="http://en.wikipedia.org/wiki/Tree_%28data_structure%29">tree data structure</a>.</p>
+            <p>From any element in the DOM, you can use properties to get to any other element.</p>
+            <p>An element can have any of the following properties:</p>
+            <ul>
+    			<li><code>.parentNode</code></li>
+				<li><code>.childNodes</code> &mdash; Returns an array of elements.</li>
+				<li><code>.lastChild</code></li>
+				<li><code>.firstChild</code></li>
+				<li><code>.previousSibling</code></li>
+				<li><code>.nextSibling</code></li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+            <h1 id="traverseHeading">#traverseHeading</h1>
+            <p id="traverseParagraph">#traverseParagraph <span id="traverseSpan">#traverseSpan</span> <strong id="traverseStrong">#traverseStrong</strong> <em id="traverseEm">#traverseEm</em></p>
+            <ul id="traverseList">
+                <li>#traverseList li</li>
+                <li>#traverseList li</li>
+            </ul>
+            <pre class="brush: js eval">// Start from #traverseStrong and add a red border to the li.
+var strong = document.getElementById("traverseStrong"),
+    paragraph = strong.parentNode,
+    textNode = paragraph.nextSibling,
+    list = textNode.nextSibling,
+    lis = list.childNodes,
+    lastLi = lis[lis.length-2];
+
+paragraph.style.border = "2px solid blue";
+list.style.border = "2px solid purple";
+
+for(var key in lis)
+    if(lis[key].style)
+        lis[key].style.border = "2px solid green";
+
+lastLi.style.border = "2px solid red";</pre>
+            <p>Using <a href="inclass/traversal.html">the traversal template</a>, let's play with traversing around the DOM.</p>
+        </div>
+        
+        <div class="slide">
+            <h1 id="eventsHeader">Events</h1>
+            <p><q>Events are the beating heart of any JavaScript application.</q> <a href="http://www.quirksmode.org/js/introevents.html">Quirksmode.org</a></p>
+            <p>When something happens in the browser, an event is fired.</p>
+            <p>With <strong>event handlers</strong> we can execute JavaScript when an event fires.</p>
+            <pre class="brush: js eval">var header = document.getElementById("eventsHeader");
+
+// Helper function to use in the event handler
+var rand = function() { return parseInt(Math.random() * 255) }
+
+// Every time the mouse moves over the header,
+// set a random background color.
+header.onmousemove = function(event) {
+    var color = "rgb("+rand()+","+ rand()+","+rand()+")";
+    
+    // The this refers to the element that fired the event.
+    this.style.background = color;
+}</pre>     
+        </div>
+        
+        <div class="slide">
+            <h1>Inline Event Handlers</h1>
+            <p>It is possible to place event handlers directly in your HTML:</p>
+            <pre class="brush: xml">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;alert('Clicky!')&quot;&gt;Click me!&lt;/a&gt;</pre>
+            <p>Unless you absolutely have to, <strong>do not use inline event handlers</strong>.</p>
+            <p>Remember the Web Trifecta and try to keep them separated.</p>
+        </div>
+        
+        <div class="slide">
+            <h1>Using Event Handlers</h1>
+            <p>When <a id="eventHandlerLink" href="http://en.wikipedia.org/wiki/Event_%28computing%29#Event_handler">an event handler</a> handles an event, it gets information about the event and can often stop the event from taking place.</p>
+            <pre class="brush: js eval">var link = document.getElementById("eventHandlerLink");
+
+link.onclick = function(event) {
+    event = event || window.event; // Fix for IE.
+    
+    alert("Click was prevented.");
+    
+    console.log(event); // Log the event object.
+    
+    event.preventDefault(); // Stop the event.
+    return false; // Stop the event, old school.
+}
+
+alert("Click event handler activated.");
+        </div>
+        
+        <div class="slide">    
+    		<h1>Playing With Events</h1>
+    		<p>Let's try some events using the <a href="inclass/events.html">events template</a>.</p>
+        </div>
+        
+        <div class="slide">	
+    		<h1>Driver #2, You're Up!</h1>
+            <p>When the user clicks any box, animate that box 500px left then 500px right.</p>
+    		<pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Animation!&lt;/title&gt;
+        &lt;script&gt;
+            function animate() {
+                // Start with the code you created before.
+            }
+            
+            window.onload = function() {
+                // Add your event handlers here.
+            };
+        &lt;/script&gt;
+        <style>
+            .box { width:200px; height:200px; background:#000; }
+        </style>
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            
+        </div>
+        
+		<div class="slide title">
+			<h1>Finished!</h1>
+			<h2>The <a href="homework.html">Homework for next week</a>.</h2>
+		</div>
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM387A</span>
+                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
+	</body>
 </html>
-
