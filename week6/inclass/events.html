@@ -4,14 +4,55 @@
         <title>WDIM262: Events</title>
 		<script>
             // Remember to wait for load.
-            
+            window.onload = function() {
                 // Clicks
+                var as = document.getElementsByTagName("a");
+                function clickHandler(event) {
+                    event = event || window.event;
+                    
+                    if(this.className === "highlight") {
+                        this.className = "";
+                    } else {
+                        this.className = "highlight";
+                    }
+                    
+                    event.preventDefault();
+                }
+                
+                for(var i = 0; i < as.length; i++) {
+                    as[i].onclick = clickHandler;
+                }
                 
                 // Over & Out
+                var header = document.getElementById("header");
+                header.onmouseover = function() {
+                    this.className = "highlight";
+                }
+                
+                header.onmouseout = function() {
+                    this.className = "";
+                }
                 
                 // Up & Down
+                header.onmousedown = function() {
+                    this.style.paddingTop = "100px";
+                }
                 
-                // Keys	  
+                header.onmouseup = function() {
+                    this.style.paddingTop = "";
+                }
+                
+                // Keys
+                document.onkeydown = function(event) {
+                    event = event || window.event;
+                    
+                    console.log(event.keyCode);
+                }
+                
+                window.onresize = function() {
+                    alert("Resized!");
+                }
+            }
 		</script>
 		<style>
 			.highlight { background:yellow; }			
