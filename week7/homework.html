@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
+    	<meta charset="utf-8">
 		<title>WDIM262 Web Scripting: JavaScript, Assignment 6</title>
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
+        <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/common.css" />
 	</head>
 	<body>
 		<div id="header">
@@ -17,16 +18,13 @@
 		
 		<h2>Requirements</h2>
 		
-		<p>Create a comment form with JavaScript validation. Make sure it fulfills these requirements:</p>
+		<p>Create a form that can dynamically alter the page. Make sure it fulfills these requirements:</p>
 		
 		<ul>
-			<li>The user is presented with an empty comment form with a field for their name, email address and comment.</li>
-			<li>When the form is submitted, the form is validated.</li>
-			<li>Validate that the name field is not empty.</li>
-			<li>Validate that the email address field is not empty, and has at least one "@" and one "." in it.</li>
-			<li>Validate that the comment field is not empty.</li>
-			<li>If the form is invalid, the fields that are invalid should be highlighted in some way.</li>
-			<li>If the form is valid, the page should <code>alert()</code> that your comment was successfully saved.</li>
+			<li>Using a text box, the user can enter a hex or CSS color name and the background color of the page will immediately change.</li>
+			<li>Using a series of radio buttons, the user can set the page font size to small, medium, and large.</li>
+			<li>The user can edit text in a textarea and immediately see the changes in a styled paragraph next to the textarea.</li>
+			<li>The user can enter JavaScript into a textbox and after clicking a button, the JavaScript is executed. (investigate the <code>eval()</eval> function).</li>
 		</ul>
 	</body>
 </html>
