@@ -1,46 +1,256 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM262 Web Scripting: JavaScript, Week 9</title>
-		<script type="text/javascript" src="scripts/highlight/highlight.js"></script>
-		<script type="text/javascript">
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link type="text/css" rel="stylesheet" href="styles/highlight.css" />
-		<link type="text/css" rel="stylesheet" href="styles/common.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">The JavaScript Class, Week 9</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 9</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+        
+        <style>
+            .highlight { background: yellow !important; }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+			<h2>Week 9</h2>
+        </div>
+        
+        <div class="slide">
+            <h1>Turn in Assignment 6</h1>
+    		<p>Email to <a href="mailto:pwooley@aii.com">pwooley@aii.edu</a> using the following naming convention: <var>lastnameFirstname</var>_assignment6.zip.</p>
+        </div>
+        
+        <div class="slide">
+            <h1>Cookies</h1>
+            <p>Cookies are small text files that are stored on a user's computer to remember information about a website.</p>
+            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
+alert(document.cookie);</pre>
+            <pre class="brush: js eval">// Creates a cookie with the name hello.
+// It will expire tonight at 9:45pm.
+document.cookie = 'hello=world; expires=Thu, 02 Dec 2011 05:45:00 GMT; path=/';</pre>
+            <pre class="brush: js eval">// Create a cookie with the name foo.
+// It will expire when the browser is closed.
+document.cookie = 'user=peterwooley; path=/';</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Easily Create Cookies</h1>
+            <p>Cookies are a bit of a pain to deal with, so we can make use of a few functions written by <a href="http://www.quirksmode.org/">PPK</a>!</p>
+            <pre class="brush: js eval">// Creates cookie for 2 days.
+createCookie("week", 9, 2);
+
+// From http://www.quirksmode.org/js/cookies.html
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}</pre>
+            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
+alert(document.cookie);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Easily Read Cookies</h1>
+            <p>Much like creating them, you can read them easily using a function.</p>
+            <pre class="brush: js eval">
+alert(readCookie("week"));
+
+// From http://www.quirksmode.org/js/cookies.html
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i !== ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}</pre>    
+        </div>
+        
+        <div class="slide">
+            <h1>Easily Deleting Cookies</h1>
+            <pre class="brush: js eval">
+eraseCookie("week");
+
+// From http://www.quirksmode.org/js/cookies.html
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+function createCookie(name,value,days) {
+    if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+</pre>
+            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
+alert(document.cookie);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Driver #1, Let's do this.</h1>
+            <p>Using cookies, create a page that allows a user to type their username into a form, submit the form, refresh the page and be greeted with their username.</p>
+            <pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Login!&lt;/title&gt;
+        &lt;script&gt;
+            window.onload = function() {
+                
+            };
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form id="login" name="login" action="" method="post"&gt;
+            &lt;input type="text" name="username" id="username" /&gt;
+            &lt;input type="submit" value="Login" /&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+        </div>
+        
+        <div class="slide">
+            <h1>Libraries</h1>
+    
+        	<h2>Who needs 'em?</h2>
+			<ul>
+				<li>Everyone who wants to develop JavaScript Apps without reinventing the wheel.</li>
+				<li>Everyone who wants to take advantage of other people's code, usually for free.</li>
+				<li>Everyone who wants hot, fast JavaScript performance.</li>
+			</ul>
+    
+    		<h2>What do they do?</h2>
+			<ul>
+				<li>From jQuery: "...simplifies how you traverse HTML documents, handle events, perform animations, and add Ajax interactions to your web pages."</q></li>
+				<li>Handle many of the Cross-browser bugs for you, in clean, progressive ways.</li>
+				<li>Provide access to the Document Object Model through CSS3 selectors. (<strong>Hooray!</strong>)</li>
+			</ul>
+        </div>
+		
+        <div class="slide">
+    		<h1>Libraries: The Good Parts</h1>
+    		<p><a href="http://www.domassistant.com/slickspeed/">What Frameworks are top-notch</a>?</p>
+			<ul>
+				<li><a href="http://jquery.com">jQuery</a></li>
+				<li><a href="http://www.prototypejs.org/">Prototype</a></li>
+				<li><a href="http://extjs.com">ExtJS Core</a></li>
+				<li><a href="http://dojotoolkit.org">Dojo</a></li>
+				<li><a href="http://developer.yahoo.com/yui/">YUI (Yahoo! UI)</a></li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+            <h1><a href="http://jquery.com/">jQuery</a> Wins!</h1>
+            <ul>
+        		<li>We'll be looking at jQuery based on its small size, browser compatibility, AJAX support, and revolutionary syntax.</li>
+    			<li>Documentation URL: <a href="http://docs.jquery.com/">http://docs.jquery.com/</a></li>
+    			<li>API URL (Good for quick searches): <a href="http://api.jquery.com">http://api.jquery.com</a></li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>DOM Traversal with <span class="hidden">jQuery</span></h1>
+            <p>jQuery is <span class="hidden">a code library</span> that provides additional functionality for JavaScript. It uses <span class="hidden">a consise syntax</span> to help you write code faster and incldues a lot of fixes for cross-browser compatibility issues.</p>
+            <p>At the heart of jQuery is <a href="http://api.jquery.com/jQuery/">the jQuery Function</a> (aka $).
+            <pre class="brush: js eval">// The "jQuery function" is $(), though you can also use jQuery().
+$("h1").addClass("highlight");
+
+// The equivalant vanilla JavaScript would be:
+// var h1s = document.getElementsByTagName("h1");
+// for(var i = 0; i !== h1s.length; i++) {
+//    h1s[i].className += " highlight";
+// }</pre>
+            <form name="jqueryTraversal" id="jqueryTraversal" method="get" action="http://example.com">
+                <input type="text" id="jQueryQuery" value="h1" />
+                <input type="submit" value="Turn Highlight On or Off" />
+            </form>
+        </div>
+        
+        <div class="slide" id="chainability">
+            <h1>Chainability (The Magic of jQuery)</h1>
+        	<ul>
+    			<li>"In a nutshell: Every method within jQuery returns the query object itself, allowing you to 'chain' upon it..." <a href="http://docs.jquery.com/How_jQuery_Works#Chainability_.28The_Magic_of_jQuery.29">#</a></li>
+    			<li><strong>Most</strong> jQuery methods return the jQuery Object itself, which contains the elements you last selected.</li>
+    			<li>This means that you can call methods using dot notation one after another with no new statements.</li>
+    		</ul>
+            <pre class="brush: js eval">$("#chainability") // The id of the current slide.
+    .fadeOut("slow")
+    .fadeIn("fast")
+    .slideUp(500)
+    .slideDown(1000)
+    .toggleClass("highlight")
+    .click(function() { alert("Greetings from the chain!"); });
+
+// The equivalent vanilla JavaScript would be too big to show.</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>To the code!</h1>
+            <p>There's a lot more to play with, so head into <a href="inclass/jquery.html">inclass/jquery.html</a>.</p>
+        </div>
+        
+        
+		<div class="slide title">
+			<h1>Fin</h1>
+			<h2>The <a href="homework.html">Final Project</a>!</h2>
 		</div>
-	
 
-		<h2>Turn in Final Project Proposal</h2>
-		<ul>
-			<li>Turn in to <code>S:\Data\wdim262\finalProjectProposals\</code> using the following naming convention: <var>lastnameFirstname</var>_finalProjectProposal.<var>filetype</var>.</li>
-		</ul>
-			
-		<h2>Recreating the Music Search</h2>
-		<ul>
-			<li>Using our knowledge of jQuery, let's re-implement our Music Search App with jQuery.</li>
-			<li>Let's look at the <a href="inclass/search.html">Search script</a>.</li>
-		</ul>
-		
-		<h2>DOM Creation with jQuery</h2>
-		<ul>
-			<li>In addition to managing DOM elements, jQuery also allows you to quickly and easily create new elements and add them to the DOM.</li>
-			<li>You can both append and prepend elements into elements elements you create, as well as appendTo and prependTo other existing elements.</li>
-			<li>Let's look at the <a href="inclass/create.html">Create script</a>.</li>
-		</ul>
-		
-		<h2>Final Project</h2>
-		<ul>
-			<li><a href="homework.html">Final Project</a></li>
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM387A</span>
+                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
 
-		</ul>
-</body>
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
+        
+        <script>
+            $("#jqueryTraversal").submit(function() {
+                var val = $("#jQueryQuery").val();
+                $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
+                $(val).toggleClass("highlight");
+                return false;
+            });
+        </script>
+	</body>
 </html>
-

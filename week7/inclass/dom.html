@@ -3,6 +3,33 @@
 	<head>
 		<title>WDIM262: DOM!</title>
 		<script>
+            window.onload = function() {
+                var name = prompt("Name?"),
+                    email = prompt("Email?");
+                    
+                function get(id) {
+                    return document.getElementById(id);
+                }
+                    
+                get('myName').appendChild(
+                    document.createTextNode(name)
+                );
+                
+                var myEmail = get('myEmail');
+                myEmail.innerHTML = "<a href=\"mailto:" + email + "\">" +
+                    myEmail.innerHTML + "</a>";
+                
+                var ul = document.getElementsByTagName("ul")[0];
+                var spans = ul.getElementsByTagName("span");
+                
+                for(var i = 0; i < spans.length; i++) {
+                    var span = spans[i];
+                    span.innerHTML = navigator[span.id];
+                }
+                
+                get("modified").innerHTML += document.lastModified;
+                
+            }
 		</script>		
 	</head>
 	<body>
