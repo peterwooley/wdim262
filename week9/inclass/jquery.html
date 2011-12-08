@@ -7,21 +7,55 @@
                 // 1. Events
                 
 				// Click event (and prevent default action) to collection
+                $("a").click(function(event) {
+                    $(this).text("Haha!");
+                    event.preventDefault();
+                })
 				
 				// Add additional click event
+                $("a").click(function() {
+                    $(this).css("background", "yellow");
+                })
 				
 				// Bind to multiple events
-				
+				$(":header").bind("click mousemove", function() {
+    			    var size = $(this).css("font-size");
+                    size = parseInt(size);
+                    size++;
+                    $(this).css("font-size", size);
+                    
+                    $("<img>")
+                        .attr("src", "http://placekitten.com/"+Math.round(Math.random()*200)+"/"+Math.round(Math.random()*200))
+                        .css({
+                            position: "absolute",
+                            left: Math.random() * $(window).width(),
+                            top: Math.random() * $(window).height()
+                        })
+                        .prependTo("body");
+                    
+                    if(size >= 50) {
+                        $(this).unbind("click mousemove");
+                    }
+				})
+                
 				// Unbind certain events
                 
                 
                 // 2. DOM Creation
                 
                 // Create div
-    
+                //var div = $("<div />");
+                var div = $(document.createElement("div"));
         		// Add div to DOM
+                div.text("New Div!");
+                //div.appendTo("body");
+                
+                $("body").prepend(div);
     
     			// Prepend new elements to DIV
+                div.append("<strong>Whee!</strong>");
+                
+                
                 
                 
                 // 3. Class Manipulation
@@ -41,6 +75,9 @@
 				// add a click event handler to toggle the highlight class,
 				// immediately hide the collection
 				// and fade them back in slowly
+                $("a").addClass("highlight").click(function() {
+                    $(this).toggleClass("highlight");
+                }).hide().slideDown(3000);
                 
                 
                 // 5. Selectors
@@ -59,6 +96,7 @@
 						div:has(li > a)
 						[href]
 				*/
+                $("div:has(li > a)").addClass("highlight");
 			  });
 			  
 		</script>
@@ -82,11 +120,11 @@
         <div id="content">
             <div class="article">
                 <h2>Article 1 Title</h2>
-                <p>Strip steak salami drumstick, short ribs prosciutto sausage capicola. Sirloin frankfurter swine leberkäse. Corned beef bacon shank pastrami, shoulder tail pancetta. Swine sirloin spare ribs, boudin venison drumstick andouille meatball. Ham pancetta bacon t-bone jowl. Tri-tip chicken filet mignon jowl shoulder, ribeye corned beef sirloin jerky ham cow drumstick. Rump pork loin meatloaf tenderloin ball tip, bacon pig pancetta beef andouille salami filet mignon boudin biltong shank.</p>
+                <p>Strip steak salami drumstick, <a>short ribs prosciutto sausage</a> capicola. Sirloin frankfurter swine leberkäse. Corned beef bacon shank pastrami, shoulder tail pancetta. Swine sirloin spare ribs, boudin venison drumstick andouille meatball. Ham pancetta bacon t-bone jowl. Tri-tip chicken filet mignon jowl shoulder, ribeye corned beef sirloin jerky ham cow drumstick. Rump pork loin meatloaf tenderloin ball tip, bacon pig pancetta beef andouille salami filet mignon boudin biltong shank.</p>
             </div>
             <div class="article">
                 <h2>Article 2 Title</h2>
-                <p>Bacon ipsum dolor sit amet jerky ground round prosciutto tri-tip pork loin, ball tip meatloaf. Chuck swine tenderloin tongue. Pig chuck hamburger, frankfurter turkey short loin pastrami chicken cow pork chop leberkäse pork jerky ham. Sirloin pork belly ground round capicola jowl ball tip. Pancetta boudin turducken, fatback t-bone pork biltong beef ribs capicola kielbasa flank strip steak pork chop beef. Andouille drumstick tail t-bone, bresaola swine pork belly shoulder chicken fatback pancetta. Short loin sausage beef ribs bacon meatloaf.</p>
+                <p>Bacon ipsum dolor sit amet jerky <a>ground round prosciutto</a> tri-tip pork loin, ball tip meatloaf. Chuck swine tenderloin tongue. Pig chuck hamburger, frankfurter turkey short loin pastrami chicken cow pork chop leberkäse pork jerky ham. Sirloin pork belly ground round capicola jowl ball tip. Pancetta boudin turducken, fatback t-bone pork biltong beef ribs capicola kielbasa flank strip steak pork chop beef. Andouille drumstick tail t-bone, bresaola swine pork belly shoulder chicken fatback pancetta. Short loin sausage beef ribs bacon meatloaf.</p>
             </div>
         </div>
         <div id="footer">&copy; 2027 Heading. All rights <strong>reserved</strong>.</div>
