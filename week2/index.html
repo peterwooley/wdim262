@@ -1,18 +1,175 @@
-ned</h1>
-            <pre class="brush: js">            
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 2</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+        <!-- Common Styles -->
+        <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+        <link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+
+        <!-- Slippy init code -->
+        <script type="text/javascript">
+            $(function() {
+                $(".slide").slippy();
+                SyntaxHighlighter.defaults.gutter = false;
+                SyntaxHighlighter.all();
+            });
+        </script>
+
+        <!-- Custom style for this deck -->
+        <style type="text/css">
+            .slide.nofooter {
+                border: 0;
+                background: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+            <h2>Week 2</h2>
+        </div>
+
+        <div class="slide">
+            <h1>Turn in Assignment 1</h1>
+            <ul>
+                <li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment1.zip</code> via eCompanion Document Sharing.</li>
+                <li>We'll walk through the homework and see how short we can make the code.</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Learning Resources</h1>
+            <ul>
+                <li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> (Free &amp; Awesome eBook)</li>
+                <li><a href="http://amzn.com/0596521871">Learning JavaScript, 2nd Edition</a> ($19.18)</li>
+                <li><a href="http://amzn.com/0596517742">JavaScript: The Good Parts</a> ($17.99)</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>JavaScript is What?</h1>
+            <ul>
+                <li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+                <li>Client-side (<strong>not</strong> Server-side)</li>
+                <li>Interpreted (<strong>not</strong> Compiled)</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>JavaScript Types</h1>
+            <ul>
+                <li>Number</li>
+                <li>Strings (Collection of any number of characters)</li>
+                <li>Boolean (True &amp; False)</li>
+                <li>undefined</li>
+                <li>null</li>
+                <li>Arrays (An ordered, numerical collection of any JavaScript types)</li>
+            </ul>
+            <h2>Next Week</h2>
+            <ul>
+                <li>Objects (A named collection of any JavaScript types)</li>
+                <li>Functions</li>
+            </ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Numbers</h1>
+            <pre class="brush: js eval">
+            // A short but valid JavaScript statement
+            1;
+            
+            // Numbers can be whole, decimals, or even scientifically noted
+            var whole = 42;
+            var decimal = 1.337;
+            var sciNote = 2.998e8;
+            
+            // You can use the typeof operator to determine their type
+            show(whole + " is a " + typeof whole);
+            show(decimal + " is a " + typeof decimal);
+            show(sciNote + " is a " + typeof sciNote);            
+            </pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Strings</h1>
+            <pre class="brush: js eval">            
+            // Strings are collections of characters to represent text.
+            // Strings are created by surrounding characters in quotes.
+            "There's a snake in my boot.";
+            
+            // You can concatenate strings together with the + operator.
+            "Radio" + "head";
+            
+            // You can use single or double quotes.
+            "This is a string.";
+            'This is a string too.';
+            
+            // To use a double quote in a string created with double quotes,
+            // you can use prepend a backslash.
+            // This is called escaping.
+            var escaped = "So, he says, \"I'm using quotes in quotes!\"";
+            
+            // You can use the typeof operator here too.
+            show(escaped + " is a " + typeof escaped);          
+            </pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Boolean</h1>
+            <pre class="brush: js eval">            
+            // There are two boolean values
+            true;
+            false;
+            
+            // Creating these values can be done with comparison operators
+            show(1 === 10);
+            show(1 !== 10);
+            
+            // The typeof operator helps here too
+            show(true + " is a " + typeof true);
+            show(false + " is a " + typeof false);
+            </pre>
+        </div>
+        
+        <div class="slide">
+            <h1>undefined</h1>
+            <pre class="brush: js eval">            
             // Undefined is the type of a variable before it is set.
             var bananas;
             
             // The type will be set to undefined
-            console.log(typeof bananas);
-            
+            show(typeof bananas);
+            </pre>
+            <pre class="brush: js eval">
             // Set the variable to a string
-            bananas = "Bananas";
+            var bananas = "Bananas";
             
             // Check the type again; it should be a string now.
-            console.log(typeof bananas);
+            show(typeof bananas);
             </pre>
-    	</div>
+        </div>
         
         <div class="slide">
             <h1>null</h1>
@@ -33,202 +190,243 @@ ned</h1>
         
         <div class="slide">
             <h1>Arrays</h1>
-            <pre class="brush: js">            
+            <pre class="brush: js eval">            
             // Arrays are ordered collections of any value.
             var images = ["puppy.png", "duck.jpg", "portal.gif"];
             
             // Elements in an array are accessed numerically, starting from 0.
-            console.log(images[0]); // puppy.png
-            console.log(images[1]); // duck.jpg
-            console.log(images[2]); // portal.gif
-            
-            // You can add a new value to the end of an array with push()
-            images.push("northrend.tga");
-            console.log(images[3]); // northrend.tga
-            
-            // And delete the last value using pop()
-            images.pop();
-            console.log(images[3]); // undefined
-            
+            show(images[0]); // puppy.png
+            show(images[1]); // duck.jpg
+            show(images[2]); // portal.gif
+            </pre>
+
+            <pre class="brush: js eval">            
+            var images = ["puppy.png", "duck.jpg", "portal.gif"];
+
+            show(images[0]); // puppy.png
+
             // You can change the value of any array location
             images[0] = "kitty.png";
-            console.log(images[0]); // kitty.png
+            show(images[0]); // kitty.png
             </pre>
-            <p><abbr title="Mozilla Developer Network">MDN</abbr> offers an <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">in-depth Array tutorial</a>.</p>
+        </div>
+
+        <div class="slide">
+            <h1>Arrays, Continued!</h1>
+            <pre class="brush: js eval">
+            var images = ["puppy.png", "duck.jpg", "portal.gif"];
+
+            // You can add a new value to the end of an array with push()
+            images.push("northrend.tga");
+            show(images[3]); // northrend.tga
+            </pre>
+            
+            <pre class="brush: js eval">
+            var images = ["puppy.png", "duck.jpg", "portal.gif"];
+
+            // And delete the last value using pop()
+            images.pop();
+            show(images[3]); // undefined
+            </pre>
+            <p><abbr title="Mozilla Developer Network">MDN</abbr> has an awesomely <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">in-depth Array tutorial</a>.</p>
         </div>
 
         <div class="slide">
             <h1>A Note About Random Numbers</h1>
-            <pre class="brush: js">            
+            <pre class="brush: js eval">            
             // If you need a random number in a range (say, 0-3), here's what you do.
             var rand = Math.random() * 4 - 1;
             var num = Math.ceil(rand);
             
-            console.log(num); // Will always be 0, 1, 2, or 3.
+            show(num); // Will always be 0, 1, 2, or 3.
             </pre>
         </div>
 
         <div class="slide">
             <h1>Class Exercise</h1>
-            <p>Mission: Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document, every time the user refreshes the page.</p>
-    		<h3>Instructions:</h3>
-    		<ul>
-    			<li>Acquire four images from the Internet that look different, and save them in the folder you're working in.</li>
-    			<li>Store the image names in an array.</li>
-    			<li>Create a random number between 0 & 3.</li>
-                <li>Get an image name from the array using your random number.</li>
-    			<li>Use document.write() to create an image tag using the random image.</li>
-    		</ul>
+            <p>Create a DOBRIC (Dynamic On Browser Refresh Image Changer). Using four found images, write a script that randomly adds one of the four images to the HTML document every time the user refreshes the page.</p>
+            <h2>Instructions:</h2>
+            <ul>
+                <li>Acquire 4 unique images.</li>
+                <li>Put the images in the same folder as this file (e.g., week2/inclass).</li>
+                <li>Create an array with 4 strings, each string being an image name (e.g., "dog.jpg")</li>
+                <li>Use Math.random() to generate a random number from 0-3.</li>
+                <li>Access the array using the random number (e.g., imgs[randNum]) and store it in a variable.</li>
+                <li>Use document.write() to create an img tag using the randomly chosen image name as the src attribute.</li>
+            </ul>
         </div>
 
-		<div class="slide">
+        <div class="slide">
             <h1>Operators</h1>
-        	<table>
-    			<thead>
-    				<tr>
-    					<th>Symbol</th>
-    					<th>Meaning</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr>
-    					<td>+</td>
-    					<td>Addition</td>
-    				</tr>
-    				<tr>
-    					<td>-</td>
-    					<td>Subtraction</td>
-    				</tr>
-    				<tr>
-    					<td>*</td>
-    					<td>Multiplication</td>
-    				</tr>
-    				<tr>
-    					<td>/</td>
-    					<td>Division</td>
-    				</tr>
-    				<tr>
-    					<td>%</td>
-    					<td>Modulus (Division Remainder)</td>
-    				</tr>
-    				<tr>
-    					<td>++</td>
-    					<td>Unary Increment</td>
-    				</tr>
-    				<tr>
-    					<td>--</td>
-    					<td>Unary Decrement</td>
-    				</tr>
-    			</tbody>
-    		</table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Addition</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtraction</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplication</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Division</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Modulus (Division Remainder)</td>
+                    </tr>
+                    <tr>
+                        <td>++</td>
+                        <td>Unary Increment</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>Unary Decrement</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-		<div class="slide">
-			<h1>Comparison Operators</h1>
-        	<table>
-    			<thead>
-    				<tr>
-    					<th>Symbol</th>
-    					<th>Meaning</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr>
-    					<td>==</td>
-    					<td>Is Equal To (Compares value)</td>
-    				</tr>
-    				<tr>
-    					<td>===</td>
-    					<td>Is Exactly Equal To (Compares value and type)</td>
-    				</tr>
-    				<tr>
-    					<td>!=</td>
-    					<td>Is Not Equal</td>
-    				</tr>
-    				<tr>
-    					<td>!==</td>
-    					<td>Is Not Exactly Equal To (Compares value and type)</td>
-    				</tr>
-    				<tr>
-    					<td>&gt;</td>
-    					<td>Is Greater Than</td>
-    				</tr>
-    				<tr>
-    					<td>&gt;=</td>
-    					<td>Is Greater Than or Equal To</td>
-    				</tr>
-    				<tr>
-    					<td>&lt;</td>
-    					<td>Is Less Than</td>
-    				</tr>
-    				<tr>
-    					<td>&lt;=</td>
-    					<td>Is Less Than or Equal To</td>
-    				</tr>
-    			</tbody>
-    		</table>
-		</div>
+        <div class="slide">
+            <h1>Comparison Operators</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>==</td>
+                        <td>Is Equal To (Compares value)</td>
+                    </tr>
+                    <tr>
+                        <td>===</td>
+                        <td>Is Exactly Equal To (Compares value and type)</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>Is Not Equal</td>
+                    </tr>
+                    <tr>
+                        <td>!==</td>
+                        <td>Is Not Exactly Equal To (Compares value and type)</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>Is Greater Than</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;=</td>
+                        <td>Is Greater Than or Equal To</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>Is Less Than</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;=</td>
+                        <td>Is Less Than or Equal To</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<div class="slide">
-			<h1>Getting data from the user</h1>
-        	<p>There exist three ways of getting data from the user using pure JavaScript.</p>
-    		<ul>
-    			<li><code>console.log(<var>message</var>)</code>: Shows user the <var>message</var>; waits until user clicks "OK".</li>
-    			<li><code>confirm(<var>message</var>)</code>: Shows user the <var>message</var>; waits until they click "OK" or "Cancel".</li>
-    			<li><code>prompt(<var>message</var>, <var>placeholder</var>)</code>: Shows user the <var>message</var>, allows them to write in a single-line text box that is pre-filled with <var>placeholder</var>, and waits until they click "OK" or "Cancel".</li>
-    		</ul>
-		</div>
+        <div class="slide">
+            <h1>Getting data from the user</h1>
+            <p>There exist three ways of getting data from the user using pure JavaScript.</p>
+            <pre class="brush: js eval">
+                // Shows user the message; waits until user clicks "OK".
+                alert("Just imagine if I called this function 100 times.");
+            </pre>
+            <pre class="brush: js eval">
+                // Shows user the message, waits until they click "OK" or "Cancel".
+                // Returns true if the user clicked "OK", false if they clicked "Cancel".
+                var confirmed = confirm("Do you really want to leave this page?");
+                show(confirmed);
+            </pre>
+            <pre class="brush: js eval">
+                // Shows user the message, allows them to write in a single-line text box
+                // and waits until they click "OK" or "Cancel".
+                // Returns the string they typed in or null if they clicked "Cancel".
+                var identity = prompt("Who are you?");
+                show(identity);
+            </pre>
+        </div>
 
-		<div class="slide">
-    		<h1>Flow Control: if( )...else</h1>
-        	<p>Perform different actions if a condition evaluates to <code>true</code> or <code>false</code>.</p>
-    		<pre class="brush: js">
+        <div class="slide">
+            <h1>Flow Control: if( )...else</h1>
+            <p>Perform different actions if a condition evaluates to <code>true</code> or <code>false</code>.</p>
+            <pre class="brush: js eval">
             var animal = "leopard";
             if (animal === "leopard") {
-                console.log("The animal is a Leopard!");
+                show("The animal is a Leopard!");
             } else {
-                console.log("The animal is not a Leopard!");
+                show("The animal is not a Leopard!");
             }
             </pre>
+            <pre class="brush: js eval">
+            var animal = "mountain lion";
+            if (animal === "leopard") {
+                show("The animal is a Leopard!");
+            } else {
+                show("The animal is not a Leopard!");
+            }
+            </pre>
+
         </div>
-    		
+            
         <div class="slide">
-    		<h1>Flow Control: else if( )</h1>
-    		<p><code>if()...else</code> can be chained with <code>else if()</code></p>
-            <pre class="brush: js">
-var animal = "leopard";
+            <h1>Flow Control: else if( )</h1>
+            <p><code>if()...else</code> can be chained with <code>else if()</code></p>
+            <pre class="brush: js eval">
+var animal = "panther";
 if (animal === "leopard") {
-    console.log("The animal is a Leopard!");
+    show("The animal is a Leopard!");
 } else if (animal === "tiger") {
-    console.log("The animal is a Tiger!");
+    show("The animal is a Tiger!");
 } else if (animal === "panther") {
-    console.log("The animal is a Panther!");
+    show("The animal is a Panther!");
 } else {
-    console.log("The animal is something I don't know about!");
+    show("The animal is something I don't know about!");
 }
             </pre>
-    	</div>
+        </div>
         
         <div class="slide">
-    		<h1>Logical Operator: <code>&amp;&amp;</code> and</h1>
+            <h1>Logical Operator: <code>&amp;&amp;</code> and</h1>
             <p><code>&amp;&amp;</code> allows a statement to be <code>true</code> only if both statements are true.</p>
-			<pre class="brush: js">
-            var animal = "leopard", wild = true;
-            if (animal === "leopard" &amp;&amp; wild === true) {
-            	// This block will be executed only if animal is leopard and wild is true
-            	console.log("The animal is a Wild Leopard!");
+            <script type="syntaxhighlighter" class="brush: js eval">
+            var animal = "leopard",
+                wild = true;
+
+            if (animal === "leopard" && wild === true) {
+                show("The animal is a Wild Leopard!");
             }
-            </pre>
+            </script>
         </div>
         
         <div class="slide">
             <h1>Logical Operator: <code>||</code> or</h1>
             <p><code>||</code> allows a statement to be <code>true</code> if either statement is true.</p>
-			<pre class="brush: js">
-            var animal = "leopard";
+            <pre class="brush: js eval">
+            var animal = "tiger";
+
             if (animal === "leopard" || animal === "tiger") {
-            	// This block will be executed if animal is either leopard or tiger
-            	console.log("The animal is a Leopard or Tiger!");
+                // This block will be executed if animal is either leopard or tiger
+                show("The animal is a Leopard or Tiger!");
             }
             </pre>
         </div>
@@ -236,48 +434,51 @@ if (animal === "leopard") {
         <div class="slide">
             <h1>Logical Operator: <code>!</code> not</h1>
             <p><code>!</code> flips <code>true</code> to <code>false</code> &amp; <code>false</code> to <code>true</code>.</p>
-    		<pre class="brush: js">
+            <pre class="brush: js eval">
             var isAdmin = false;
             if (!isAdmin) {
-            	// This block will be executed only if isAdmin is set to false
-            	console.log("You are not an Admin!");
+                // This block will be executed only if isAdmin is set to false
+                show("You are not an Admin!");
             }
             </pre>
-		</div>
+        </div>
         
         <div class="slide">
             <h1>Switching Types</h1>
-            <pre class="brush: js">
+            <pre class="brush: js eval">
             // When using prompt(), user-provided data is alway given as a string.
             var userNumber = prompt("Enter any number.");
             
-            // If the user enters "1", it won't work as expected with other numbers.
-            console.log("1" + 2) // 12
-            
+            // What ever number the user enters,
+            // it won't work as expected with other numbers.
+            show(userNumber + 10)
+            </pre>
+            <pre class="brush: js eval">
             // To fix this, you can use parseFloat()
-            var numberAsString = "1";
+            var numberAsString = prompt("Enter any number.");
             var numberAsNumber = parseFloat(numberAsString);
             
-            console.log(numberAsNumber + 2); // 3
-            
+            show(numberAsNumber + 2);
+            </pre>
+            <pre class="brush: js eval">
             // To specifically get an integer, you can use parseInt()
-            var intAsString = "5.201949583939";
+            var intAsString = prompt("Enter a floating point number, like 2.5433.");
             var intAsNumber = parseInt(intAsString);
             
-            console.log(intAsNumber); // 5
+            show(intAsNumber);
             </pre>
         </div>
 
-		<div class="slide title">
-			<h1>All Done!</h1>
-			<h2>The <a href="homework.html">Homework</a>.</h2>
-		</div>
+        <div class="slide title">
+            <h1>All Done!</h1>
+            <h2>The <a href="homework.html">Homework</a>.</h2>
+        </div>
 
         <div class="layout" data-name="title">
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
+                <span class="right">WDIM262A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
                 <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />
@@ -288,8 +489,8 @@ if (animal === "leopard") {
             <content></content>
         </div>
     
-		<!-- Common Scripts -->
-		<script src="scripts/jquery.noisy.min.js"></script>
-		<script src="scripts/index.js"></script>
-	</body>
+        <!-- Common Scripts -->
+        <script src="scripts/jquery.noisy.min.js"></script>
+        <script src="scripts/index.js"></script>
+    </body>
 </html>
