@@ -173,18 +173,19 @@
         
         <div class="slide">
             <h1>null</h1>
-            <pre class="brush: js">            
+            <pre class="brush: js eval">            
             // Null means a variable is defined, but has no value.
             var blink182 = null;
             
-            // The type will be set to undefined
-            console.log(typeof blink182);
+            // The type of null is reported as 'object'.
+            // This is a mistake: http://is.gd/j47iPO
+            show(typeof blink182);
             
             // Null isn't the same as any other value.
-            console.log(null == true);
-            console.log(null == false);
-            console.log(null == 0);
-            console.log(null == "");
+            show(null == true);
+            show(null == false);
+            show(null == 0);
+            show(null == "");
             </pre>
         </div>
         

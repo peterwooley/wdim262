@@ -36,11 +36,11 @@
 
         <div class="slide">
             <h1>Turn in Assignment 2</h1>
-        	<ul>
-    			<li>Please send your homework as <code><var>lastnameFirstName</var>_assignment2.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
-    		</ul>
-        </div>
-        
+            <ul>
+                <li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment1.zip</code> via the Dropbox for Assignment 2.</li>
+            </ul>
+        </div> 
+
         <div class="slide">
             <h1>Quiz 1!</h1>
         	<ul>
@@ -48,6 +48,138 @@
     			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
     			<li>You've got 15 minutes!</li>
     		</ul>
+        </div>
+
+<div class="slide">
+            <h1>Operators</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Addition</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtraction</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplication</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Division</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Modulus (Division Remainder)</td>
+                    </tr>
+                    <tr>
+                        <td>++</td>
+                        <td>Unary Increment</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>Unary Decrement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="slide">
+            <h1>Comparison Operators</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>==</td>
+                        <td>Is Equal To (Compares value)</td>
+                    </tr>
+                    <tr>
+                        <td>===</td>
+                        <td>Is Exactly Equal To (Compares value and type)</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>Is Not Equal</td>
+                    </tr>
+                    <tr>
+                        <td>!==</td>
+                        <td>Is Not Exactly Equal To (Compares value and type)</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>Is Greater Than</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;=</td>
+                        <td>Is Greater Than or Equal To</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>Is Less Than</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;=</td>
+                        <td>Is Less Than or Equal To</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="slide">
+            <h1>Switching Types</h1>
+            <pre class="brush: js eval">
+            // When using prompt(), user-provided data is alway given as a string.
+            var userNumber = prompt("Enter any number.");
+            
+            // What ever number the user enters,
+            // it won't work as expected with other numbers.
+            show(userNumber + 10)
+            </pre>
+            <pre class="brush: js eval">
+            // To fix this, you can use parseFloat()
+            var numberAsString = prompt("Enter any number.");
+            var numberAsNumber = parseFloat(numberAsString);
+            
+            show(numberAsNumber + 2);
+            </pre>
+            <pre class="brush: js eval">
+            // To specifically get an integer, you can use parseInt()
+            var intAsString = prompt("Enter a floating point number, like 2.5433.");
+            var intAsNumber = parseInt(intAsString);
+            
+            show(intAsNumber);
+            </pre>
+        </div>
+
+        <div class="slide">
+            <h1>null</h1>
+            <pre class="brush: js eval">            
+            // Null means a variable is defined, but has no value.
+            var blink182 = null;
+            
+            // The type of null is reported as 'object'.
+            // This is a mistake: http://is.gd/j47iPO
+            show(typeof blink182);
+            
+            // Null isn't the same as any other value.
+            show(null == true);
+            show(null == false);
+            show(null == 0);
+            show(null == "");
+            </pre>
         </div>
 
         <div class="slide">
@@ -61,13 +193,13 @@
 
         <div class="slide">
     		<h1>Objects</h1>
-            <pre class="brush: js">
+            <pre class="brush: js eval">
             // Objects are named collections of any type.
             var user = {name: "Peter Wooley", age: 25};
             
             // Object values are accessed via their key.
-            console.log(user.name);
-            console.log(user.age);
+            show(user.name);
+            show(user.age);
             
             // Values can be set using their key.
             user.name = "Peter Matthew Wooley";
@@ -76,39 +208,46 @@
             // New values can be added using a new key
             user.password = "Freedom";
             
-            // You can examine an entire object by logging the object itself.
+            // Showing the entire object just shows [object Object]...
+            show(user);
+
+            // ...but logging the object is much more useful.
             console.log(user);
             </pre>
         </div>
         
         <div class="slide">
             <h1>Objects All The Way Down</h1>
-            <pre class="brush: js">
+            <pre class="brush: js eval">
             // Objects can contain any type, including other objects.
             var bands = { 
                 radiohead: {name: "Radiohead", founded: 1985},
-                primus: {name: "Primus", founded: 1492},
-                wutangclan: {"Wu Tang Clan", 1992}
+                mia: {name: "M.I.A.", founded: 2002},
+                wutangclan: {name: "Wu Tang Clan", founded: 1992}
             };
             
-            console.log(bands.radiohead.founded); // 1985
+            // Access value using dot notation
+            show(bands.mia.founded); // 2002
+
+            // Access value array notation
+            show(bands["mia"]["founded"]); // 2002
             </pre>
         </div>
 
         <div class="slide">
             <h1>Switch Statement</h1>
     		<p>Switch which block of code to run based on the value of a variable.</p>
-    		<pre class="brush: js">var animal = "tiger";
+    		<pre class="brush: js eval">var animal = prompt("Which animal: panther, tiger, or something else?");
             
 switch(animal) {
     case "panther":
-    	console.log("It's a Panther!");
+    	show("It's a Panther!");
     	break;
     case "tiger":
-    	console.log("It's a Tiger!");
+    	show("It's a Tiger!");
     	break;
     default:
-    	console.log("It's some sort of animal!");
+    	show("It's some sort of animal, I think!");
 }</pre>
     		<ul>
     			<li>Allows a default, much like 'else' in an if() statement.</li>
@@ -131,11 +270,11 @@ switch(animal) {
     		<h1><code>for</code> Loop</h1>
     		<p>The for loop is great when you need run a block of code a set number of times.</p>
     		<p>The syntax is a bit tricky (so keep this as reference):</p>
-    		<pre class="brush: js">var num = 10;
+    		<script type="syntaxhighlighter" class="brush: js eval">var num = parseInt(prompt("How many times to loop?")) || 10;
                     
-for( var i = 0; i &lt;= num; i++ ) {
-	console.log(i + " Times!");
-}</code></pre>
+for( var i = 0; i < num; i++ ) {
+	show(i + " Times!");
+}</script>
             <p>The three statements in the for loop's call are:</p>
 			<ul>
 				<li>Initializer, which runs one when the loop starts, typically declaring a counter variable and setting it to the desired starting value</li>
@@ -147,10 +286,11 @@ for( var i = 0; i &lt;= num; i++ ) {
         <div class="slide">
     		<h1><code>for...in</code> Loop</h1>
     		<p>The <code>for...in</code> loop allows you to iterate over all of the values in an object or array.</li>
-    		<pre class="brush: js">var browsers = {
-	firefox: {title: "Mozilla Firefox", version: "7.0.1"},
-	opera: {title: "Opera", version: "11.52"},
+    		<pre class="brush: js eval">var browsers = {
+    chrome: {title: "Google Chrome", version: "18"},
+	firefox: {title: "Mozilla Firefox", version: "11.0"},
 	safari: {title: "Safari", version: "5.1"},
+	opera: {title: "Opera", version: "11.62"},
 	ie: {title: "Microsoft Internet Explorer", version: "9"}
 };
     
@@ -158,21 +298,21 @@ for(var key in browsers) {
     // The key variable can be used to get each browser object.
     var browser = browsers[key];
     
-    console.log(key);
-	console.log(browser.title + " Version " + browser.version);
+	show(key + ": " + browser.title + " Version " + browser.version);
 }</pre>
         </div>
     		
         <div class="slide">
     		<h1><code>while</code> Loop</h1>
     		<p>The while loop can make some tasks much simpler than using a for loop, especially when the number of times you need to loop is unknown.</p>
-    		<pre class="brush: js">var number;
+    		<pre class="brush: js eval">var number;
 var valueIsNumeric = false;
-while(!valueIsNumeric) {
+while(valueIsNumeric === false) {
 	number = parseFloat(prompt("Please enter a number."));
 	
 	if( !isNaN(number) ) { // Check if the value is not Not a Number (NaN)
 		valueIsNumeric = true;
+        show(number);
 	}
 }
 
@@ -186,24 +326,24 @@ while(!valueIsNumeric) {
     		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
     		<h3>Instructions:</h3>
     		<ul>
-    			<li>Use the prompt() function to ask the user for their preference out of 3 options.</li>
+    			<li>Use the <code>prompt()</code> function to ask the user for their preference out of 3 options.</li>
     			<li>Use a switch statement to determine which musical style they prefer.</li>
-    			<li>Use document.write() to show the user style-specific content, based on their preference.</li>
+    			<li>Use <code>document.write()</code> to show the user style-specific content, based on their preference.</li>
     			<li>Using a while loop, keep asking the user, until they enter a valid response.</li>
-    			<li>Tip: use .toLowerCase() on the user's preference variable.</li>
+    			<li>Extra: Use the <code>toLowerCase()</code> function to allow the user to enter their preference in any case (upper-case, lower-case, alternating-case, etc.).</li>
     		</ul>
         </div>
         
 		<div class="slide">
             <h1>Functions</h1>
             <p>Functions are JavaScript's Killer Feature. We'll look at them tonight and next week.</p>
-            <pre class="brush: js">// Functions are declared with the keyword function &amp; can have a name.
+            <pre class="brush: js eval">// Functions are declared with the keyword function &amp; can have a name.
 function message(string) {
     // The body is a block that runs when functions are called.
     
     // Arguments passed to the function are bound to variables.
     // Here, we're using the string argument.
-	console.log("From message: " + string);
+	show("From message: " + string);
 }
 
 // To call (aka invoke) a function, just use the function name
@@ -215,7 +355,7 @@ message("Messages are neat.");
         
         <div class="slide">
             <h1>Functions Return</h1>
-            <pre class="brush: js">// Functions can return data to the code that called them.
+            <pre class="brush: js eval">// Functions can return data to the code that called them.
 function add(number1, number2) {
     // Multiple arguments can be provided in the argument list.
     // They're comma-separated, as you can see.
@@ -224,16 +364,16 @@ function add(number1, number2) {
 
 // Returned values can be stored in variables.
 var val = add(2, 3);
-console.log(val);
+show("Stored in variable: " + val);
 
 // Return values can also be used directly by other functions.
-console.log(add(2, 3));      
+show("Used directly in show(): " + add(2, 3));      
 </pre>
         </div>
         
         <div class="slide">
             <h1>Functions &#x2764; Users</h1>
-            <pre class="brush: js">function add(number1, number2) {
+            <pre class="brush: js eval">function add(number1, number2) {
     return parseFloat(number1) + parseFloat(number2);
 }
 
@@ -241,7 +381,7 @@ console.log(add(2, 3));
 var num1 = prompt("Enter a number.");
 var num2 = prompt("Enter another number.");
 
-console.log("The sum is " + add(num1, num2));</pre>
+show("The sum is " + add(num1, num2) + ".");</pre>
         </div>
 
 		<div class="slide title">
@@ -253,7 +393,7 @@ console.log("The sum is " + add(num1, num2));</pre>
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
+                <span class="right">WDIM262A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
                 <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />
