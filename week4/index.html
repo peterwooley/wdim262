@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>WDIM262 Web Scripting: JavaScript &mdash; Week 4</title>
         <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
         <script type="text/javascript" src="slippy/src/slippy.js"></script>
         <!-- Slippy structural styles -->
@@ -37,13 +37,8 @@
         <div class="slide">
             <h1>Turn in Assignment 3</h1>
         	<ul>
-    			<li>Please send your homework as <code><var>lastnameFirstName</var>_assignment3.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
+    			<li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment3.zip</code> to the Assignment 3 Dropbox.</li>
     		</ul>
-        </div>
-        
-        <div class="slide">
-            <h1>Sign Your Name</h1>
-            <p>On the White Board, add your name.</p>
         </div>
         
         <div class="slide">
@@ -55,65 +50,139 @@
 
         <div class="slide title">
             <h1>Divide & Code</h1>
+            <p>You'll pair up and work through today's 3 hackathons as a team.</p>
+        </div>
+
+		<div class="slide">
+            <h1>Functions</h1>
+            <p>Functions are JavaScript's Killer Feature. We'll look at them tonight and next week.</p>
+            <pre class="brush: js eval">// Functions are declared with the keyword function &amp; can have a name.
+function message(string) {
+    // The body is a block that runs when functions are called.
+    
+    // Arguments passed to the function are bound to variables.
+    // Here, we're using the string argument.
+	show("From message: " + string);
+}
+
+// To call (aka invoke) a function, just use the function name
+// and add parens at the end. Arguments are placed inside the parens.
+message("I like my message!");
+message("Messages are neat.");
+</pre>
+		</div>
+        
+        <div class="slide">
+            <h1>Functions Return</h1>
+            <pre class="brush: js eval">// Functions can return data to the code that called them.
+function add(number1, number2) {
+    // Multiple arguments can be provided in the argument list.
+    // They're comma-separated, as you can see.
+	return parseFloat(number1) + parseFloat(number2);
+}
+
+// Returned values can be stored in variables.
+var val = add(2, 3);
+show("Stored in variable: " + val);
+
+// Return values can also be used directly by other functions.
+show("Used directly in show(): " + add(2, 3));      
+</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Functions &#x2764; Users</h1>
+            <pre class="brush: js eval">function add(number1, number2) {
+    return parseFloat(number1) + parseFloat(number2);
+}
+
+// We can use user-entered data in our functions.
+var num1 = prompt("Enter a number.");
+var num2 = prompt("Enter another number.");
+
+show("The sum is " + add(num1, num2) + ".");</pre>
+        </div>
+
+        <div class="slide">
+            <h1><strong>First Coder</strong>, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <script type="syntaxhighlighter" class="brush: js eval">// Write this function...
+function square() {};
+
+// ...so this code will work (No, you can't edit the code below.)
+var sq1 = square(1),
+    sq2 = square(2),
+    sq9 = square(9);
+    
+if(sq1 === 1 && sq2 === 4 && sq9 === 81) {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("sq1 === " + sq1, "sq2 === " + sq2, "sq9 === " + sq9);
+}</script>
         </div>
 
         <div class="slide">
             <h1>Scope</h1>
-            <p>All variables are defined within a <em>Scope</em>.</p>
-            <p>In JavaScript, functions create a new, local Scope.</p>
-            <pre class="brush: js">var num = 1,
+            <p>All variables and functions are defined within a <em>Scope</em>.</p>
+            <p>Functions create a new, local Scope.</p>
+            <p>Global scope (or root scope) is used outside of functions.</p>
+            <pre class="brush: js eval">var num = 1,
 str = "Dude.";
 
 function foo() {
     var num = 2,
         str = "Sweet.";
         
-    console.log(num, str);
+    show("In the foo() function, num=" + num + " and str=" + str);
 };
 
 foo();
-console.log(num, str);</pre>
+show("In the global scope, num=" + num + " and str=" + str);</pre>
         </div>
         
         <div class="slide">
             <h1>Outer Scope</h1>
             <p>Functions can reference variables defined in scopes outside of their own.</p>
             <p>Can you spot the syntatic difference that makes this happen?</p>
-            <pre class="brush: js">var outer = 1;
+            <pre class="brush: js eval">var outer = 1;
             
 function foo() {
     outer++;
 }
 
-console.log(outer);
+show(outer);
 foo();
-console.log(outer);
+show(outer);
 foo();
-console.log(outer);</pre>
+show(outer);</pre>
         </div>
+
         
         <div class="slide">
             <h1>Closures</h1>
             <p>Functions declared within functions can also access outer scope.</p>
-            <pre class="brush: js">function foo(name) {
+            <pre class="brush: js eval">function foo(name) {
     var greeting = "Howdy, " + name + "!";
     
     return function() {
-        console.log(greeting);
+        show(greeting);
     }
 }
 
 var greet = foo("Buzz");
-greet(); // logs "Howdy, Buzz!"\</pre>
+greet(); // logs "Howdy, Buzz!"</pre>
         </div>
         
         <div class="slide">
-            <h1><strong>A</strong>s, you're up!</h1>
+            <h1><strong>Second Coder</strong>, you're up!</h1>
             <p>Write the function that allows this code to work.</p>
-            <pre class="brush: js">// Write this function
-function basket() {};
+            <script type="syntaxhighlighter" class="brush: js eval">// Finish writing this function...
+function basket() {
+    return function() {}
+};
 
-// So this code works (No, you can't edit the code below.)
+// ...so this code will work (No, you can't edit the code below.)
 var fruitBasket = basket(['Apple', 'Banana', 'Orange', 'Lemon', 'Cherry']);
 
 var apple = fruitBasket(1),
@@ -124,26 +193,26 @@ if(apple === "Fresh Apple!" && lemon === "Fresh Lemon!") {
 } else {
     console.log("Keep trying, your code doesn't quite work.");
     console.log("apple === " + apple, "lemon === " + lemon);
-}</pre>
+}</script>
         </div>
 
         <div class="slide">
-            <h1>Everything's an Object</h1>
+            <h1>Most Everything is an Object</h1>
             <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
             <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
-            <pre class="brush: js">console.log("What did she say?".length);
-console.log(["A", "B", "C"].join(" -> "));</pre>
+            <pre class="brush: js eval">show("There's a snake in my boot.".length);
+show(["A", "B", "C"].join(" -> "));</pre>
 
             <p>Arbitrary properties and methods can be created:</p>
-            <pre class="brush: js">var foo = {};
+            <pre class="brush: js eval">var foo = {};
 foo.awesome = true;
-console.log(foo.awesome);
+show("foo.awesome is " + foo.awesome);
 
 var bar = ['All', 'Sorts', 'of', 'Values'];
 bar.howLongIsThisArray = function() {
     return this.length;
 };
-console.log(bar.howLongIsThisArray());
+show("bar array length is: " + bar.howLongIsThisArray());
         </div>
         
         <div class="slide">
@@ -164,9 +233,9 @@ var arr = new Array(),
         </div>
 
         <div class="slide">
-            <h1><strong>B</strong>s, you're up!</h1>
+            <h1><strong>First Coder</strong>, you're up!</h1>
             <p>Write the function that allows this code to work.</p>
-            <pre class="brush: js">var siblings = [];
+            <pre class="brush: js eval">var siblings = [];
 
 // Write this function
 // Use the "this" variable.
@@ -203,12 +272,13 @@ foo(); // logs reference to window</pre>
     			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
     			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
     		</ul>
-    		<pre class="brush: js">var user = {
+    		<pre class="brush: js eval">var user = {
 	name: "Johnny Alabaster",
 	age: 43
 };
 user.getInfo = function() {
-    console.log(this);
+    show(this.name);
+    show(this.age);
 };
 user.getInfo(); // logs reference to user</pre>
         </div>
@@ -220,12 +290,13 @@ user.getInfo(); // logs reference to user</pre>
     			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
     			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
     		</ul>
-    		<pre class="brush: js">function User(name, password) {
+    		<pre class="brush: js eval">function User(name, password) {
 	this.name = name;
 	this.password = password;
 
 	this.getInfo = function() {
-		console.log(this.name, this.password);
+		show(this.name);
+        show(this.password);
 	};
 }
 var user1 = new User("peterwooley", "Freedom");
@@ -237,9 +308,9 @@ user2.getInfo();</pre>
         </div>
         
         <div class="slide">
-            <h1>Sorry <strong>C</strong>s, you're up!</h1>
+            <h1>Sorry <strong>Second Coder</strong>, you're up!</h1>
             <p>Write the function that allows this code to work.</p>
-            <pre class="brush: js">
+            <script type="syntaxhighlighter" class="brush: js eval">
 // Write this function
 function Band() {};
 
@@ -258,7 +329,7 @@ if(
         "radiohead.info() = " + radiohead.info(),
         "modestMouse.info() = " + modestMouse.info()
     );
-}</pre>
+}</script>
         </div>
         
         <div class="slide title">
@@ -271,17 +342,17 @@ if(
     			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
     			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
     		</ul>
-    		<pre class="brush: js">function Animal(name) {
+    		<pre class="brush: js eval">function Animal(name) {
     this.type = "animal";
     this.getName = function() { return this.name };
 }
-function SwiftSpectralWarhorse(name) {
+function VioletProtoDrake(name) {
     this.name = name;
 }
-SwiftSpectralWarhorse.prototype = new Animal();
+VioletProtoDrake.prototype = new Animal();
 
-var zoe = new SwiftSpectralWarhorse("Zoe");
-console.log(zoe.getName()); // logs "Zoe"</pre>
+var zoe = new VioletProtoDrake("Zoe");
+show(zoe.getName());</pre>
         </div>
 
 		<div class="slide title">
@@ -293,7 +364,7 @@ console.log(zoe.getName()); // logs "Zoe"</pre>
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
+                <span class="right">WDIM262A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
                 <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />

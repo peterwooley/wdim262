@@ -3,8 +3,18 @@
     <head>
 		<meta charset="utf-8">
 		<title>WDIM262 Web Scripting: JavaScript, Assignment 4</title>
+
+<script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
         <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
 		<link type="text/css" rel="stylesheet" href="styles/common.css" />
+
 	</head>
 	<body>
 		<div id="header">
@@ -19,15 +29,15 @@
 		<ul>
 			<li>The user is prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib.</li>
 			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed in the Web page.</li>
-			<li>You must use the template provided below and only add code where it is marked .</li>
+			<li>You must use the template provided below and only add code where it is marked.</li>
 		</ul>
         <pre class="brush: js">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
-        &lt;script type="text/javascript"&gt;
+        &lt;script&gt;
             function MadLib() {
-                // Create everything you need inside this MadLib function.
+                // Create everything you need inside this MadLib Object Constructor.
             };
 		
             window.onload = function() {
@@ -42,5 +52,7 @@
 &lt;/html&gt;</pre>
 			</li>
 		</ul>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
 	</body>
 </html>
