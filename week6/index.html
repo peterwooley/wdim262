@@ -34,8 +34,8 @@
         <div class="slide">
             <h1>Turn in Assignment 4</h1>
             <ul>
-    			<li>Send your homework as <code><var>lastnameFirstName</var>_assignment4.zip</code> to <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a>.</li>
-    		</ul>
+    			<li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment4.zip</code> to the Assignment 4 Dropbox.</li>
+            </ul>
         </div>
     
 		<div class="slide">
@@ -88,15 +88,17 @@ document.body.appendChild(div);
             <p>After creating elements, you'll want to get access to them.</p>
             <pre class="brush: js eval">// You can find all tags by their name.
 var divs = document.getElementsByTagName("div");
-alert("Number of divs: " + divs.length);</pre>
+show("Number of divs: " + divs.length);</pre>
 
             <pre class="brush: js eval">// You can find tags by their class name (IE9+)
 var slides = document.getElementsByClassName("slide");
-alert("Number of divs with 'slide' class: " + slides.length);</pre>
+show("Number of divs with 'slide' class: " + slides.length);</pre>
 
             <pre class="brush: js eval">// You can find a specific tag with its ID
 var demo = document.getElementById("demo");
-alert("The #demo div: " + demo);</pre>
+show("The #demo div: " + demo);
+console.log(demo);
+</pre>
         </div>
 
 		<div class="slide">
@@ -137,11 +139,11 @@ demo.parentNode.removeChild(demo);</pre>
             <h1>Calling Functions on a Timer</h1>
             <p>Using <code>setTimeout</code> and <code>setInterval</code>, you can call functions on a timer.</li>
             <pre class="brush: js eval">// Call this function after 1000ms (1 second).
-function timeout() { alert("Timeout!") };
+function timeout() { show("Timeout!") };
 window.timeoutId = setTimeout(timeout, 1000);
 
 // Call this function every 3000ms (3 seconds).
-function interval() { alert("Interval!") };
+function interval() { show("Interval!") };
 window.intervalId = setInterval(interval, 3000);</pre>
 
             <pre class="brush: js eval">// Stop the timeout from occurring.
@@ -284,7 +286,7 @@ header.onmousemove = function(event) {
         <div class="slide">
             <h1>Inline Event Handlers</h1>
             <p>It is possible to place event handlers directly in your HTML:</p>
-            <pre class="brush: xml">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;alert('Clicky!')&quot;&gt;Click me!&lt;/a&gt;</pre>
+            <pre class="brush: xml">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;show('Clicky!')&quot;&gt;Click me!&lt;/a&gt;</pre>
             <p>Unless you absolutely have to, <strong>do not use inline event handlers</strong>.</p>
             <p>Remember the Web Trifecta and try to keep them separated.</p>
         </div>
@@ -297,7 +299,7 @@ header.onmousemove = function(event) {
 link.onclick = function(event) {
     event = event || window.event; // Fix for IE.
     
-    alert("Click was prevented.");
+    show("Click was prevented.");
     
     console.log(event); // Log the event object.
     
@@ -305,7 +307,7 @@ link.onclick = function(event) {
     return false; // Stop the event, old school.
 }
 
-alert("Click event handler activated.");
+show("Click event handler activated.");
         </div>
         
         <div class="slide">    
@@ -315,16 +317,12 @@ alert("Click event handler activated.");
         
         <div class="slide">	
     		<h1>Driver #2, You're Up!</h1>
-            <p>When the user clicks any box, animate that box 500px left then 500px right.</p>
+            <p>When the user clicks any div, change the background color, height and width to a random color, height and width.</p>
     		<pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;Animation!&lt;/title&gt;
         &lt;script&gt;
-            function animate() {
-                // Start with the code you created before.
-            }
-            
             window.onload = function() {
                 // Add your event handlers here.
             };
@@ -351,7 +349,7 @@ alert("Click event handler activated.");
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
+                <span class="right">WDIM262A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
                 <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />
