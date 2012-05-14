@@ -46,7 +46,7 @@
         }
 
         $el.wrapInner('<div class="slideContent"/>');
-        $el.find('pre').html(preparePreTags);
+        $el.find('pre, script[type=syntaxhighlighter]').html(preparePreTags);
         $el.find('a.eval').click(executeCode);
     };
 
@@ -176,11 +176,11 @@
      * Handle JS execute button
      */
     executeCode = function(e) {
-        var slide, node, code, alert;
+        var slide, node, code, show;
         slide = $(this).closest('.slide')[0];
         node = $(this).next('.syntaxhighlighter')[0];
         code = node;
-        alert = $.alert;
+        show = $.alert;
         try {
             eval($(this).data('src'));
         } catch (error) {
