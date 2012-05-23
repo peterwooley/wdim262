@@ -1,25 +1,19 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
                 // 1. Events
-                
-				// Click event (and prevent default action) to collection
-                $("a").click(function(event) {
-                    $(this).text("Haha!");
-                    event.preventDefault();
-                })
-				
-				// Add additional click event
-                $("a").click(function() {
-                    $(this).css("background", "yellow");
-                })
-				
-				// Bind to multiple events
-				$(":header").bind("click mousemove", function() {
-    			    var size = $(this).css("font-size");
+                // Click event (and prevent default action) to collection
+                // Add additional click event
+                // Bind to multiple events
+
+                // On click and mousemove, increase the font size
+                // and add a picture of a cat to a random spot on the screen.
+                /*
+                    $(":header").bind("click mousemove", function() {
+                    var size = $(this).css("font-size");
                     size = parseInt(size);
                     size++;
                     $(this).css("font-size", size);
@@ -36,78 +30,58 @@
                     if(size >= 50) {
                         $(this).unbind("click mousemove");
                     }
-				})
+                })
                 
-				// Unbind certain events
+                // Unbind certain events
                 
                 
                 // 2. DOM Creation
-                
                 // Create div
-                //var div = $("<div />");
-                var div = $(document.createElement("div"));
-        		// Add div to DOM
-                div.text("New Div!");
-                //div.appendTo("body");
-                
-                $("body").prepend(div);
-    
-    			// Prepend new elements to DIV
-                div.append("<strong>Whee!</strong>");
-                
-                
+                // Add div to DOM
+                // Prepend new elements to DIV
                 
                 
                 // 3. Class Manipulation
-                
                 // Add a class
-    			
-				// Remove a class
-				
-				// Toggle a class
-				
-				// Add class to collection
+                // Remove a class
+                // Toggle a class
+                // Add class to collection
                 
                 
                 // 4. Chaining
                 // Select all the <a /> tags,
-    			// add a highlight class,
-				// add a click event handler to toggle the highlight class,
-				// immediately hide the collection
-				// and fade them back in slowly
-                $("a").addClass("highlight").click(function() {
-                    $(this).toggleClass("highlight");
-                }).hide().slideDown(3000);
-                
+                // add a highlight class,
+                // add a click event handler to toggle the highlight class,
+                // immediately hide the collection
+                // and fade them back in slowly
                 
                 // 5. Selectors
                 /*
-    				Test Items:
-						#header
-						p
-						*
-						li, .article, h1
-						div div
-						p:first
-						p:last
-						:header
-						p:contains(drumstick) // Case-sensitive
-						:empty
-						div:has(li > a)
-						[href]
-				*/
-                $("div:has(li > a)").addClass("highlight");
-			  });
-			  
-		</script>
-		<style type="text/css">
-			.highlight { background:yellow; }			
-		</style>
-		
-		<title>jQuery</title>
-	</head>
-	    <body>
-		<div id="header">
+                    Test Items:
+                        #header
+                        p
+                        *
+                        li, .article, h1
+                        div div
+                        p:first
+                        p:last
+                        :header
+                        p:contains(drumstick) // Case-sensitive
+                        :empty
+                        div:has(li > a)
+                        [href]
+                */
+            });
+              
+        </script>
+        <style type="text/css">
+            .highlight { background:yellow; }
+        </style>
+        
+        <title>jQuery</title>
+    </head>
+        <body>
+        <div id="header">
             <h1>Heading</h1>
             <ul id="nav">
                 <li><a href="">Home</a></li>
@@ -128,5 +102,5 @@
             </div>
         </div>
         <div id="footer">&copy; 2027 Heading. All rights <strong>reserved</strong>.</div>
-	</body>
+    </body>
 </html>

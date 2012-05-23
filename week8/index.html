@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 9</title>
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 8</title>
         <!-- Slippy core file and dependencies -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
@@ -32,22 +32,24 @@
     <body>
         <div class="slide title" data-layout="title">
             <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
-			<h2>Week 9</h2>
+			<h2>Week 8</h2>
         </div>
         
         <div class="slide">
             <h1>Turn in Assignment 6</h1>
-    		<p>Email to <a href="mailto:pwooley@aii.com">pwooley@aii.edu</a> using the following naming convention: <var>lastnameFirstname</var>_assignment6.zip.</p>
-        </div>
-        
+            <ul>
+    			<li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment6.zip</code> to the Assignment 6 Dropbox.</li>
+            </ul>
+        </div>        
+
         <div class="slide">
             <h1>Cookies</h1>
             <p>Cookies are small text files that are stored on a user's computer to remember information about a website.</p>
             <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
+show(document.cookie);</pre>
             <pre class="brush: js eval">// Creates a cookie with the name hello.
 // It will expire tonight at 9:45pm.
-document.cookie = 'hello=world; expires=Thu, 02 Dec 2011 05:45:00 GMT; path=/';</pre>
+document.cookie = 'hello=world; expires=Thu, 24 May 2012 05:45:00 GMT; path=/';</pre>
             <pre class="brush: js eval">// Create a cookie with the name foo.
 // It will expire when the browser is closed.
 document.cookie = 'user=peterwooley; path=/';</pre>
@@ -57,7 +59,7 @@ document.cookie = 'user=peterwooley; path=/';</pre>
             <h1>Easily Create Cookies</h1>
             <p>Cookies are a bit of a pain to deal with, so we can make use of a few functions written by <a href="http://www.quirksmode.org/">PPK</a>!</p>
             <pre class="brush: js eval">// Creates cookie for 2 days.
-createCookie("week", 9, 2);
+createCookie("week", 8, 2);
 
 // From http://www.quirksmode.org/js/cookies.html
 function createCookie(name,value,days) {
@@ -70,14 +72,14 @@ function createCookie(name,value,days) {
 	document.cookie = name+"="+value+expires+"; path=/";
 }</pre>
             <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
+show(document.cookie);</pre>
         </div>
         
         <div class="slide">
             <h1>Easily Read Cookies</h1>
             <p>Much like creating them, you can read them easily using a function.</p>
             <pre class="brush: js eval">
-alert(readCookie("week"));
+show(readCookie("week"));
 
 // From http://www.quirksmode.org/js/cookies.html
 function readCookie(name) {
@@ -86,7 +88,8 @@ function readCookie(name) {
 	for(var i=0;i !== ca.length;i++) {
 		var c = ca[i];
 		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length,c.length);
 	}
 	return null;
 }</pre>    
@@ -113,7 +116,7 @@ function createCookie(name,value,days) {
 }
 </pre>
             <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
+show(document.cookie);</pre>
         </div>
         
         <div class="slide">
@@ -159,13 +162,13 @@ alert(document.cookie);</pre>
 		
         <div class="slide">
     		<h1>Libraries: The Good Parts</h1>
-    		<p><a href="http://www.domassistant.com/slickspeed/">What Frameworks are top-notch</a>?</p>
+    		<p>What Frameworks are top-notch?</p>
 			<ul>
 				<li><a href="http://jquery.com">jQuery</a></li>
-				<li><a href="http://www.prototypejs.org/">Prototype</a></li>
+				<li><a href="http://developer.yahoo.com/yui/">YUI (Yahoo! UI)</a></li>
 				<li><a href="http://extjs.com">ExtJS Core</a></li>
 				<li><a href="http://dojotoolkit.org">Dojo</a></li>
-				<li><a href="http://developer.yahoo.com/yui/">YUI (Yahoo! UI)</a></li>
+				<li><a href="http://www.prototypejs.org/">Prototype</a></li>
 			</ul>
         </div>
         
@@ -209,7 +212,7 @@ $("h1").addClass("highlight");
     .slideUp(500)
     .slideDown(1000)
     .toggleClass("highlight")
-    .click(function() { alert("Greetings from the chain!"); });
+    .click(function() { show("Greetings from the chain!"); });
 
 // The equivalent vanilla JavaScript would be too big to show.</pre>
         </div>
@@ -229,7 +232,7 @@ $("h1").addClass("highlight");
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
+                <span class="right">WDIM262A</span>
                 <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
                 <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
                 <hr class="defloat" />
@@ -243,7 +246,7 @@ $("h1").addClass("highlight");
 		<!-- Common Scripts -->
 		<script src="scripts/jquery.noisy.min.js"></script>
 		<script src="scripts/index.js"></script>
-        
+
         <script>
             $("#jqueryTraversal").submit(function() {
                 var val = $("#jQueryQuery").val();
