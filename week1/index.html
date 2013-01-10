@@ -1,293 +1,319 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 1</title>
-        <!-- Slippy core file and dependencies -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
-        <script type="text/javascript" src="slippy/src/slippy.js"></script>
-        <!-- Slippy structural styles -->
-        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
-        <!-- Syntax highlighting core file  -->
-        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
-        <!-- Syntax highlighting brushes, remove those you don't need -->
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
-        <!-- Syntax highlighting styles-->
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>WDIM262 Web Scripting: JavaScript &mdash; Week 1</title>
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+    <script type="text/javascript" src="slippy/src/slippy.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+    <!-- Syntax highlighting core file  -->
+    <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+    <!-- Syntax highlighting brushes, remove those you don't need -->
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+    <!-- Syntax highlighting styles-->
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
 
 
-		<!-- Common Styles -->
-		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
-		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+    <!-- Common Styles -->
+    <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
 
-        <!-- Slippy init code -->
-        <script type="text/javascript">
-            $(function() {
-                $(".slide").slippy();
-				SyntaxHighlighter.defaults.gutter = false;
-                SyntaxHighlighter.all();
-            });
-        </script>
+    <!-- Slippy init code -->
+    <script type="text/javascript">
+      $(function() {
+        $(".slide").slippy();
+        SyntaxHighlighter.defaults.gutter = false;
+        SyntaxHighlighter.all();
+      });
+    </script>
 
-        <!-- Custom style for this deck -->
-        <style type="text/css">
-            .slide.nofooter {
-                border: 0;
-                background: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="slide title" data-layout="title">
-            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
-			<h2>Week 1</h2>
-        </div>
+    <!-- Custom style for this deck -->
+    <style type="text/css">
+      .slide.nofooter {
+        border: 0;
+        background: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide title" data-layout="title">
+      <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+      <h2>Week 1</h2>
+    </div>
 
-        <div class="slide">
-            <h1>Me!</h1>
-			<img src="images/pwooley-256px.png" alt="" style="float:right;width:256px;" title="Tyler Sticka made this avatar for me." />
-			<p>I work at McAfee doing UI Development.</p>
-			<p>Any time I get a free moment to code, I write in JavaScript for fun. Lately, using <a href="http://nodejs.org">node.js</a>.</p>
-			<p>My favorite games are Portal 2, Portal, Final Fantasy VIII, Half-Life 2, Battleheart &amp; World of Warcraft.</p>
-        </div>
+    <div class="slide">
+      <h1>Me!</h1>
+      <img src="images/pwooley-256px.png" alt="" style="float:right;width:256px;" title="Tyler Sticka made this avatar for me." />
+      <p>I work at McAfee doing UI Development.</p>
+      <p>Any time I get a free moment to code, I write in JavaScript for fun. Lately, using <a href="http://nodejs.org">Node.js</a>.</p>
+      <p>My favorite games are Portal, Portal 2, Final Fantasy VIII, Half-Life 2, Battleheart &amp; World of Warcraft.</p>
+    </div>
 
-        <div class="slide">
-            <h1>You</h1>
-            <p><em>Fair Warning: I suck at learning names, but I try.</em></p>
-			<ol>
-        		<li>What's your name?</li>
-    	    	<li>On a scale of 0 to 1984, how much do you love the Internet?</li>
-    	    	<li>Have you had any experience with JavaScript? (copied and pasted scripts, know the basics, or consider yourself a JavaScript god who should be teaching the class?)</li>
-    	    	<li>Have you had any experience with other programming languages? Any ones in particular (PHP, Ruby, Python, Java, C, Lisp, Haskell)?</li>
-    		</ol>
-        </div>
+    <div class="slide">
+      <h1>You</h1>
+      <p><em>Fair Warning: I suck at learning names, but I try.</em></p>
+      <ol>
+        <li>What's your name?</li>
+        <li>On a scale of 0 to 2048, how much do you love the Internet?</li>
+        <li>Have you had any experience with JavaScript? (copied and pasted scripts, know the basics, or consider yourself a JavaScript god who should be teaching the class?)</li>
+        <li>Have you had any experience with other programming languages? Any ones in particular (PHP, Ruby, Python, Java, C, Lisp, Haskell)?</li>
+      </ol>
+    </div>
 
-        <div class="slide title">
-			<h1>Let's all read <a href="SP12_WDIM262_A.pdf">The Syllabus</a>!</h1>
-		</div>
+    <div class="slide title">
+      <h1>Let's all read <a href="WI13_WDIM262_A.pdf">The Syllabus</a>!</h1>
+    </div>
 
-        <div class="slide">
-            <h1>Your Text Editor</h1>
-        	<p>Choosing the right text editor is important. Whether it be a full IDE (Integrated development environment) down to a simple Notepad replacement.</p>
-    		<ul>
-                <li><a href="http://www.sublimetext.com/2">Sublime Text 2<a> (Windows, OS X, Linux)</li>
-        		<li><a href="http://vim.org">Vim (All Platforms)</a></li>
-    			<li><a href="http://notepad-plus.sourceforge.net">Notepad++</a> (Windows)</li>
-    			<li><a href="http://macromates.com/">TextMate</a></li>
-    			<li><a href="http://www.panic.com/coda/">Coda</a></li>
-    		</ul>
-        </div>
-
-        <div class="slide">
-			<h1>The Web Trifecta</h1>
-        	<ul>
-    			<li>HTML for Content</li>
-    			<li>CSS for Style</li>
-    			<li>JavaScript for Behavior</li>
-    		</ul>
-        </div>
-
-		<div class="slide">
-            <h1>Hello, World!</h1>
-			<p>Let's start hacking.</p>
-			<p>Open up <a href="inclass/hello_world.html">inclass/hello_world.html</a> in your favorite text editor.</p>
-		</div>
-
-		<div class="slide">
-            <h1>The &lt;script&gt; tag and you</h1>
-			<p>Where the &lt;script&gt; tag should go to be executed immediatly.<p>
-			<pre class="brush: js">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;JavaScripting&lt;/title&gt;
-		&lt;script&gt;
-			// In the head tag
-		&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</pre>
-        </div>
+    <div class="slide">
+      <h1>Learning Resources</h1>
+      <ul>
+          <li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> (Free &amp; Awesome eBook)</li>
+          <li><a href="http://amzn.com/0596521871">Learning JavaScript, 2nd Edition</a> ($23.09)</li>
+          <li><a href="http://amzn.com/0596517742">JavaScript: The Good Parts</a> ($17.43)</li>
+          <li><a href="http://www.codecademy.com/tracks/javascript">CodeAcademy's JavaScript Track</a></li>
+          <li><a href="https://www.khanacademy.org/cs/tutorials/programming-basics">Khan Academy's Computer Science</a> (Not <strong>exactly</strong> JavaScript<)</li>
+      </ul>
+    </div>
         
-        <div class="slide">
-            <h1>More &lt;script&gt;</h1>
-			<p>Where the &lt;script&gt; tag should go to be executed after the HTML loads.</p>
-				<pre class="brush: js">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;JavaScripting&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-        &lt;h1&gt;A Header&lt;/h1&gt;
-        &lt;p&gt;Lovely content.&lt;/p&gt;
-		&lt;script&gt;
-			// Just before the end of the body tag
-		&lt;/script&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</pre>
-        </div>
 
-		<div class="slide">
-			<h1>Code Comments</h1>
-    		<p>Comments are annotations to code that help summarize or explain how code works.</p>
-    		<pre class="brush: js">// Single-line Comment
-            
+    <div class="slide">
+      <h1>Your Text Editor</h1>
+      <p>Choosing the right text editor is important. Whether it be a full IDE (Integrated development environment) down to a simple Notepad replacement.</p>
+      <ul>
+        <li><a href="http://www.sublimetext.com/2">Sublime Text 2</a> (Windows, OS X, Linux)</li>
+        <li><a href="http://vim.org">Vim</a> (All Platforms)</li>
+        <li><a href="http://notepad-plus.sourceforge.net">Notepad++</a> (Windows)</li>
+        <li><a href="http://macromates.com/">TextMate</a></li>
+        <li><a href="http://www.panic.com/coda/">Coda 2</a></li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h1>The Web Trifecta</h1>
+      <ul>
+        <li>HTML for Content</li>
+        <li>CSS for Style</li>
+        <li>JavaScript for Behavior</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h1>Hello, World!</h1>
+      <p>Let's start hacking.</p>
+      <ol>
+        <li>Open your Web Browser of choice.</li>
+        <li>Open your browser's developer tools.
+          <ul>
+            <li>In Firefox, ensure <a href="http://getfirebug.com/">Firebug</a> is intalled, then hit F12.</li>
+            <li>In Internet Explorer, hit <code>F12</code>.</li>
+            <li>In Chrome, hit <code>Cmd+Alt+i</code>/<code>Ctrl+Alt+i</code>.</li>
+            <li>In Opera, hit <code>Cmd+Alt+i</code>/<code>Ctrl+Alt+i</code>.</li>
+          </ul>
+        </li>
+        <li>Tap on the Console tab.</li>
+        <li>Write some JavaScript:
+          <pre class="brush: js">alert("Hello, World!");</pre>
+        </li>
+      </ol>
+    </div>
+
+    <div class="slide">
+      <h1>Hello, World! Remix</h1>
+      <p>Let's start hacking a bit more permanently.</p>
+      <p>Open up <a href="inclass/hello_world.html">inclass/hello_world.html</a> in your favorite text editor.</p>
+    </div>
+
+    <div class="slide">
+      <h1>The &lt;script&gt; tag and you</h1>
+      <p>Where the &lt;script&gt; tag should go to be executed immediatly.<p>
+      <pre class="brush: html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;JavaScripting&lt;/title&gt;
+    &lt;script&gt;
+      // In the head tag
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+    
+    <div class="slide">
+      <h1>More &lt;script&gt;</h1>
+      <p>Where the &lt;script&gt; tag should go to be executed after the HTML loads.</p>
+        <pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;JavaScripting&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;A Header&lt;/h1&gt;
+    &lt;p&gt;Lovely content.&lt;/p&gt;
+    &lt;script&gt;
+      // Just before the end of the body tag
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <div class="slide">
+      <h1>Code Comments</h1>
+      <p>Comments are annotations to code that help summarize or explain how code works.</p>
+      <pre class="brush: js">// Single-line Comment
+      
 alert("The surrounding comments will not be executed as code.");
 
 /*
  Multi
  Line
  Comment
-*/</pre>	
-		</div>
+*/</pre>  
+    </div>
 
-		<div class="slide title">
-			<h1>Variables in JavaScript</h1>
-        	<ul>
-    			<li>You can store different types of information in variables (Numbers, Strings, Objects, etc.)</li>
-    			<li>They often start with the <code>var</code> declaration.</li>
-    			<li>Then followed by the name of the variable
-    				<ul>
-    					<li>Variable names are case-sensitive</li>
-              			<li>Must begin with a letter, <code>$</code> or <code>_</code>.</li>
-              		</ul>
-              	</li>
-              	<li>Then followed by the assignment of the variable's value after an <code>=</code> sign.</li>
-              	<li>And finished off with a semi-colon;</li>
-            </ul>
-            <pre class="brush: js">var theNumber = 42;
+    <div class="slide title">
+      <h1>Variables in JavaScript</h1>
+      <ul>
+        <li>You can store different types of information in variables (Numbers, Strings, Objects, etc.)</li>
+        <li>They often start with the <code>var</code> declaration.</li>
+        <li>Then followed by the name of the variable
+          <ul>
+            <li>Variable names are case-sensitive</li>
+            <li>Must begin with a letter, <code>$</code> or <code>_</code>.</li>
+          </ul>
+        </li>
+        <li>Then followed by the assignment of the variable's value after an <code>=</code> sign.</li>
+        <li>And finished off with a semi-colon;</li>
+      </ul>
+      <pre class="brush: js">var theNumber = 42;
 var sentence = "This is a sentence. Note the surrounding quotes.";</pre>
-		</div>
+    </div>
 
-		<div class="slide">
-			<h1>Using Variables</h1>
-        	<pre class="brush: html">&lt;!DOCTYPE html&gt;
+    <div class="slide">
+      <h1>Using Variables</h1>
+      <pre class="brush: html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;JavaScript: Hello, World!&lt;/title&gt;
-		&lt;script&gt;
-			var hello = &quot;Hello, World!&quot;;
-			
-			// Create a dialog box containing the value
-            // of the hello variable.
-			alert(hello);
-			
-			// Write the value of the hello variable
-            // into the document (page).
-			document.write(hello);
-		&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-    	&lt;p&gt;I've written a Hello, World script in JavaScript.&lt;/p&gt;
-	&lt;/body&gt;
+  &lt;head&gt;
+    &lt;title&gt;JavaScript: Hello, World!&lt;/title&gt;
+    &lt;script&gt;
+      var hello = &quot;Hello, World!&quot;;
+      
+      // Create a dialog box containing the value
+      // of the hello variable.
+      alert(hello);
+      
+      // Write the value of the hello variable
+      // into the document (page).
+      document.write(hello);
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;I've written a Hello, World script in JavaScript.&lt;/p&gt;
+  &lt;/body&gt;
 &lt;/html&gt;</pre>
-		</div>
+    </div>
 
-		<div class="slide">
-    		<h1>What JavaScript Is</h1>
-        	<ul>
-    			<li>Java<em>Script</em> (<strong>not</strong> Java)</li>
-    			<li>Client-side (<strong>not</strong> Server-side)</li>
-    			<li>Interpreted (<strong>not</strong> Compiled)</li>
-    		</ul>
-		</div>
+    <div class="slide">
+      <h1>What JavaScript Is</h1>
+      <ul>
+        <li>Java<em>Script</em> (<strong>not</strong> Java)</li>
+        <li>Client-side (<strong>not</strong> Server-side)</li>
+        <li>Interpreted (<strong>not</strong> Compiled)</li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1>Interpreted Languages</h1>
-    	    <p>What could some of the benefits be of using an Interpreted language?</p>
-            <div class="incremental">
-            	<h2>Pros</h2>
-    			<ul>
-    				<li>Multi-platform</li>
-    				<li>Indirectly Executed by an Interpreter</li>
-    				<li>Smaller file size</li>
-    				<li>Always Editable</li>
-    			</ul>
-    			<h2>Cons</h2>
-				<ul>
-					<li>Requires an Interpreter</li>
-					<li>Always Editable</li>
-				</ul>
-    		</div>
-		</div>
+    <div class="slide">
+      <h1>Interpreted Languages</h1>
+      <p>What could some of the benefits be of using an Interpreted language?</p>
+      <div class="incremental">
+        <h2>Pros</h2>
+        <ul>
+          <li>Multi-platform</li>
+          <li>Indirectly Executed by an Interpreter</li>
+          <li>Smaller file size</li>
+          <li>Always Editable</li>
+        </ul>
+        <h2>Cons</h2>
+        <ul>
+          <li>Requires an Interpreter</li>
+          <li>Always Editable</li>
+        </ul>
+      </div>
+    </div>
 
-		<div class="slide">
-			<h1>What can it do?</h1>
-        	<ol>
-    			<li><a href="examples/scripts/01_count.html">It can count.</a></li>
-    			<li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
-    			<li><a href="http://www.datejs.com">It can interpret.</a></li>
-    			<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
-    			<li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
-    			<li><a href="examples/scripts/03_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
-    		</ol>
-		</div>
+    <div class="slide">
+      <h1>What can it do?</h1>
+      <ol>
+        <li><a href="examples/scripts/01_count.html">It can count.</a></li>
+        <li><a href="examples/scripts/02_remember.html">It can remember.</a></li>
+        <li><a href="http://www.datejs.com">It can interpret.</a></li>
+        <li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">It can run Quake II.</a></li>
+        <li><a href="http://www.phoboslab.org/biolab/">It can run a wicked side-scroller.</a></li>
+        <li><a href="examples/scripts/03_clock.html">It can, but shouldn't, animate a clock that follows your cursor.</a></li>
+      </ol>
+    </div>
 
-        <div class="slide">
-            <h1>What can't it do?</h1>
-        	<ol>
-    			<li>It cannot access files on your computer directly, for safety reasons.</li>
-    			<li>It cannot directly modify files on a server, when it runs on the client-side.</li>
-    			<li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
-    		</ol>
-        </div>
-        
-        <div class="slide">
-            <h1>Debugging JavaScript</h1>
-        	<ul>
-    			<li>Add this bit of JavaScript to a page:
-    			<pre class="brush: js">console.log("I'm sending a message to the Console!");</pre>
-    			</li>
-    			<li>Reload the page.</li>
-                <li>Open The Developer Tools
-                    <ul>
-                        <li>In Firefox, open Firebug (F12, or a little bug in the bottom-right or top-right corner).</li>
-                        <li>In Chrome or Safari, open Web Inspector (in Develop Menu).</li>
-                        <li>In Internet Explorer, open F12 Tools (with F12).</li>
-                    </ul>
-                </li>
-    			<li>Rejoice!</li>
-    		</ul>
-        </div>
-		
-        <div class="slide">
-    		<h1>Scripting</h1>
-    		<ul>
-    			<li>Is there anything (relatively simply) you'd like to try doing in JavaScript right now?</li>
-    			<li>Are there any burning questions about JavaScript you'd like answered?</li>
-    		</ul>
-        </div>
-
-		<div class="slide title">
-			<h1>Fin!</h1>
-			<h2>There be <a href="homework.html">Homework</a>!</h2>
-		</div>
-
-        <div class="layout" data-name="title">
-            <content></content>
-            <div class="footer">
-                <span class="left">Peter Wooley</span>
-                <span class="right">WDIM262A</span>
-                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
-                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
-                <hr class="defloat" />
-            </div>
-        </div>
-
-        <div class="layout nofooter" data-name="default">
-            <content></content>
-        </div>
+    <div class="slide">
+      <h1>What can't it do?</h1>
+      <ol>
+        <li>It cannot access files on your computer directly, for safety reasons.</li>
+        <li>It cannot directly modify files on a server, when it runs on the client-side.</li>
+        <li>It cannot be completely trusted to be running, because most every browser lets you turn off JavaScript.</li>
+      </ol>
+    </div>
     
-		<!-- Common Scripts -->
-		<script src="scripts/jquery.noisy.min.js"></script>
-		<script src="scripts/index.js"></script>
-	</body>
+    <div class="slide">
+      <h1>Debugging JavaScript</h1>
+      <ul>
+        <li>Add this bit of JavaScript to a page:
+        <pre class="brush: js">console.log("I'm sending a message to the Console!");</pre>
+        </li>
+        <li>Reload the page</li>
+        <li>Open your browser's Developer Tools</li>
+        <li>Rejoice!</li>
+      </ul>
+    </div>
+    
+    <div class="slide">
+      <h1>Scripting</h1>
+      <ul>
+        <li>Is there anything (relatively simply) you'd like to try doing in JavaScript right now?</li>
+        <li>Are there any burning questions about JavaScript you'd like answered?</li>
+      </ul>
+    </div>
+
+    <div class="slide title">
+      <h1>Fin!</h1>
+      <h2>There be <a href="homework.html">Homework</a>!</h2>
+    </div>
+
+    <div class="layout" data-name="title">
+      <content></content>
+      <div class="footer">
+        <span class="left">Peter Wooley</span>
+        <span class="right">WDIM262A</span>
+        <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+        <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+        <hr class="defloat" />
+      </div>
+    </div>
+
+    <div class="layout nofooter" data-name="default">
+      <content></content>
+    </div>
+  
+    <!-- Common Scripts -->
+    <script src="scripts/jquery.noisy.min.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
