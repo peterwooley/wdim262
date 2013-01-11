@@ -2,12 +2,46 @@
 <html>
     <head>
         <title>JavaScript: Hello, World!</title>
-        <script>
-            // Look, it's JavaScript!
-        </script>
     </head>
     <body>
         <p>I've written a Hello World script in JavaScript.</p>
+        <form>
+          <input type="text" id="username" />
+          <input type="password" id="password" />
+          <input type="submit" id="submit" />
+        </form>
+        <div id="dashboard" style="display:none;">
+          <h1>You're in the Dashboard!</h1>
+        </div>
+        <script>
+            // Hook up the login form to handle Dashboard login.
+            document.getElementById("submit").onclick = function() {
+              var username = document.getElementById("username").value;
+              var password = document.getElementById("password").value;
+
+              if(username === "admin" && password === "password") {
+                document.getElementById("dashboard").style.display = "block";
+              } else {
+                alert("Nah, you messed up.");
+              }
+
+              return false;
+            }
+
+            // Look, it's JavaScript!
+            //alert("Hello, World!");
+
+            // Variables
+            var theNumber = 42;
+            var sentence = 'This is a " sentence. Note the surrounding quotes.';
+
+            // Using Variables
+            //alert(sentence);
+            document.write(sentence);
+
+            // Sending data straight to Console
+            //console.error("I'm sending a message to the Console!");
+        </script>
     </body>
 </html>
 
