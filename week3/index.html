@@ -30,156 +30,34 @@
     </head>
     <body>
         <div class="slide title" data-layout="title">
-            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
-			<h2>Week 3</h2>
+          <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+          <h2>Week 3</h2>
         </div>
 
         <div class="slide">
             <h1>Turn in Assignment 2</h1>
             <ul>
-                <li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment1.zip</code> via the Dropbox for Assignment 2.</li>
+                <li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment2.zip</code> via the Dropbox for Assignment 2.</li>
             </ul>
         </div> 
 
         <div class="slide">
             <h1>Quiz 1!</h1>
         	<ul>
-    			<li>The quiz is up on Google Docs: <a href="https://spreadsheets.google.com/viewform?hl=en&formkey=dDBrdmE5WmszU1RQZFBkZlBnVUVNZ2c6MA">Quiz 1</a> (<a href="http://is.gd/X5nfCt">http://is.gd/X5nfCt</a>)</li>
+    			<li>Quiz 1 is up on eCompanion.</li>
     			<li>Use your notes, in-class work, and your search engine of choice to find the answers.</li>
     			<li>You've got 15 minutes!</li>
     		</ul>
         </div>
-
-<div class="slide">
-            <h1>Operators</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Meaning</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>+</td>
-                        <td>Addition</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Subtraction</td>
-                    </tr>
-                    <tr>
-                        <td>*</td>
-                        <td>Multiplication</td>
-                    </tr>
-                    <tr>
-                        <td>/</td>
-                        <td>Division</td>
-                    </tr>
-                    <tr>
-                        <td>%</td>
-                        <td>Modulus (Division Remainder)</td>
-                    </tr>
-                    <tr>
-                        <td>++</td>
-                        <td>Unary Increment</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>Unary Decrement</td>
-                    </tr>
-                </tbody>
-            </table>
+  
+        <div class="slide title">
+            <h1>Divide & Code</h1>
+            <h2>For the hackathons this week, you'll pair up and work through them as a team.</h2>
         </div>
 
         <div class="slide">
-            <h1>Comparison Operators</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Meaning</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>==</td>
-                        <td>Is Equal To (Compares value)</td>
-                    </tr>
-                    <tr>
-                        <td>===</td>
-                        <td>Is Exactly Equal To (Compares value and type)</td>
-                    </tr>
-                    <tr>
-                        <td>!=</td>
-                        <td>Is Not Equal</td>
-                    </tr>
-                    <tr>
-                        <td>!==</td>
-                        <td>Is Not Exactly Equal To (Compares value and type)</td>
-                    </tr>
-                    <tr>
-                        <td>&gt;</td>
-                        <td>Is Greater Than</td>
-                    </tr>
-                    <tr>
-                        <td>&gt;=</td>
-                        <td>Is Greater Than or Equal To</td>
-                    </tr>
-                    <tr>
-                        <td>&lt;</td>
-                        <td>Is Less Than</td>
-                    </tr>
-                    <tr>
-                        <td>&lt;=</td>
-                        <td>Is Less Than or Equal To</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="slide">
-            <h1>Switching Types</h1>
-            <pre class="brush: js eval">
-            // When using prompt(), user-provided data is alway given as a string.
-            var userNumber = prompt("Enter any number.");
-            
-            // What ever number the user enters,
-            // it won't work as expected with other numbers.
-            show(userNumber + 10)
-            </pre>
-            <pre class="brush: js eval">
-            // To fix this, you can use parseFloat()
-            var numberAsString = prompt("Enter any number.");
-            var numberAsNumber = parseFloat(numberAsString);
-            
-            show(numberAsNumber + 2);
-            </pre>
-            <pre class="brush: js eval">
-            // To specifically get an integer, you can use parseInt()
-            var intAsString = prompt("Enter a floating point number, like 2.5433.");
-            var intAsNumber = parseInt(intAsString);
-            
-            show(intAsNumber);
-            </pre>
-        </div>
-
-        <div class="slide">
-            <h1>null</h1>
-            <pre class="brush: js eval">            
-            // Null means a variable is defined, but has no value.
-            var blink182 = null;
-            
-            // The type of null is reported as 'object'.
-            // This is a mistake: http://is.gd/j47iPO
-            show(typeof blink182);
-            
-            // Null isn't the same as any other value.
-            show(null == true);
-            show(null == false);
-            show(null == 0);
-            show(null == "");
-            </pre>
+          <h1>Review!</h1>
+          <p>We covered these last week, but they're here for your reference.</p>
         </div>
 
         <div class="slide">
@@ -195,7 +73,7 @@
     		<h1>Objects</h1>
             <pre class="brush: js eval">
             // Objects are named collections of any type.
-            var user = {name: "Peter Wooley", age: 25};
+            var user = {name: "Peter Wooley", age: 27};
             
             // Object values are accessed via their key.
             show(user.name);
@@ -283,7 +161,11 @@ for( var i = 0; i < num; i++ ) {
 			</ul>
     	</div>
         
-        <div class="slide">
+      <div class="slide title">
+        <h1>New Stuff!</h1>
+      </div>
+
+      <div class="slide">
     		<h1><code>for...in</code> Loop</h1>
     		<p>The <code>for...in</code> loop allows you to iterate over all of the values in an object or array.</li>
     		<pre class="brush: js eval">var browsers = {
@@ -322,9 +204,9 @@ while(valueIsNumeric === false) {
         </div>
     		
         <div class="slide">
-    		<h1>Hackathon</h1>
+        <h1><strong>First Coder</strong>, you're up!</h1>
     		<p>Mission: Write a script that determines your user's musical preference out of three options of your choosing, and based on that preference, display different page content.</p>
-    		<h3>Instructions:</h3>
+    		<h2>Instructions:</h2>
     		<ul>
     			<li>Use the <code>prompt()</code> function to ask the user for their preference out of 3 options.</li>
     			<li>Use a switch statement to determine which musical style they prefer.</li>
@@ -384,6 +266,257 @@ var num2 = prompt("Enter another number.");
 show("The sum is " + add(num1, num2) + ".");</pre>
         </div>
 
+        <div class="slide">
+            <h1><strong>Second Coder</strong>, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <script type="syntaxhighlighter" class="brush: js eval">// Write this function...
+function square() {};
+
+// ...so this code will work (No, you can't edit the code below.)
+var sq1 = square(1),
+    sq2 = square(2),
+    sq9 = square(9);
+    
+if(sq1 === 1 && sq2 === 4 && sq9 === 81) {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("sq1 === " + sq1, "sq2 === " + sq2, "sq9 === " + sq9);
+}</script>
+        </div>
+
+        <div class="slide">
+            <h1>Scope</h1>
+            <p>All variables and functions are defined within a <em>Scope</em>.</p>
+            <p>Functions create a new, local Scope.</p>
+            <p>Global scope (or root scope) is used outside of functions.</p>
+            <pre class="brush: js eval">var num = 1,
+str = "Dude.";
+
+function foo() {
+    var num = 2,
+        str = "Sweet.";
+        
+    show("In the foo() function, num=" + num + " and str=" + str);
+};
+
+foo();
+show("In the global scope, num=" + num + " and str=" + str);</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Outer Scope</h1>
+            <p>Functions can reference variables defined in scopes outside of their own.</p>
+            <p>Can you spot the syntatic difference that makes this happen?</p>
+            <pre class="brush: js eval">var outer = 1;
+            
+function foo() {
+    outer++;
+}
+
+show(outer);
+foo();
+show(outer);
+foo();
+show(outer);</pre>
+        </div>
+
+        
+        <div class="slide">
+            <h1>Closures</h1>
+            <p>Functions declared within functions can also access outer scope.</p>
+            <pre class="brush: js eval">function foo(name) {
+    var greeting = "Howdy, " + name + "!";
+    
+    return function() {
+        show(greeting);
+    }
+}
+
+var greet = foo("Buzz");
+greet(); // logs "Howdy, Buzz!"</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><strong>First Coder</strong>, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <script type="syntaxhighlighter" class="brush: js eval">// Finish writing this function...
+function basket() {
+    return function() {}
+};
+
+// ...so this code will work (No, you can't edit the code below.)
+var fruitBasket = basket(['Apple', 'Banana', 'Orange', 'Lemon', 'Cherry']);
+
+var apple = fruitBasket(1),
+    lemon = fruitBasket(4);
+    
+if(apple === "Fresh Apple!" && lemon === "Fresh Lemon!") {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("apple === " + apple, "lemon === " + lemon);
+}</script>
+        </div>
+
+        <div class="slide">
+            <h1>Most Everything is an Object</h1>
+            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
+            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
+            <pre class="brush: js eval">show("There's a snake in my boot.".length);
+show(["A", "B", "C"].join(" -> "));</pre>
+
+            <p>Arbitrary properties and methods can be created:</p>
+            <pre class="brush: js eval">var foo = {};
+foo.awesome = true;
+show("foo.awesome is " + foo.awesome);
+
+var bar = ['All', 'Sorts', 'of', 'Values'];
+bar.howLongIsThisArray = function() {
+    return this.length;
+};
+show("bar array length is: " + bar.howLongIsThisArray());
+        </div>
+        
+        <div class="slide">
+            <h1>Primitives vs. Constructors</h1>
+            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
+    		<pre class="brush: js">// Some Primitives
+var arr = [],
+    obj = {},
+    str = "",
+    bool = true;</pre>
+            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
+    		<pre class="brush: js">// Some Constructors
+var arr = new Array(),
+    obj = new Object(),
+    str = new String("""),
+    bool = new Boolean(true);</pre>
+    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
+        </div>
+
+        <div class="slide">
+            <h1><strong>First Coder</strong>, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <pre class="brush: js eval">var siblings = [];
+
+// Write this function
+// Use the "this" variable.
+siblings.asProse = function() {};
+
+// So this code works (No, you can't edit the code below.)
+siblings.push("Fred", "Jon", "Steve");
+var prose = siblings.asProse();
+
+if(prose === "Fred is older than Jon is older than Steve.") {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log("Prose: " + prose);
+}</pre>
+        </div>
+
+        <div class="slide">
+    		<h1><code>this</code></h1>
+            <ul>
+        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
+        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
+        	</ul>
+            <pre class="brush: js">function foo() {
+    console.log(this);
+}
+foo(); // logs reference to window</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><code>this</code> in a Method</h1>
+        	<ul>
+    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
+    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
+    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
+    		</ul>
+    		<pre class="brush: js eval">var user = {
+	name: "Johnny Alabaster",
+	age: 43
+};
+user.getInfo = function() {
+    show(this.name);
+    show(this.age);
+};
+user.getInfo(); // logs reference to user</pre>
+        </div>
+
+        <div class="slide">
+            <h1><code>this</code> as a Constructor</h1>
+        	<ul>
+    			<li>If your mind has yet to be blown, this will do it.</li>
+    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
+    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
+    		</ul>
+    		<pre class="brush: js eval">function User(name, password) {
+	this.name = name;
+	this.password = password;
+
+	this.getInfo = function() {
+		show(this.name);
+        show(this.password);
+	};
+}
+var user1 = new User("peterwooley", "Freedom");
+var user2 = new User("thor", "HammerTime");
+
+// logs both users names and passwords
+user1.getInfo();
+user2.getInfo();</pre>
+        </div>
+        
+        <div class="slide">
+            <h1>Sorry <strong>Second Coder</strong>, you're up!</h1>
+            <p>Write the function that allows this code to work.</p>
+            <script type="syntaxhighlighter" class="brush: js eval">
+// Write this function
+function Band() {};
+
+// To make this code work.
+var radiohead = new Band("Radiohead", "alternative"),
+    modestMouse = new Band("Modest Mouse", "indie");
+    
+if(
+    radiohead.info() === "Radiohead plays alternative."
+    && modestMouse.info() === "Modest Mouse plays indie."
+) {
+    console.log("Congratulations! Your code works!");
+} else {
+    console.log("Keep trying, your code doesn't quite work.");
+    console.log(
+        "radiohead.info() = " + radiohead.info(),
+        "modestMouse.info() = " + modestMouse.info()
+    );
+}</script>
+        </div>
+        
+        <div class="slide title">
+            <h1>One more thing...</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Pseudoclassical Inheritance</h1>
+        	<ul>
+    			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
+    			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
+    		</ul>
+    		<pre class="brush: js eval">function Animal(name) {
+    this.type = "animal";
+    this.getName = function() { return this.name };
+}
+function VioletProtoDrake(name) {
+    this.name = name;
+}
+VioletProtoDrake.prototype = new Animal();
+
+var zoe = new VioletProtoDrake("Zoe");
+show(zoe.getName());</pre>
+        </div>
 		<div class="slide title">
 			<h1>Finished!</h1>
 			<h2>The <a href="homework.html">Homework</a>.</h2>

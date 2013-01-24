@@ -27,24 +27,22 @@
 		<p>Create a Web page-based Mad Lib. The Mad Lib can be whatever you'd like it to, within the realm of appropriateness. Make sure it fulfills these requirements:</p>
 		
 		<ul>
-			<li>The user is prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib.</li>
-			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed in the Web page.</li>
+			<li>The user is prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib (For brevity, ask for no more than 10 words).</li>
+			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed.</li>
 			<li>You must use the template provided below and only add code where it is marked.</li>
+      <li></li>
 		</ul>
         <pre class="brush: js">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
         &lt;script&gt;
-            function MadLib() {
+            function madlib() {
                 // Create everything you need inside this MadLib Object Constructor.
             };
 		
-            window.onload = function() {
-                var madlib = new MadLib();
-                madlib.getWords();
-                madlib.render();
-            }
+            madlib(); // Create and display the madlib once
+            madlib(); // Create and display the madlib again
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;

@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
 		<meta charset="utf-8">
 		<title>WDIM262 Web Scripting: JavaScript, Assignment 3</title>
+
+<script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
         <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
 		<link type="text/css" rel="stylesheet" href="styles/common.css" />
+
 	</head>
 	<body>
 		<div id="header">
 			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">Homework: <em>Assignment 3</em>, due Week 4.</p>
+			<p class="tagline">Homework: <em>Assignment 3</em>, due <strong>Week 4</strong>.</p>
 		</div>
-		
 		<p>Please turn in your files in a .zip file, using the following naming convention: <var>lastnameFirstname_assignment3.zip</var></p>
-
-		<h2>Requirements</h2>
 		
-		<p>Using arrays and loops, create a table that lists the brands of five shoe companies next to how much money each company is worth (these numbers can be fictional):</p>
+		<h2>Requirements</h2>
+		<p>Create a Web page-based Mad Lib. The Mad Lib can be whatever you'd like it to, within the realm of appropriateness. Make sure it fulfills these requirements:</p>
 		
 		<ul>
-			<li>Store the information (shoe company names and assosiated value) using arrays</li>
-			<li>Using either type of loop, add the HTML elements for a table (&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;, etc.) to the document.</li>
-			<li>The easiest way to store the data is in two separate arrays, where each numerical index of one array assosiates to the other. You could also use a multi-dimensional array or object.</li>
+			<li>The user should be prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib (For brevity, ask for no more than 10 words).</li>
+			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed.</li>
+			<li>You must use the template provided below and only add code where it is marked.</li>
+      <li>Note that the template below will render the madlib twice, so put all of your mablib-related code in the <code>madlib()</code> function.</li>
 		</ul>
+        <pre class="brush: js">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;WDIM262 Assignment 3: Mad Lib&lt;/title&gt;
+        &lt;script&gt;
+            function madlib() {
+                // Create everything you need inside this function.
+            };
+		
+            madlib(); // Create and display the madlib once
+            madlib(); // Create and display the madlib again
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+			</li>
+		</ul>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
 	</body>
 </html>
