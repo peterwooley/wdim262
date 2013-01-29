@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 4</title>
+        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 6</title>
         <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
         <script type="text/javascript" src="slippy/src/slippy.js"></script>
         <!-- Slippy structural styles -->
@@ -14,10 +14,7 @@
         <!-- Syntax highlighting brushes, remove those you don't need -->
         <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
         <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
         <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
         <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
         <!-- Syntax highlighting styles-->
         <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
@@ -33,331 +30,327 @@
             <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
 			<h2>Week 4</h2>
         </div>
-
+    
         <div class="slide">
             <h1>Turn in Assignment 3</h1>
-        	<ul>
+            <ul>
     			<li>Please upload your homework as <code><var>lastnameFirstName</var>_assignment3.zip</code> to the Assignment 3 Dropbox.</li>
-    		</ul>
+            </ul>
         </div>
-        
-        <div class="slide">
-            <h1>Quiz 2!</h1>
-        	<ul>
-    			<li>The quiz is up on Google Docs: <a href="http://is.gd/gisz2">Quiz 2 (http://is.gd/gisz2)</a></li>
-    		</ul>
-        </div>
-
-        <div class="slide title">
-            <h1>Divide & Code</h1>
-            <p>You'll pair up and work through today's 3 hackathons as a team.</p>
-        </div>
+    
+    <div class="slide">
+      <h1>Quiz 2</h1>
+      <ul>
+        <li>Quiz 2 is up on eCompanion!</li>
+        <li>You have 15 minutes to finish it.</li>
+      </ul>
+    </div>
 
 		<div class="slide">
-            <h1>Functions</h1>
-            <p>Functions are JavaScript's Killer Feature. We'll look at them tonight and next week.</p>
-            <pre class="brush: js eval">// Functions are declared with the keyword function &amp; can have a name.
-function message(string) {
-    // The body is a block that runs when functions are called.
-    
-    // Arguments passed to the function are bound to variables.
-    // Here, we're using the string argument.
-	show("From message: " + string);
-}
+			<h1>DOM &mdash; Document Object Model</h1>
+      <h2>Document</h2>
+      <ul>
+				<li>History (Back/Forward)</li>
+				<li>HTML elements</li>
+				<li>Styles</li>
+				<li>Web browser window</li>
+			</ul>
+            
+      <h2>Object Model</h2>
+      <ul>
+        <li>A collection of objects through which a program can examine and manipulate some specific parts of its world.</li>
+      </ul>
+      
+      <h2>Document Object Model</h2>
+      <ul>
+        <li>The API (Application Programming Interface) linking JavaScript with the Web Browser.</li>
+        <li>The most important piece of JavaScript in the browser. <a href="http://en.wikipedia.org/wiki/Wikipedia:Citation_needed"><sup>[citation needed]</sup></a></li>
+      </ul>
+            
+		</div>
 
-// To call (aka invoke) a function, just use the function name
-// and add parens at the end. Arguments are placed inside the parens.
-message("I like my message!");
-message("Messages are neat.");
-</pre>
+		<div class="slide">	
+			<h1><del>document.write</del> <ins>document.createElement</ins></h1>
+			<p>Unless otherwise noted, the use of <code>document.write()</code> is no longer allowed.</li>
+            <p>Instead, we'll use the appropriate DOM methods for creating elements.</li>
+            <pre class="brush: js eval">// We can create any HTML Element
+// An HTMLElement object is created &amp; stored in variable div.
+var div = document.createElement("div");
+
+// All HTMLElement objects have a style object.
+// It can be used to set CSS styles directly on the element.
+div.style.width = div.style.height = "150px";
+div.style.margin = "10px";
+div.style.backgroundColor = "red";
+
+div.id = "demo";
+
+// document.body is an HTMLELement object of the &lt;body&gt;.
+// When you create an element, you must add it to the document.
+document.body.appendChild(div);
+            </pre>
 		</div>
         
         <div class="slide">
-            <h1>Functions Return</h1>
-            <pre class="brush: js eval">// Functions can return data to the code that called them.
-function add(number1, number2) {
-    // Multiple arguments can be provided in the argument list.
-    // They're comma-separated, as you can see.
-	return parseFloat(number1) + parseFloat(number2);
-}
+            <h1>Finding Elements in the DOM</h1>
+            <p>After creating elements, you'll want to get access to them.</p>
+            <pre class="brush: js eval">// You can find all tags by their name.
+var divs = document.getElementsByTagName("div");
+show("Number of divs: " + divs.length);</pre>
 
-// Returned values can be stored in variables.
-var val = add(2, 3);
-show("Stored in variable: " + val);
+            <pre class="brush: js eval">// You can find tags by their class name (IE9+)
+var slides = document.getElementsByClassName("slide");
+show("Number of divs with 'slide' class: " + slides.length);</pre>
 
-// Return values can also be used directly by other functions.
-show("Used directly in show(): " + add(2, 3));      
+            <pre class="brush: js eval">// You can find a specific tag with its ID
+var demo = document.getElementById("demo");
+show("The #demo div: " + demo);
+console.log(demo);
 </pre>
         </div>
-        
-        <div class="slide">
-            <h1>Functions &#x2764; Users</h1>
-            <pre class="brush: js eval">function add(number1, number2) {
-    return parseFloat(number1) + parseFloat(number2);
-}
 
-// We can use user-entered data in our functions.
-var num1 = prompt("Enter a number.");
-var num2 = prompt("Enter another number.");
+		<div class="slide">
+			<h1>Changing Elements in the DOM</h1>
+            <p>After you find an element, you'll want to change it.</p>
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
 
-show("The sum is " + add(num1, num2) + ".");</pre>
-        </div>
+// You can modify the style of an element you find.
+demo.style.border = "10px solid black";
+demo.style.color = "white";
 
-        <div class="slide">
-            <h1><strong>First Coder</strong>, you're up!</h1>
-            <p>Write the function that allows this code to work.</p>
-            <script type="syntaxhighlighter" class="brush: js eval">// Write this function...
-function square() {};
+// You can add text to the element.
+var text = document.createTextNode("This is not a pipe.");
+demo.appendChild(text);</pre>
 
-// ...so this code will work (No, you can't edit the code below.)
-var sq1 = square(1),
-    sq2 = square(2),
-    sq9 = square(9);
-    
-if(sq1 === 1 && sq2 === 4 && sq9 === 81) {
-    console.log("Congratulations! Your code works!");
-} else {
-    console.log("Keep trying, your code doesn't quite work.");
-    console.log("sq1 === " + sq1, "sq2 === " + sq2, "sq9 === " + sq9);
-}</script>
-        </div>
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
 
-        <div class="slide">
-            <h1>Scope</h1>
-            <p>All variables and functions are defined within a <em>Scope</em>.</p>
-            <p>Functions create a new, local Scope.</p>
-            <p>Global scope (or root scope) is used outside of functions.</p>
-            <pre class="brush: js eval">var num = 1,
-str = "Dude.";
+// You can modify the contents of an element with HTML.
+demo.innerHTML =
+    "Stay <em>hungry</em>, stay <strong>foolish.</strong>";</pre>
+		</div>
+		
+		<div class="slide">
+			<h1>Removing Elements from the DOM</h1>
+            <p>Often, when an element is no longer necessary, you want to delete it from the DOM.</p>
+            <pre class="brush: js eval">var demo = document.getElementById("demo");
 
-function foo() {
-    var num = 2,
-        str = "Sweet.";
-        
-    show("In the foo() function, num=" + num + " and str=" + str);
-};
-
-foo();
-show("In the global scope, num=" + num + " and str=" + str);</pre>
-        </div>
-        
-        <div class="slide">
-            <h1>Outer Scope</h1>
-            <p>Functions can reference variables defined in scopes outside of their own.</p>
-            <p>Can you spot the syntatic difference that makes this happen?</p>
-            <pre class="brush: js eval">var outer = 1;
-            
-function foo() {
-    outer++;
-}
-
-show(outer);
-foo();
-show(outer);
-foo();
-show(outer);</pre>
-        </div>
-
-        
-        <div class="slide">
-            <h1>Closures</h1>
-            <p>Functions declared within functions can also access outer scope.</p>
-            <pre class="brush: js eval">function foo(name) {
-    var greeting = "Howdy, " + name + "!";
-    
-    return function() {
-        show(greeting);
-    }
-}
-
-var greet = foo("Buzz");
-greet(); // logs "Howdy, Buzz!"</pre>
-        </div>
-        
-        <div class="slide">
-            <h1><strong>Second Coder</strong>, you're up!</h1>
-            <p>Write the function that allows this code to work.</p>
-            <script type="syntaxhighlighter" class="brush: js eval">// Finish writing this function...
-function basket() {
-    return function() {}
-};
-
-// ...so this code will work (No, you can't edit the code below.)
-var fruitBasket = basket(['Apple', 'Banana', 'Orange', 'Lemon', 'Cherry']);
-
-var apple = fruitBasket(1),
-    lemon = fruitBasket(4);
-    
-if(apple === "Fresh Apple!" && lemon === "Fresh Lemon!") {
-    console.log("Congratulations! Your code works!");
-} else {
-    console.log("Keep trying, your code doesn't quite work.");
-    console.log("apple === " + apple, "lemon === " + lemon);
-}</script>
-        </div>
-
-        <div class="slide">
-            <h1>Most Everything is an Object</h1>
-            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
-            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
-            <pre class="brush: js eval">show("There's a snake in my boot.".length);
-show(["A", "B", "C"].join(" -> "));</pre>
-
-            <p>Arbitrary properties and methods can be created:</p>
-            <pre class="brush: js eval">var foo = {};
-foo.awesome = true;
-show("foo.awesome is " + foo.awesome);
-
-var bar = ['All', 'Sorts', 'of', 'Values'];
-bar.howLongIsThisArray = function() {
-    return this.length;
-};
-show("bar array length is: " + bar.howLongIsThisArray());
-        </div>
-        
-        <div class="slide">
-            <h1>Primitives vs. Constructors</h1>
-            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
-    		<pre class="brush: js">// Some Primitives
-var arr = [],
-    obj = {},
-    str = "",
-    bool = true;</pre>
-            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
-    		<pre class="brush: js">// Some Constructors
-var arr = new Array(),
-    obj = new Object(),
-    str = new String("""),
-    bool = new Boolean(true);</pre>
-    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
-        </div>
-
-        <div class="slide">
-            <h1><strong>First Coder</strong>, you're up!</h1>
-            <p>Write the function that allows this code to work.</p>
-            <pre class="brush: js eval">var siblings = [];
-
-// Write this function
-// Use the "this" variable.
-siblings.asProse = function() {};
-
-// So this code works (No, you can't edit the code below.)
-siblings.push("Fred", "Jon", "Steve");
-var prose = siblings.asProse();
-
-if(prose === "Fred is older than Jon is older than Steve.") {
-    console.log("Congratulations! Your code works!");
-} else {
-    console.log("Keep trying, your code doesn't quite work.");
-    console.log("Prose: " + prose);
-}</pre>
-        </div>
-
-        <div class="slide">
-    		<h1><code>this</code></h1>
-            <ul>
-        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
-        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
-        	</ul>
-            <pre class="brush: js">function foo() {
-    console.log(this);
-}
-foo(); // logs reference to window</pre>
-        </div>
-        
-        <div class="slide">
-            <h1><code>this</code> in a Method</h1>
-        	<ul>
-    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
-    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
-    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
-    		</ul>
-    		<pre class="brush: js eval">var user = {
-	name: "Johnny Alabaster",
-	age: 43
-};
-user.getInfo = function() {
-    show(this.name);
-    show(this.age);
-};
-user.getInfo(); // logs reference to user</pre>
-        </div>
-
-        <div class="slide">
-            <h1><code>this</code> as a Constructor</h1>
-        	<ul>
-    			<li>If your mind has yet to be blown, this will do it.</li>
-    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
-    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
-    		</ul>
-    		<pre class="brush: js eval">function User(name, password) {
-	this.name = name;
-	this.password = password;
-
-	this.getInfo = function() {
-		show(this.name);
-        show(this.password);
-	};
-}
-var user1 = new User("peterwooley", "Freedom");
-var user2 = new User("thor", "HammerTime");
-
-// logs both users names and passwords
-user1.getInfo();
-user2.getInfo();</pre>
-        </div>
-        
-        <div class="slide">
-            <h1>Sorry <strong>Second Coder</strong>, you're up!</h1>
-            <p>Write the function that allows this code to work.</p>
-            <script type="syntaxhighlighter" class="brush: js eval">
-// Write this function
-function Band() {};
-
-// To make this code work.
-var radiohead = new Band("Radiohead", "alternative"),
-    modestMouse = new Band("Modest Mouse", "indie");
-    
-if(
-    radiohead.info() === "Radiohead plays alternative."
-    && modestMouse.info() === "Modest Mouse plays indie."
-) {
-    console.log("Congratulations! Your code works!");
-} else {
-    console.log("Keep trying, your code doesn't quite work.");
-    console.log(
-        "radiohead.info() = " + radiohead.info(),
-        "modestMouse.info() = " + modestMouse.info()
-    );
-}</script>
+// Deleting a node is a little complex.
+demo.parentNode.removeChild(demo);</pre>
         </div>
         
         <div class="slide title">
-            <h1>One more thing...</h1>
+            <h1>Congratulations!</h1>
+            <h2>You can <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete" title="Create, Read, Update &amp; Delete">CRUD</a> the DOM!</h2>
         </div>
         
         <div class="slide">
-            <h1>Pseudoclassical Inheritance</h1>
-        	<ul>
-    			<li>Objects can inherit properties and methods from other objects using the <code>prototype</code> property.</li>
-    			<li>For a complete implementation, see <a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig's Simple JavaScript Inheritence</a>.</li>
-    		</ul>
-    		<pre class="brush: js eval">function Animal(name) {
-    this.type = "animal";
-    this.getName = function() { return this.name };
-}
-function VioletProtoDrake(name) {
-    this.name = name;
-}
-VioletProtoDrake.prototype = new Animal();
+            <h1>Calling Functions on a Timer</h1>
+            <p>Using <code>setTimeout</code> and <code>setInterval</code>, you can call functions on a timer.</li>
+            <pre class="brush: js eval">// Call this function after 1000ms (1 second).
+function timeout() { show("Timeout!") };
+window.timeoutId = setTimeout(timeout, 1000);
 
-var zoe = new VioletProtoDrake("Zoe");
-show(zoe.getName());</pre>
+// Call this function every 3000ms (3 seconds).
+function interval() { show("Interval!") };
+window.intervalId = setInterval(interval, 3000);</pre>
+
+            <pre class="brush: js eval">// Stop the timeout from occurring.
+clearTimeout(window.timeoutId);
+
+// Stop the interval from occurring.
+clearInterval(window.intervalId);</pre>
         </div>
+        
+        <div class="slide">
+            <h1><code>position:absolute;</code></h1>
+            <p>In order to control the location of an element, you can use <code>position: absolute;</code>.</p>
+            <pre class="brush: js eval">var box = document.createElement("div");
+box.id = "absolute";
+box.style.width = box.style.height = "100px";
+box.style.background = "red";
 
+// Here, we set the position and move the box.
+box.style.position = "absolute";
+box.style.left = "400px";
+
+document.body.appendChild(box);</pre>
+
+            <pre class="brush: js eval">var box = document.getElementById("absolute");
+
+// After half a second, we can change the left style
+setTimeout(function() { box.style.left = "600px"; }, 500);
+
+// After 4 seconds we can delete the element.
+setTimeout(function() { box.parentNode.removeChild(box); }, 4000);
+        </div>
+        
+        
+        <div class="slide">
+            <h1>Driver #1, You're Up!</h1>
+            <p>You'll be coding up some animation.</p>
+            <ul>
+                <li>Get the #box div from the DOM and save it to a variable.</li>
+                <li>Set the appropriate styles so the element can move around the page.</li>
+                <li>Animate the element to the right for 500px then back 500px.</li>
+            </ul>
+            <pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Animation!&lt;/title&gt;
+        &lt;script&gt;
+            function animate() {
+                // Only add code in this function.
+            }
+            
+            setInterval(animate, 20);
+        &lt;/script&gt;
+        <style>
+            #box { width:200px; height:200px; background:#000; }
+        </style>
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="box"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+        
+        <div class="slide title">
+            <h1>B-B-B-Break</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Togetherness Exercise</h1>
+            <p>Let's work together to complete the tasks below using <a href="inclass/dom.html">the given template</a>.</p>
+			<ul>
+				<li>Prompt the user for their name and email address.</li>
+				<li>Modify the <code>&lt;p id=&quot;myName&quot; /&gt;</code> element and add the user's input name to the end of the sentence.</li>
+				<li>Modify the <code>innerHTML</code> of the <code>&lt;p id=&quot;myEmail&quot; /&gt;</code> element to be an <code>&lt;a/&gt;</code> tag that will mailto the user.</li>
+				<li>Fill in each of the <code>&lt;span/&gt;</code> elements under the My Browser Information with the appropriate information.</li>
+				<li>Finally, concatenate the document's last modified date onto the end of the <code>&lt;p id=&quot;modified&quot; /&gt;</code> element.</li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Traversing the DOM</h1>
+            <p>The DOM is a <a href="http://en.wikipedia.org/wiki/Tree_%28data_structure%29">tree data structure</a>.</p>
+            <p>From any element in the DOM, you can use properties to get to any other element.</p>
+            <p>An element can have any of the following properties:</p>
+            <ul>
+    			<li><code>.parentNode</code></li>
+				<li><code>.childNodes</code> &mdash; Returns an array of elements.</li>
+				<li><code>.lastChild</code></li>
+				<li><code>.firstChild</code></li>
+				<li><code>.previousSibling</code></li>
+				<li><code>.nextSibling</code></li>
+			</ul>
+        </div>
+        
+        <div class="slide">
+            <h1 id="traverseHeading">#traverseHeading</h1>
+            <p id="traverseParagraph">#traverseParagraph <span id="traverseSpan">#traverseSpan</span> <strong id="traverseStrong">#traverseStrong</strong> <em id="traverseEm">#traverseEm</em></p>
+            <ul id="traverseList">
+                <li>#traverseList li</li>
+                <li>#traverseList li</li>
+            </ul>
+            <pre class="brush: js eval">// Start from #traverseStrong and add a red border to the li.
+var strong = document.getElementById("traverseStrong"),
+    paragraph = strong.parentNode,
+    textNode = paragraph.nextSibling,
+    list = textNode.nextSibling,
+    lis = list.childNodes,
+    lastLi = lis[lis.length-2];
+
+paragraph.style.border = "2px solid blue";
+list.style.border = "2px solid purple";
+
+for(var key in lis)
+    if(lis[key].style)
+        lis[key].style.border = "2px solid green";
+
+lastLi.style.border = "2px solid red";</pre>
+            <p>Using <a href="inclass/traversal.html">the traversal template</a>, let's play with traversing around the DOM.</p>
+        </div>
+        
+        <div class="slide">
+            <h1 id="eventsHeader">Events</h1>
+            <p><q>Events are the beating heart of any JavaScript application.</q> <a href="http://www.quirksmode.org/js/introevents.html">Quirksmode.org</a></p>
+            <p>When something happens in the browser, an event is fired.</p>
+            <p>With <strong>event handlers</strong> we can execute JavaScript when an event fires.</p>
+            <pre class="brush: js eval">var header = document.getElementById("eventsHeader");
+
+// Helper function to use in the event handler
+var rand = function() { return parseInt(Math.random() * 255) }
+
+// Every time the mouse moves over the header,
+// set a random background color.
+header.onmousemove = function(event) {
+    var color = "rgb("+rand()+","+ rand()+","+rand()+")";
+    
+    // The this refers to the element that fired the event.
+    this.style.background = color;
+}</pre>     
+        </div>
+        
+        <div class="slide">
+            <h1>Inline Event Handlers</h1>
+            <p>It is possible to place event handlers directly in your HTML:</p>
+            <pre class="brush: xml">&lt;a id=&quot;aTag&quot; href=&quot;#&quot; onclick=&quot;show('Clicky!')&quot;&gt;Click me!&lt;/a&gt;</pre>
+            <p>Unless you absolutely have to, <strong>do not use inline event handlers</strong>.</p>
+            <p>Remember the Web Trifecta and try to keep them separated.</p>
+        </div>
+        
+        <div class="slide">
+            <h1>Using Event Handlers</h1>
+            <p>When <a id="eventHandlerLink" href="http://en.wikipedia.org/wiki/Event_%28computing%29#Event_handler">an event handler</a> handles an event, it gets information about the event and can often stop the event from taking place.</p>
+            <pre class="brush: js eval">var link = document.getElementById("eventHandlerLink");
+
+link.onclick = function(event) {
+    event = event || window.event; // Fix for IE.
+    
+    show("Click was prevented.");
+    
+    console.log(event); // Log the event object.
+    
+    event.preventDefault(); // Stop the event.
+    return false; // Stop the event, old school.
+}
+
+show("Click event handler activated.");
+        </div>
+        
+        <div class="slide">    
+    		<h1>Playing With Events</h1>
+    		<p>Let's try some events using the <a href="inclass/events.html">events template</a>.</p>
+        </div>
+        
+        <div class="slide">	
+    		<h1>Driver #2, You're Up!</h1>
+            <p>When the user clicks any div, change the background color, height and width to a random color, height and width.</p>
+    		<pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Animation!&lt;/title&gt;
+        &lt;script&gt;
+            window.onload = function() {
+                // Add your event handlers here.
+            };
+        &lt;/script&gt;
+        <style>
+            .box { width:200px; height:200px; background:#000; }
+        </style>
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            
+        </div>
+        
 		<div class="slide title">
-			<h1>It's Over!</h1>
-			<h2>The <a href="homework.html">Homework</a>.</h2>
+			<h1>Finished!</h1>
+			<h2>The <a href="homework.html">Homework for next week</a>.</h2>
 		</div>
 
         <div class="layout" data-name="title">
