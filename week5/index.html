@@ -1,101 +1,125 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 5</title>
-        <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
-        <script type="text/javascript" src="slippy/src/slippy.js"></script>
-        <!-- Slippy structural styles -->
-        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
-        <!-- Syntax highlighting core file  -->
-        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
-        <!-- Syntax highlighting brushes, remove those you don't need -->
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
-        <!-- Syntax highlighting styles-->
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>WDIM262 Web Scripting: JavaScript &mdash; Week 5</title>
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+    <script type="text/javascript" src="slippy/src/slippy.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+    <!-- Syntax highlighting core file  -->
+    <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+    <!-- Syntax highlighting brushes, remove those you don't need -->
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushDiff.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushPhp.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushPlain.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+    <!-- Syntax highlighting styles-->
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
 
 
-		<!-- Common Styles -->
-		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
-		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
-    </head>
-    <body>
-        <div class="slide title" data-layout="title">
-            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
-			<h2>Midterm</h2>
-        </div>
+    <!-- Common Styles -->
+    <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+    <link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+  </head>
+  <body>
+    <div class="slide title" data-layout="title">
+      <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
+      <h2>Midterm</h2>
+    </div>
     
-		<div class="slide">
-			<h1>Midterm Rules</h1>
-			<ol>
-				<li>You must complete the midterm by 9:45pm.</li>
-				<li>After 7:30pm, you can talk.</li>
-				<li>You can use any resource besides other people in class.</li>
-				<li>You may use any techniques you know of in JavaScript to complete the tasks.</li>
-			</ol>
-		</div>
+    <div class="slide">
+      <h1>Midterm Rules</h1>
+      <ol>
+        <li>You must complete the midterm by 9:45pm.</li>
+        <li>After 7:30pm, you can talk.</li>
+        <li>You can use any resource besides other people in class.</li>
+        <li>You may use any techniques you know of in JavaScript to complete the tasks.</li>
+      </ol>
+    </div>
 
-		<div class="slide">	
-			<h1>Midterm Theoretical</h1>
-			<p>In eCompanion, take the theoretical portion by hitting the Midterm Theorectical item in the course sidebar.</p>
-		</div>
+    <div class="slide"> 
+      <h1>Midterm Theoretical</h1>
+      <p>In eCompanion, take the theoretical portion by hitting the Midterm Theorectical item in the course sidebar.</p>
+    </div>
 
-		<div class="slide">
-			<h1>Midterm Practical</h1>
-			<p>To complete the Practical portion of the WDIM262 Midterm, please write a script that accomplishes the following:</p>
-			<ol>
-				<li>Ask the user which Web browser is their favorite (of three options you define), accepting both the full title or numeric position in the list you define,
-					<ul>
-						<li>i.e., if you present the user with "Choose: IE, Firefox, or Safari", the user can either enter "Firefox" or "2" to choose Firefox.</li>
-					</ul>
-				</li>
-				<li>Continue to ask the user which browser is their favorite, until a valid answer has been given.</li>
-				<li>Dynamically create an &lt;h1&gt; tag with the title of the browser they chose,</li>
-				<li>Dynamically create an &lt;img&gt; tag in the document that features the user's chosen Web browser logo.</li>
-				<li>Lastly, no content may appear on the page if JavaScript is disabled in the user's browser, except for a message telling the user they should enable JavaScript to view the content.</li>
-			</ol>
-		</div>
-		
-		<div class="slide">
-			<h1>When Finished</h1>
-			<ul>
-				<li>Please zip up the file with this naming convention <var>lastnameFirstname_midterm.zip</var></li>
+    <div class="slide">
+      <h1>Midterm Practical</h1>
+      <p>To complete the Practical portion of the WDIM262 Midterm, please write a script that accomplishes the following:</p>
+      <ol>
+        <li>When the user clicks the <code>calculte</code> button, ask their name and age.</li>
+        <li>Keep asking until they enter a value for both their name and an age.</li>
+        <li>Lastly, show them their name, age and how many more years they'll live (this shoudl be random). Put this info in the <code>results</code> element.</li>
+        <li>Note: See the following slide for the code you can start with.</li>
+      </ol>
+    </div>
+
+    <div class="slide">
+      <h1>Midterm Practical Template</h1>
+      <pre class="brush: html">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;WDIM262 Midterm</title>
+    &lt;link href="http://is.gd/bKvSGV" rel="stylesheet" /&gt;
+    &lt;style&gt;
+      .container { width: 320px; margin-top:20px; }
+      .lead { margin-top: 20px; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;button id="calculate" class="btn btn-inverse btn-block"&gt;
+        &lt;i class="icon-white icon-question-sign"&gt;</i>
+        Find out how many more years you'll live!
+      &lt;/button&gt;
+      &lt;p id="results" class="lead"&gt;</p>
+    &lt;/div&gt;
+    &lt;script&gt;$
+      /////////////////// Your script goes here ///////////////////
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    </div>
+    
+    <div class="slide">
+      <h1>When Finished</h1>
+      <ul>
+        <li>Please zip up the file with this naming convention <var>lastnameFirstname_midterm.zip</var></li>
                 <li>Upload the file to the Dropbox for Midterm Practical.</li>
-			</ul>
-		</div>
+      </ul>
+    </div>
 
 
-		<div class="slide title">
-			<h1>Midterm Complete!</h1>
-			<h2>The <a href="homework.html">Homework for next week</a>.</h2>
-		</div>
+    <div class="slide title">
+      <h1>Midterm Complete!</h1>
+      <h2>The <a href="homework.html">Homework for next week</a>.</h2>
+    </div>
 
-        <div class="layout" data-name="title">
-            <content></content>
-            <div class="footer">
-                <span class="left">Peter Wooley</span>
-                <span class="right">WDIM262A</span>
-                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
-                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
-                <hr class="defloat" />
-            </div>
+    <div class="layout" data-name="title">
+        <content></content>
+        <div class="footer">
+            <span class="left">Peter Wooley</span>
+            <span class="right">WDIM262A</span>
+            <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+            <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+            <hr class="defloat" />
         </div>
+    </div>
 
-        <div class="layout nofooter" data-name="default">
-            <content></content>
-        </div>
+    <div class="layout nofooter" data-name="default">
+        <content></content>
+    </div>
     
-		<!-- Common Scripts -->
-		<script src="scripts/jquery.noisy.min.js"></script>
-		<script src="scripts/index.js"></script>
-	</body>
+    <!-- Common Scripts -->
+    <script src="scripts/jquery.noisy.min.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>

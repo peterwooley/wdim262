@@ -1,58 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-		<meta charset="utf-8">
+	<head>
+    	<meta charset="utf-8">
 		<title>WDIM262 Web Scripting: JavaScript, Assignment 4</title>
-
-<script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
-        <!-- Syntax highlighting brushes, remove those you don't need -->
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
-        <!-- Syntax highlighting styles-->
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
-
-
         <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
 		<link type="text/css" rel="stylesheet" href="styles/common.css" />
-
 	</head>
 	<body>
 		<div id="header">
 			<h1>WDIM262 Web Scripting: JavaScript</h1>
-			<p class="tagline">Homework: <em>Assignment 4</em>, due <strong>Week 6</strong>.</p>
+			<p class="tagline">Homework: <em>Assignment 4</em></p>
 		</div>
+		
 		<p>Please turn in your files in a .zip file, using the following naming convention: <var>lastnameFirstname_assignment4.zip</var></p>
 		
+		<h4>Assignment 4; due Week 6.</h4>
+		
 		<h2>Requirements</h2>
-		<p>Create a Web page-based Mad Lib. The Mad Lib can be whatever you'd like it to, within the realm of appropriateness. Make sure it fulfills these requirements:</p>
+		
+		<p>Create a Web page that uses event handlers and the DOM to interact with the user in a few specific ways. Make sure it fulfills these requirements:</p>
 		
 		<ul>
-			<li>The user is prompted to enter in adjectives, verbs or other types of words to fill out the Mad Lib.</li>
-			<li>When the user finishes entering in the words, the finished Mad Lib, including the user's words, should be displayed in the Web page.</li>
-			<li>You must use the template provided below and only add code where it is marked.</li>
+			<li>When the page loads, the user is greeted in some way.</li>
+			<li>When a user clicks on a link on the page the link text changes and the page does not go to the link's href location.</li>
+			<li>When a user's mouse enters a &lt;div /&gt; defined on the page, the div moves to random spot on the page.</li>
+			<li>Lastly, when the user resizes the window, the new width and height of the window (in pixels) are shown to the user in some way.</li>
 		</ul>
-        <pre class="brush: js">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;WDIM262 Assignment 4: Mad Lib&lt;/title&gt;
-        &lt;script&gt;
-            function MadLib() {
-                // Create everything you need inside this MadLib Object Constructor.
-            };
-		
-            window.onload = function() {
-                var madlib = new MadLib();
-                madlib.getWords();
-                madlib.render();
-            }
-        &lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</pre>
-			</li>
-		</ul>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-    <script src="scripts/index.js"></script>
 	</body>
 </html>
