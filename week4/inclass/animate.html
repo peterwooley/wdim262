@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Animation!</title>
+        <script>
+            function animate() {
+                // Only add code in this function.
+                var box = document.getElementById('box');
+                
+                //...
+
+                var left = parseInt(box.style.left) || 0;
+                console.log(left);
+
+            }
+             
+            setInterval(animate, 20);
+        </script>
+        <style>
+            #box { width:200px; height:200px; background:#000; }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+    </body>
+</html>

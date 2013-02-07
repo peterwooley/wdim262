@@ -9,31 +9,51 @@
                 var as = document.getElementsByTagName("a");
                 function clickHandler(event) {
                     // Add highlight class
+                    if(this.style.backgroundColor === "yellow") {
+                      this.style.background = "";
+                    } else {
+                      this.style.background = "yellow";
+                    }
+                    return false;
                 }
                 
                 // Loop over and add click handlers to <a>s.
+                for(var key in as) {
+                  var a = as[key];
+                  a.onclick = clickHandler;
+                }
                 
                 // Over & Out
                 var header = document.getElementById("header");
                 header.onmouseover = function() {
+                  this.style.backgroundColor = "red";
                 }
                 
                 header.onmouseout = function() {
+                  this.style.backgroundColor = "blue";
                 }
                 
                 // Up & Down
-                header.onmousedown = function() {
+                header.onmousedown = header.onmouseover = function() {
+                  this.style.height = "500px";
                 }
                 
-                header.onmouseup = function() {
+                header.onmouseup = header.onmouseout = function() {
+                  this.style.height = "";
                 }
                 
                 // Keys
-                document.onkeydown = function(event) {
-                }
+                /*document.onkeydown = function(event) {
+                  event = event || window.event;
+
+                  alert(event.keyCode);
+                  alert(event.shiftKey);
+                }*/
 
                 // Resize
-                window.onresize = function() {
+                window.onresize = function(event) {
+                  event = event || window.event;
+                  console.log(window.innerWidth, window.innerHeight);
                 }
             }
 		</script>
